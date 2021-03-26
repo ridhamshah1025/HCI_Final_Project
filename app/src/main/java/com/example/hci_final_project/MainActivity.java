@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onGroupExpand(int groupPosition) {
+                String selected = expandableListAdapter.getGroup(groupPosition).toString();
+                Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
                 if(lastExpandedPosition!=-1 && groupPosition != lastExpandedPosition){
                     expandableListView.collapseGroup(lastExpandedPosition);
                 }
@@ -45,18 +47,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 String selected = expandableListAdapter.getChild(groupPosition,childPosition).toString();
-                Toast.makeText(MainActivity.this,selected,Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
-//        expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-//            @Override
-//            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-//                String selected = expandableListAdapter.getGroup(groupPosition).toString();
-//                Toast.makeText(MainActivity.this,selected,Toast.LENGTH_LONG).show();
-//                return true;
-//            }
-//        });
     }
 
     private void CreateNamesList() {
@@ -76,6 +70,17 @@ public class MainActivity extends AppCompatActivity {
         String[] contacts_n = {"contact 1","contact2"};
         String[] contacts_o = {"contact 1","contact2"};
         String[] contacts_p = {"contact 1","contact2"};
+        String[] contacts_q = {"contact 1","contact2"};
+        String[] contacts_r = {"contact 1","contact2"};
+        String[] contacts_s = {"contact 1","contact2"};
+        String[] contacts_t = {"contact 1","contact2"};
+        String[] contacts_u = {"contact 1","contact2"};
+        String[] contacts_v = {"contact 1","contact2"};
+        String[] contacts_w = {"contact 1","contact2"};
+        String[] contacts_x = {"contact 1","contact2"};
+        String[] contacts_y = {"contact 1","contact2"};
+        String[] contacts_z = {"contact 1","contact2"};
+
 
 
 
@@ -129,6 +134,36 @@ public class MainActivity extends AppCompatActivity {
             else if(characters.equals("P")){
                 LoadNames(contacts_p);
             }
+            else if(characters.equals("Q")){
+                LoadNames(contacts_q);
+            }
+            else if(characters.equals("R")){
+                LoadNames(contacts_r);
+            }
+            else if(characters.equals("S")){
+                LoadNames(contacts_s);
+            }
+            else if(characters.equals("T")){
+                LoadNames(contacts_t);
+            }
+            else if(characters.equals("U")){
+                LoadNames(contacts_u);
+            }
+            else if(characters.equals("V")){
+                LoadNames(contacts_v);
+            }
+            else if(characters.equals("W")){
+                LoadNames(contacts_w);
+            }
+            else if(characters.equals("X")){
+                LoadNames(contacts_x);
+            }
+            else if(characters.equals("Y")){
+                LoadNames(contacts_y);
+            }
+            else if(characters.equals("Z")){
+                LoadNames(contacts_z);
+            }
             Contacts.put(characters,Names);
 
         }
@@ -160,6 +195,16 @@ public class MainActivity extends AppCompatActivity {
         Characters.add("N");
         Characters.add("O");
         Characters.add("P");
+        Characters.add("Q");
+        Characters.add("R");
+        Characters.add("S");
+        Characters.add("T");
+        Characters.add("U");
+        Characters.add("V");
+        Characters.add("W");
+        Characters.add("X");
+        Characters.add("Y");
+        Characters.add("Z");
     }
 
 }
