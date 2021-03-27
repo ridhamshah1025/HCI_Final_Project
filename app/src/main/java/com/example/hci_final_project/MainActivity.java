@@ -2,10 +2,14 @@ package com.example.hci_final_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -19,39 +23,75 @@ public class MainActivity extends AppCompatActivity {
     Map<String, List<String>> Contacts;
     ExpandableListView expandableListView;
     ExpandableListAdapter expandableListAdapter;
+    Integer checkLongPress = 0;
+    LinearLayout layout;
 
+
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         CreateCharacterList();
         CreateNamesList();
+
         expandableListView = findViewById(R.id.e_list);
+
+//        expandableListView.setOnTouchListener(new View.OnTouchListener() {
+//            GestureDetector gestureDetector = new GestureDetector(getApplicationContext(),new GestureDetector.SimpleOnGestureListener(){
+//                @Override
+//                public void onLongPress(MotionEvent e) {
+//                    System.out.println("Change value"+checkLongPress);
+//                    Toast.makeText(getApplicationContext(),"Long Press",Toast.LENGTH_SHORT).show();
+//                    super.onLongPress(e);
+//                }
+//
+//                @Override
+//                public boolean onDoubleTap(MotionEvent e) {
+//                    Toast.makeText(getApplicationContext(),"Double Tap",Toast.LENGTH_SHORT).show();
+//                    return super.onDoubleTap(e);
+//                }
+//            });
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                gestureDetector.onTouchEvent(event);
+//                return false;
+//            }
+//        });
         expandableListAdapter = new MyExpandableListAdapter(this,Characters,Contacts);
         expandableListView.setAdapter(expandableListAdapter);
-        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-            int lastExpandedPosition = -1;
 
-            @Override
-            public void onGroupExpand(int groupPosition) {
-                String selected = expandableListAdapter.getGroup(groupPosition).toString();
-                Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
-                if(lastExpandedPosition!=-1 && groupPosition != lastExpandedPosition){
-                    expandableListView.collapseGroup(lastExpandedPosition);
+        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+                int lastExpandedPosition = -1;
+                @Override
+                public void onGroupExpand(int groupPosition) {
+                    String selected = expandableListAdapter.getGroup(groupPosition).toString();
+                    Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
+                    if(lastExpandedPosition!=-1 && groupPosition != lastExpandedPosition){
+                        expandableListView.collapseGroup(lastExpandedPosition);
+                    }
+                    lastExpandedPosition = groupPosition;
                 }
-                lastExpandedPosition = groupPosition;
-            }
-        });
+            });
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                String selected = expandableListAdapter.getChild(groupPosition,childPosition).toString();
-                Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
-                return true;
-            }
-        });
+                @Override
+
+                public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                    String selected = expandableListAdapter.getChild(groupPosition,childPosition).toString();
+                    Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+            });
+
+
+
+
+
     }
+
+
 
     private void CreateNamesList() {
         String[] contacts_a = {"contact 1","contact2"};
