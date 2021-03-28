@@ -3,19 +3,28 @@ package com.example.hci_final_project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.gesture.Gesture;
+import android.gesture.GestureLibrary;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
+import android.gesture.GestureLibrary;
+import android.gesture.GestureLibraries;
+import android.gesture.GestureOverlayView;
+import android.gesture.GestureOverlayView.OnGesturePerformedListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 public class MainActivity extends AppCompatActivity {
     List<String> Characters;
@@ -23,13 +32,16 @@ public class MainActivity extends AppCompatActivity {
     Map<String, List<String>> Contacts;
     ExpandableListView expandableListView;
     ExpandableListAdapter expandableListAdapter;
-    Integer checkLongPress = 0;
-    LinearLayout layout;
+
+
+    RelativeLayout layout;
+    public boolean check_con=true;
 
 
     @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -39,36 +51,65 @@ public class MainActivity extends AppCompatActivity {
 
         expandableListView = findViewById(R.id.e_list);
 
-//        expandableListView.setOnTouchListener(new View.OnTouchListener() {
-//            GestureDetector gestureDetector = new GestureDetector(getApplicationContext(),new GestureDetector.SimpleOnGestureListener(){
-//                @Override
-//                public void onLongPress(MotionEvent e) {
-//                    System.out.println("Change value"+checkLongPress);
-//                    Toast.makeText(getApplicationContext(),"Long Press",Toast.LENGTH_SHORT).show();
-//                    super.onLongPress(e);
-//                }
-//
-//                @Override
-//                public boolean onDoubleTap(MotionEvent e) {
-//                    Toast.makeText(getApplicationContext(),"Double Tap",Toast.LENGTH_SHORT).show();
-//                    return super.onDoubleTap(e);
-//                }
-//            });
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                gestureDetector.onTouchEvent(event);
-//                return false;
-//            }
-//        });
+
+        layout = findViewById(R.id.layout1);
+
+
+
         expandableListAdapter = new MyExpandableListAdapter(this,Characters,Contacts);
         expandableListView.setAdapter(expandableListAdapter);
+
+        System.out.println("1"+check_con);
+
+        expandableListView.setOnTouchListener(new View.OnTouchListener() {
+            GestureDetector gestureDetector = new GestureDetector(getApplicationContext(),new GestureDetector.SimpleOnGestureListener(){
+                @Override
+                public void onLongPress(MotionEvent e) {
+                    check_con = false;
+                    Toast.makeText(getApplicationContext(),"Long Press",Toast.LENGTH_SHORT).show();
+                    super.onLongPress(e);
+
+                }
+
+                @Override
+                public boolean onDoubleTap(MotionEvent e) {
+                    check_con = false;
+                    Toast.makeText(getApplicationContext(),"Double Tap",Toast.LENGTH_SHORT).show();
+                    return super.onDoubleTap(e);
+                }
+            });
+            @SuppressLint("ClickableViewAccessibility")
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                gestureDetector.onTouchEvent(event);
+                System.out.println("2"+check_con);
+                if(!check_con)
+                {
+                    System.out.println("3"+check_con);
+                    check_con=true;
+                    System.out.println("4"+check_con);
+                    return true;
+                }
+                System.out.println("5"+check_con);
+                return false;
+
+            }
+        });
+
+
 
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
                 int lastExpandedPosition = -1;
                 @Override
+
                 public void onGroupExpand(int groupPosition) {
                     String selected = expandableListAdapter.getGroup(groupPosition).toString();
-                    Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
+                    System.out.println("6"+check_con);
+                    if(check_con){
+                        System.out.println("7"+check_con);
+                        Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
+                    }
+
                     if(lastExpandedPosition!=-1 && groupPosition != lastExpandedPosition){
                         expandableListView.collapseGroup(lastExpandedPosition);
                     }
@@ -77,13 +118,30 @@ public class MainActivity extends AppCompatActivity {
             });
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
                 @Override
-
                 public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                     String selected = expandableListAdapter.getChild(groupPosition,childPosition).toString();
-                    Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
-                    return true;
+
+                    System.out.println("8"+check_con);
+                    if(check_con){
+                        Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
+                        System.out.println("9"+check_con);
+                        return true;
+                    }
+                    System.out.println("10"+check_con);
+                    return false;
                 }
             });
+
+//        expandableListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+//            @Override
+//
+//            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//                Toast.makeText(MainActivity.this,"long item",Toast.LENGTH_SHORT).show();
+//
+//                return true;
+//            }
+//        });
 
 
 
@@ -246,5 +304,7 @@ public class MainActivity extends AppCompatActivity {
         Characters.add("Y");
         Characters.add("Z");
     }
+
+
 
 }
