@@ -10,6 +10,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     Map<String, List<String>> Contacts;
     ExpandableListView expandableListView;
     ExpandableListAdapter expandableListAdapter;
+    Button button12;
 
 
 //    RelativeLayout layout;
@@ -50,11 +52,27 @@ public class MainActivity extends AppCompatActivity {
         CreateNamesList();
 
         expandableListView = findViewById(R.id.e_list);
+        button12 = findViewById(R.id.button12);
+        button12.setOnTouchListener(new View.OnTouchListener() {
+            GestureDetector gestureDetector = new GestureDetector(getApplicationContext(),new GestureDetector.SimpleOnGestureListener(){
+                @Override
+                public boolean onDoubleTap(MotionEvent e) {
+                    Toast.makeText(MainActivity.this,"double click",Toast.LENGTH_SHORT).show();
+                    return super.onDoubleTap(e);
+                }
 
-
-//        layout = findViewById(R.id.layout1);
-
-
+                @Override
+                public boolean onSingleTapConfirmed(MotionEvent e) {
+                    Toast.makeText(MainActivity.this,"Single tap confirmed click",Toast.LENGTH_SHORT).show();
+                    return super.onSingleTapConfirmed(e);
+                }
+            });
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                gestureDetector.onTouchEvent(event);
+                return true;
+            }
+        });
 
         expandableListAdapter = new MyExpandableListAdapter(this,Characters,Contacts);
         expandableListView.setAdapter(expandableListAdapter);
@@ -97,22 +115,17 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-
-
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
                 int lastExpandedPosition = -1;
                 @Override
-
                 public void onGroupExpand(int groupPosition) {
                     String selected = expandableListAdapter.getGroup(groupPosition).toString();
-
                     Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
 //                    System.out.println("6"+check_con);
 //                    if(check_con){
 //                        System.out.println("7"+check_con);
 //
 //                    }
-
                     if(lastExpandedPosition!=-1 && groupPosition != lastExpandedPosition){
                         expandableListView.collapseGroup(lastExpandedPosition);
                     }
@@ -123,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                     String selected = expandableListAdapter.getChild(groupPosition,childPosition).toString();
-
                     Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
                     return true;
 //                    System.out.println("8"+check_con);
@@ -136,7 +148,6 @@ public class MainActivity extends AppCompatActivity {
 //                    return false;
                 }
             });
-
 //        expandableListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 //            @Override
 //
@@ -147,11 +158,6 @@ public class MainActivity extends AppCompatActivity {
 //                return true;
 //            }
 //        });
-
-
-
-
-
     }
 
 
