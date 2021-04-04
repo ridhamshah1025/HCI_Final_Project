@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
     ExpandableListAdapter expandableListAdapter;
 
 
-    RelativeLayout layout;
-    public boolean check_con=true;
+//    RelativeLayout layout;
+//    public boolean check_con=true;
 
 
     @SuppressLint("ResourceType")
@@ -52,49 +52,50 @@ public class MainActivity extends AppCompatActivity {
         expandableListView = findViewById(R.id.e_list);
 
 
-        layout = findViewById(R.id.layout1);
+//        layout = findViewById(R.id.layout1);
 
 
 
         expandableListAdapter = new MyExpandableListAdapter(this,Characters,Contacts);
         expandableListView.setAdapter(expandableListAdapter);
 
-        System.out.println("1"+check_con);
+//        System.out.println("1"+check_con);
 
-        expandableListView.setOnTouchListener(new View.OnTouchListener() {
-            GestureDetector gestureDetector = new GestureDetector(getApplicationContext(),new GestureDetector.SimpleOnGestureListener(){
-                @Override
-                public void onLongPress(MotionEvent e) {
-                    check_con = false;
-                    Toast.makeText(getApplicationContext(),"Long Press",Toast.LENGTH_SHORT).show();
-                    super.onLongPress(e);
-
-                }
-
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    check_con = false;
-                    Toast.makeText(getApplicationContext(),"Double Tap",Toast.LENGTH_SHORT).show();
-                    return super.onDoubleTap(e);
-                }
-            });
-            @SuppressLint("ClickableViewAccessibility")
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                System.out.println("2"+check_con);
-                if(!check_con)
-                {
-                    System.out.println("3"+check_con);
-                    check_con=true;
-                    System.out.println("4"+check_con);
-                    return true;
-                }
-                System.out.println("5"+check_con);
-                return false;
-
-            }
-        });
+//        expandableListView.setOnTouchListener(new View.OnTouchListener() {
+//            GestureDetector gestureDetector = new GestureDetector(getApplicationContext(),new GestureDetector.SimpleOnGestureListener(){
+//                @Override
+//                public void onLongPress(MotionEvent e) {
+//                    check_con = false;
+//                    Toast.makeText(getApplicationContext(),"Long Press",Toast.LENGTH_SHORT).show();
+//                    super.onLongPress(e);
+//
+//                }
+//
+//                @Override
+//                public boolean onDoubleTap(MotionEvent e) {
+//                    check_con = false;
+//                    Toast.makeText(getApplicationContext(),"Double Tap",Toast.LENGTH_SHORT).show();
+//                    return super.onDoubleTap(e);
+//                }
+//            });
+//
+//            @SuppressLint("ClickableViewAccessibility")
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                gestureDetector.onTouchEvent(event);
+//                System.out.println("2"+check_con);
+//                if(!check_con)
+//                {
+//                    System.out.println("3"+check_con);
+//                    check_con=true;
+//                    System.out.println("4"+check_con);
+//                    return true;
+//                }
+//                System.out.println("5"+check_con);
+//                return false;
+//
+//            }
+//        });
 
 
 
@@ -104,11 +105,13 @@ public class MainActivity extends AppCompatActivity {
 
                 public void onGroupExpand(int groupPosition) {
                     String selected = expandableListAdapter.getGroup(groupPosition).toString();
-                    System.out.println("6"+check_con);
-                    if(check_con){
-                        System.out.println("7"+check_con);
-                        Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
-                    }
+
+                    Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
+//                    System.out.println("6"+check_con);
+//                    if(check_con){
+//                        System.out.println("7"+check_con);
+//
+//                    }
 
                     if(lastExpandedPosition!=-1 && groupPosition != lastExpandedPosition){
                         expandableListView.collapseGroup(lastExpandedPosition);
@@ -121,14 +124,16 @@ public class MainActivity extends AppCompatActivity {
                 public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                     String selected = expandableListAdapter.getChild(groupPosition,childPosition).toString();
 
-                    System.out.println("8"+check_con);
-                    if(check_con){
-                        Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
-                        System.out.println("9"+check_con);
-                        return true;
-                    }
-                    System.out.println("10"+check_con);
-                    return false;
+                    Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
+                    return true;
+//                    System.out.println("8"+check_con);
+//                    if(check_con){
+//                        Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
+//                        System.out.println("9"+check_con);
+//                        return true;
+//                    }
+//                    System.out.println("10"+check_con);
+//                    return false;
                 }
             });
 
