@@ -7,8 +7,10 @@ import android.gesture.Gesture;
 import android.gesture.GestureLibrary;
 import android.os.Bundle;
 import android.view.GestureDetector;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ExpandableListAdapter;
@@ -34,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
     ExpandableListView expandableListView;
     ExpandableListAdapter expandableListAdapter;
     Button button12;
+    LayoutInflater layoutInflater;
+
+
 
 
 //    RelativeLayout layout;
@@ -115,6 +120,12 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
+
+        layoutInflater = getLayoutInflater();
+        ViewGroup footer = (ViewGroup) layoutInflater.inflate(R.layout.footer_layout, expandableListView, false);
+        expandableListView.addFooterView(footer);
+
+
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
                 int lastExpandedPosition = -1;
                 @Override
@@ -129,6 +140,12 @@ public class MainActivity extends AppCompatActivity {
                     if(lastExpandedPosition!=-1 && groupPosition != lastExpandedPosition){
                         expandableListView.collapseGroup(lastExpandedPosition);
                     }
+
+                    expandableListView.setSelectionFromTop(groupPosition,0);
+//                    expandableListView.setSelectedGroup(groupPosition);
+
+
+
                     lastExpandedPosition = groupPosition;
                 }
             });
@@ -167,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
         String[] contacts_b = {"contact 1","contact2"};
         String[] contacts_c = {"contact 1","contact2"};
         String[] contacts_d = {"contact 1","contact2"};
-        String[] contacts_e = {"contact 1","contact2"};
+        String[] contacts_e = {"contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2"};
         String[] contacts_f = {"contact 1","contact2"};
         String[] contacts_g = {"contact 1","contact2"};
         String[] contacts_h = {"contact 1","contact2"};
