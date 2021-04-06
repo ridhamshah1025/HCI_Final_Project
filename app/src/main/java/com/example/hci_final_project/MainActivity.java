@@ -203,9 +203,9 @@ public class MainActivity extends AppCompatActivity {
         String[] contacts_u = {"contact 1","contact2"};
         String[] contacts_v = {"contact 1","contact2"};
         String[] contacts_w = {"contact 1","contact2"};
-        String[] contacts_x = {"contact 1","contact2"};
-        String[] contacts_y = {"contact 1","contact2"};
-        String[] contacts_z = {"contact 1","contact2"};
+        String[] contacts_x = {"contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2"};
+        String[] contacts_y = {"contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2"};
+        String[] contacts_z = {"contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2"};
 
 
 
