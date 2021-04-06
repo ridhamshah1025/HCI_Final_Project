@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     ExpandableListAdapter expandableListAdapter;
     Button button12;
     LayoutInflater layoutInflater;
-
+    int lastExpandedPosition = -1;
 
 
 
@@ -58,26 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         expandableListView = findViewById(R.id.e_list);
         button12 = findViewById(R.id.button12);
-        button12.setOnTouchListener(new View.OnTouchListener() {
-            GestureDetector gestureDetector = new GestureDetector(getApplicationContext(),new GestureDetector.SimpleOnGestureListener(){
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Toast.makeText(MainActivity.this,"double click",Toast.LENGTH_SHORT).show();
-                    return super.onDoubleTap(e);
-                }
 
-                @Override
-                public boolean onSingleTapConfirmed(MotionEvent e) {
-                    Toast.makeText(MainActivity.this,"Single tap confirmed click",Toast.LENGTH_SHORT).show();
-                    return super.onSingleTapConfirmed(e);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return true;
-            }
-        });
 
         expandableListAdapter = new MyExpandableListAdapter(this,Characters,Contacts);
         expandableListView.setAdapter(expandableListAdapter);
@@ -127,9 +108,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-                int lastExpandedPosition = -1;
+
                 @Override
                 public void onGroupExpand(int groupPosition) {
+                    lastExpandedPosition = -1;
                     String selected = expandableListAdapter.getGroup(groupPosition).toString();
                     Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
 //                    System.out.println("6"+check_con);
@@ -143,8 +125,6 @@ public class MainActivity extends AppCompatActivity {
 
                     expandableListView.setSelectionFromTop(groupPosition,0);
 //                    expandableListView.setSelectedGroup(groupPosition);
-
-
 
                     lastExpandedPosition = groupPosition;
                 }
@@ -165,6 +145,33 @@ public class MainActivity extends AppCompatActivity {
 //                    return false;
                 }
             });
+
+
+        button12.setOnTouchListener(new View.OnTouchListener() {
+            GestureDetector gestureDetector = new GestureDetector(getApplicationContext(),new GestureDetector.SimpleOnGestureListener(){
+                @Override
+                public boolean onDoubleTap(MotionEvent e) {
+                    if (lastExpandedPosition!=-1){
+                        expandableListView.collapseGroup(lastExpandedPosition);
+                    }
+                    Toast.makeText(MainActivity.this,"Collapsed",Toast.LENGTH_SHORT).show();
+                    return super.onDoubleTap(e);
+                }
+
+                @Override
+                public boolean onSingleTapConfirmed(MotionEvent e) {
+                    Toast.makeText(MainActivity.this,"Single tap confirmed click",Toast.LENGTH_SHORT).show();
+//                    recreate();
+
+                    return super.onSingleTapConfirmed(e);
+                }
+            });
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                gestureDetector.onTouchEvent(event);
+                return true;
+            }
+        });
 //        expandableListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 //            @Override
 //
