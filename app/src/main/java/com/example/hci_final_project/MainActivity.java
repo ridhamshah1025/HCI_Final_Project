@@ -63,9 +63,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         setContentView(R.layout.activity_main);
 
 
-        CreateCharacterList();
-        CreateNamesList();
-
+        currentTime = System.currentTimeMillis();
         Intent intent = getIntent();
         startButtonTime = intent.getExtras().getLong("startButtonTime");
         currentTime = System.currentTimeMillis();
@@ -73,6 +71,10 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         System.out.println("button click time"+startButtonTime);
         System.out.println("CurrentTime"+currentTime);
         System.out.println("diff"+(currentTime-startButtonTime));
+        Toast.makeText(MainActivity.this,"diff"+(currentTime-startButtonTime),Toast.LENGTH_SHORT).show();
+
+        CreateCharacterList();
+        CreateNamesList();
 
 
         GesLib = GestureLibraries.fromRawResource(this,R.raw.gesture);
