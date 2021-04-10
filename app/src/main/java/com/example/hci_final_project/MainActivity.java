@@ -3,6 +3,7 @@ package com.example.hci_final_project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.gesture.Gesture;
 import android.gesture.GestureLibrary;
 import android.os.Bundle;
@@ -42,7 +43,9 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
     int lastExpandedPosition = -1;
     private GestureLibrary GesLib;
     String predict;
-
+    long currentTime;
+    long startButtonTime;
+    long convertTime;
 
 
 //    RelativeLayout layout;
@@ -59,8 +62,18 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         CreateCharacterList();
         CreateNamesList();
+
+        Intent intent = getIntent();
+        startButtonTime = intent.getExtras().getLong("startButtonTime");
+        currentTime = System.currentTimeMillis();
+
+        System.out.println("button click time"+startButtonTime);
+        System.out.println("CurrentTime"+currentTime);
+        System.out.println("diff"+(currentTime-startButtonTime));
+
 
         GesLib = GestureLibraries.fromRawResource(this,R.raw.gesture);
         if(!GesLib.load())
