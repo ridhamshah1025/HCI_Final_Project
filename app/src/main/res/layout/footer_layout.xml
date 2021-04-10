@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Footer: End of the ListView!"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:paddingBottom="300dp"
+        android:paddingBottom="80dp"
         />
 
 </LinearLayout>

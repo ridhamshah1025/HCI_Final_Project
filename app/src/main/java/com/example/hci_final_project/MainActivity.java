@@ -27,9 +27,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import android.gesture.Prediction;
+import android.gesture.Gesture;
+import java.util.ArrayList;
 
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnGesturePerformedListener {
     List<String> Characters;
     List<String> Names;
     Map<String, List<String>> Contacts;
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     Button button12;
     LayoutInflater layoutInflater;
     int lastExpandedPosition = -1;
+    private GestureLibrary GesLib;
+    String predict;
 
 
 
@@ -50,11 +54,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
 
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         CreateCharacterList();
         CreateNamesList();
+
+        GesLib = GestureLibraries.fromRawResource(this,R.raw.gesture);
+        if(!GesLib.load())
+        {
+            System.out.println("Not LOADED");
+            finish();
+        }
+        GestureOverlayView GesOver = (GestureOverlayView) findViewById(R.id.ges1);
+        GesOver.addOnGesturePerformedListener(this);
 
         expandableListView = findViewById(R.id.e_list);
         button12 = findViewById(R.id.button12);
@@ -107,11 +122,14 @@ public class MainActivity extends AppCompatActivity {
         expandableListView.addFooterView(footer);
 
 
+
+
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
 
                 @Override
                 public void onGroupExpand(int groupPosition) {
                     lastExpandedPosition = -1;
+                    System.out.println("group position "+groupPosition);
                     String selected = expandableListAdapter.getGroup(groupPosition).toString();
                     Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
 //                    System.out.println("6"+check_con);
@@ -133,6 +151,8 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                     String selected = expandableListAdapter.getChild(groupPosition,childPosition).toString();
+                    System.out.println("group position "+groupPosition+" child "+childPosition);
+
                     Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
                     return true;
 //                    System.out.println("8"+check_con);
@@ -151,16 +171,21 @@ public class MainActivity extends AppCompatActivity {
             GestureDetector gestureDetector = new GestureDetector(getApplicationContext(),new GestureDetector.SimpleOnGestureListener(){
                 @Override
                 public boolean onDoubleTap(MotionEvent e) {
-                    if (lastExpandedPosition!=-1){
-                        expandableListView.collapseGroup(lastExpandedPosition);
-                    }
-                    Toast.makeText(MainActivity.this,"Collapsed",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,"Double tap",Toast.LENGTH_SHORT).show();
                     return super.onDoubleTap(e);
                 }
 
                 @Override
                 public boolean onSingleTapConfirmed(MotionEvent e) {
-                    Toast.makeText(MainActivity.this,"Single tap confirmed click",Toast.LENGTH_SHORT).show();
+                    if (lastExpandedPosition!=-1){
+                        for(int i=0;i<26;i++)
+                        {
+                            System.out.println(i);
+                            expandableListView.collapseGroup(i);
+                        }
+                        expandableListView.collapseGroup(lastExpandedPosition);
+                        Toast.makeText(MainActivity.this,"Collapsed",Toast.LENGTH_SHORT).show();
+                    }
 //                    recreate();
 
                     return super.onSingleTapConfirmed(e);
@@ -342,4 +367,128 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+    @Override
+    public void onGesturePerformed(GestureOverlayView overlay, Gesture gesture) {
+
+        ArrayList<Prediction> ObjPrediction = GesLib.recognize(gesture);
+        if(ObjPrediction.size()>0 && ObjPrediction.get(0).score>1)
+        {
+            for(int i=0;i<26;i++)
+            {
+                System.out.println(i);
+                expandableListView.collapseGroup(i);
+            }
+            System.out.println(ObjPrediction);
+            predict = ObjPrediction.get(0).name;
+            predict = predict.toString().toLowerCase();
+            System.out.println("predict  "+predict);
+
+            if(predict.equals("a"))
+            {
+                expandableListView.expandGroup(0);
+            }
+            else if(predict.toString()=="b")
+            {
+                expandableListView.expandGroup(1);
+            }
+            else if(predict.toString()=="c")
+            {
+                expandableListView.expandGroup(2);
+            }
+            else if(predict.toString()=="d")
+            {
+                expandableListView.expandGroup(3);
+            }
+            else if(predict.toString()=="e")
+            {
+                expandableListView.expandGroup(4);
+            }
+            else if(predict.toString()=="f")
+            {
+                expandableListView.expandGroup(5);
+            }
+            else if(predict.toString()=="g")
+            {
+                expandableListView.expandGroup(6);
+            }
+            else if(predict.toString()=="h")
+            {
+                expandableListView.expandGroup(7);
+            }
+            else if(predict.toString()=="i")
+            {
+                expandableListView.expandGroup(8);
+            }
+            else if(predict.toString()=="j")
+            {
+                expandableListView.expandGroup(9);
+            }
+            else if(predict.toString()=="k")
+            {
+                expandableListView.expandGroup(10);
+            }
+            else if(predict.toString()=="l")
+            {
+                expandableListView.expandGroup(11);
+            }
+            else if(predict.toString()=="m")
+            {
+                expandableListView.expandGroup(12);
+            }
+            else if(predict.toString()=="n")
+            {
+                expandableListView.expandGroup(13);
+            }
+            else if(predict.toString()=="o")
+            {
+                expandableListView.expandGroup(14);
+            }
+            else if(predict.toString()=="p")
+            {
+                expandableListView.expandGroup(15);
+            }
+            else if(predict.toString()=="q")
+            {
+                expandableListView.expandGroup(16);
+            }
+            else if(predict.toString()=="r")
+            {
+                expandableListView.expandGroup(17);
+            }
+            else if(predict.toString()=="s")
+            {
+                expandableListView.expandGroup(18);
+            }
+            else if(predict.toString()=="t")
+            {
+                expandableListView.expandGroup(19);
+            }
+            else if(predict.toString()=="u")
+            {
+                expandableListView.expandGroup(20);
+            }
+            else if(predict.toString()=="v")
+            {
+                expandableListView.expandGroup(21);
+            }
+            else if(predict.toString()=="w")
+            {
+                expandableListView.expandGroup(22);
+            }
+            else if(predict.toString()=="x")
+            {
+                expandableListView.expandGroup(23);
+            }
+            else if(predict.toString()=="y")
+            {
+                expandableListView.expandGroup(24);
+            }
+            else if(predict.toString()=="z")
+            {
+                expandableListView.expandGroup(25);
+            }
+            Toast.makeText(this,predict,Toast.LENGTH_SHORT).show();
+        }
+    }
 }
