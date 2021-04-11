@@ -45,23 +45,18 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
     String predict;
     long currentTime;
     long startButtonTime;
-    long convertTime;
+    long childClickTime;
 
 
 //    RelativeLayout layout;
 //    public boolean check_con=true;
 
 
-    @SuppressLint("ResourceType")
+    @SuppressLint({"ResourceType", "ClickableViewAccessibility"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         currentTime = System.currentTimeMillis();
         Intent intent = getIntent();
@@ -76,7 +71,6 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         CreateCharacterList();
         CreateNamesList();
 
-
         GesLib = GestureLibraries.fromRawResource(this,R.raw.gesture);
         if(!GesLib.load())
         {
@@ -89,55 +83,12 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         expandableListView = findViewById(R.id.e_list);
         button12 = findViewById(R.id.button12);
 
-
         expandableListAdapter = new MyExpandableListAdapter(this,Characters,Contacts);
         expandableListView.setAdapter(expandableListAdapter);
-
-//        System.out.println("1"+check_con);
-
-//        expandableListView.setOnTouchListener(new View.OnTouchListener() {
-//            GestureDetector gestureDetector = new GestureDetector(getApplicationContext(),new GestureDetector.SimpleOnGestureListener(){
-//                @Override
-//                public void onLongPress(MotionEvent e) {
-//                    check_con = false;
-//                    Toast.makeText(getApplicationContext(),"Long Press",Toast.LENGTH_SHORT).show();
-//                    super.onLongPress(e);
-//
-//                }
-//
-//                @Override
-//                public boolean onDoubleTap(MotionEvent e) {
-//                    check_con = false;
-//                    Toast.makeText(getApplicationContext(),"Double Tap",Toast.LENGTH_SHORT).show();
-//                    return super.onDoubleTap(e);
-//                }
-//            });
-//
-//            @SuppressLint("ClickableViewAccessibility")
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                gestureDetector.onTouchEvent(event);
-//                System.out.println("2"+check_con);
-//                if(!check_con)
-//                {
-//                    System.out.println("3"+check_con);
-//                    check_con=true;
-//                    System.out.println("4"+check_con);
-//                    return true;
-//                }
-//                System.out.println("5"+check_con);
-//                return false;
-//
-//            }
-//        });
-
 
         layoutInflater = getLayoutInflater();
         ViewGroup footer = (ViewGroup) layoutInflater.inflate(R.layout.footer_layout, expandableListView, false);
         expandableListView.addFooterView(footer);
-
-
-
 
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
 
@@ -147,18 +98,11 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                     System.out.println("group position "+groupPosition);
                     String selected = expandableListAdapter.getGroup(groupPosition).toString();
                     Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
-//                    System.out.println("6"+check_con);
-//                    if(check_con){
-//                        System.out.println("7"+check_con);
-//
-//                    }
                     if(lastExpandedPosition!=-1 && groupPosition != lastExpandedPosition){
                         expandableListView.collapseGroup(lastExpandedPosition);
                     }
-
                     expandableListView.setSelectionFromTop(groupPosition,0);
 //                    expandableListView.setSelectedGroup(groupPosition);
-
                     lastExpandedPosition = groupPosition;
                 }
             });
@@ -167,20 +111,10 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                     String selected = expandableListAdapter.getChild(groupPosition,childPosition).toString();
                     System.out.println("group position "+groupPosition+" child "+childPosition);
-
                     Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
                     return true;
-//                    System.out.println("8"+check_con);
-//                    if(check_con){
-//                        Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
-//                        System.out.println("9"+check_con);
-//                        return true;
-//                    }
-//                    System.out.println("10"+check_con);
-//                    return false;
                 }
             });
-
 
         button12.setOnTouchListener(new View.OnTouchListener() {
             GestureDetector gestureDetector = new GestureDetector(getApplicationContext(),new GestureDetector.SimpleOnGestureListener(){
