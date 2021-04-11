@@ -90,6 +90,11 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         System.out.println("task list"+taskList+"size"+taskList.size());
         System.out.println("task Time"+taskTime+"size"+taskTime.size());
 
+        int taskNoI = currentIndex+1;
+        String taskNo = String.valueOf(taskNoI);
+        String screenTitle = "Task "+taskNo+"/10";
+        this.setTitle(screenTitle);
+
         currentTime = System.currentTimeMillis();
         System.out.println("button click time"+startButtonTime);
         System.out.println("CurrentTime"+currentTime);
