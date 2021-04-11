@@ -34,4 +34,7 @@ public class Finish extends AppCompatActivity {
         textView33.setText(str);
 
     }
+    @Override
+    public void onBackPressed() {
+    }
 }

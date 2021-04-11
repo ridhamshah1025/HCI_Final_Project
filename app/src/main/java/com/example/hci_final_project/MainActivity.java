@@ -271,6 +271,10 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 //        });
 
     }
+    @Override
+    public void onBackPressed() {
+    }
+
     private void CreateNamesList() {
         String[] contacts_a = {"contact 1","contact2"};
         String[] contacts_b = {"contact 1","contact2"};
