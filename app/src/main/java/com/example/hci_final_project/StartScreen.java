@@ -17,33 +17,43 @@ public class StartScreen extends AppCompatActivity {
     ArrayList<Long> taskTime = new ArrayList<Long>();
     long startButtonTime;
     int startIndex=-1;
-    int currentIndex;
+    int currentIndex=0;
+    Intent intent1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startscreen);
         button3 = findViewById(R.id.button3);
-        Intent intent1 = getIntent();
-        taskList= intent1.getExtras().getStringArrayList("taskList");
-        startIndex = intent1.getExtras().getInt("startIndex");
-        currentIndex = intent1.getExtras().getInt("currentIndex");
-        taskTime= (ArrayList<Long>) intent1.getSerializableExtra("taskTime");
-        System.out.println("task list"+taskList+"size"+taskList.size());
-        System.out.println("task Time"+taskTime+"size"+taskTime.size());
 
+        intent1 = getIntent();
+        Bundle bundle = intent1.getExtras();
 
-        if (startIndex == -1)
+        if( intent1.getExtras() == null)
         {
-            for(int j = 0; j<10; j++)
+            System.out.println("intent************");
+            if (startIndex == -1)
             {
-                String k = "Task "+String.valueOf(j);
-                taskList.add(k);
+                for(int j = 0; j<10; j++)
+                {
+                    String k = "Task "+String.valueOf(j);
+                    taskList.add(k);
+                }
+                System.out.println("cindex "+currentIndex+" startindex "+startIndex);
             }
+
         }
         else
         {
-
+            System.out.println("************");
+            taskList= intent1.getExtras().getStringArrayList("taskList");
+            startIndex = intent1.getExtras().getInt("startIndex");
+            currentIndex = intent1.getExtras().getInt("currentIndex");
+            taskTime= (ArrayList<Long>) intent1.getSerializableExtra("taskTime");
+            System.out.println("cindex "+currentIndex+" startindex "+startIndex);
+            System.out.println("task list"+taskList+"size"+taskList.size());
+            System.out.println("task Time"+taskTime+"size"+taskTime.size());
         }
+
         TextView text3 = findViewById(R.id.text3);
         TextView text4 = findViewById(R.id.text4);
         currentIndex = startIndex+1;

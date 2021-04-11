@@ -149,6 +149,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                                 System.out.println("done");
                                 startIndex+=1;
                                 currentIndex+=1;
+                                System.out.println("cindex "+currentIndex+" startindex "+startIndex);
                                 Intent intent1=new Intent(MainActivity.this,StartScreen.class);
                                 intent1.putExtra("taskList",taskList);
                                 intent1.putExtra("startIndex",startIndex);
@@ -164,29 +165,26 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                         {
                             if(taskTime.size()==1)
                             {
-                                taskTime.add(0,childClickTime);
+                                taskTime.add(1,childClickTime);
                                 System.out.println("task list"+taskList+"size"+taskList.size());
                                 System.out.println("task Time"+taskTime+"size"+taskTime.size());
                                 System.out.println("done");
                                 startIndex+=1;
                                 currentIndex+=1;
-                                Intent intent1=new Intent(MainActivity.this,StartScreen.class);
-                                intent1.putExtra("taskList",taskList);
-                                intent1.putExtra("startIndex",startIndex);
-                                intent1.putExtra("currentIndex",currentIndex);
-                                intent1.putExtra("taskTime",taskTime);
-                                startActivity(intent1);
+                                Intent intent2=new Intent(MainActivity.this,Finish.class);
+                                intent2.putExtra("taskList",taskList);
+                                intent2.putExtra("startIndex",startIndex);
+                                intent2.putExtra("currentIndex",currentIndex);
+                                intent2.putExtra("taskTime",taskTime);
+                                startActivity(intent2);
+//                                Intent intent1=new Intent(MainActivity.this,StartScreen.class);
+//                                intent1.putExtra("taskList",taskList);
+//                                intent1.putExtra("startIndex",startIndex);
+//                                intent1.putExtra("currentIndex",currentIndex);
+//                                intent1.putExtra("taskTime",taskTime);
+//                                startActivity(intent1);
                             }
                         }
-                    }
-                    else if(currentIndex>1)
-                    {
-                        Intent intent2=new Intent(MainActivity.this,StartScreen.class);
-                        intent2.putExtra("taskList",taskList);
-                        intent2.putExtra("startIndex",startIndex);
-                        intent2.putExtra("currentIndex",currentIndex);
-                        intent2.putExtra("taskTime",taskTime);
-                        startActivity(intent2);
                     }
 
 
