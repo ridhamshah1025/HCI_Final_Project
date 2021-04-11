@@ -147,6 +147,12 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                                 System.out.println("task list"+taskList+"size"+taskList.size());
                                 System.out.println("task Time"+taskTime+"size"+taskTime.size());
                                 System.out.println("done");
+                                Intent intent1=new Intent(MainActivity.this,StartScreen.class);
+                                intent1.putExtra("taskList",taskList);
+                                intent1.putExtra("startIndex",startIndex);
+                                intent1.putExtra("currentIndex",currentIndex);
+                                intent1.putExtra("taskTime",taskTime);
+                                startActivity(intent1);
                             }
                         }
                     }
