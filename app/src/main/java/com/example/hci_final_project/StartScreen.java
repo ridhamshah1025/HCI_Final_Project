@@ -23,6 +23,15 @@ public class StartScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startscreen);
         button3 = findViewById(R.id.button3);
+        Intent intent1 = getIntent();
+        taskList= intent1.getExtras().getStringArrayList("taskList");
+        startIndex = intent1.getExtras().getInt("startIndex");
+        currentIndex = intent1.getExtras().getInt("currentIndex");
+        taskTime= (ArrayList<Long>) intent1.getSerializableExtra("taskTime");
+        System.out.println("task list"+taskList+"size"+taskList.size());
+        System.out.println("task Time"+taskTime+"size"+taskTime.size());
+
+
         if (startIndex == -1)
         {
             for(int j = 0; j<10; j++)

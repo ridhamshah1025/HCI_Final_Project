@@ -139,14 +139,16 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                     System.out.println("group position "+groupPosition+" child "+childPosition);
                     if(currentIndex==0)
                     {
-                        if(groupPosition==1 && childPosition==1)
+                        if(groupPosition==0 && childPosition==0)
                         {
-                            taskTime.add(0,childClickTime);
-                            if(taskTime.size()==1)
+                            if(taskTime.size()==0)
                             {
+                                taskTime.add(0,childClickTime);
                                 System.out.println("task list"+taskList+"size"+taskList.size());
                                 System.out.println("task Time"+taskTime+"size"+taskTime.size());
                                 System.out.println("done");
+                                startIndex+=1;
+                                currentIndex+=1;
                                 Intent intent1=new Intent(MainActivity.this,StartScreen.class);
                                 intent1.putExtra("taskList",taskList);
                                 intent1.putExtra("startIndex",startIndex);
@@ -156,6 +158,38 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                             }
                         }
                     }
+                    else if(currentIndex==1)
+                    {
+                        if(groupPosition==0 && childPosition==1)
+                        {
+                            if(taskTime.size()==1)
+                            {
+                                taskTime.add(0,childClickTime);
+                                System.out.println("task list"+taskList+"size"+taskList.size());
+                                System.out.println("task Time"+taskTime+"size"+taskTime.size());
+                                System.out.println("done");
+                                startIndex+=1;
+                                currentIndex+=1;
+                                Intent intent1=new Intent(MainActivity.this,StartScreen.class);
+                                intent1.putExtra("taskList",taskList);
+                                intent1.putExtra("startIndex",startIndex);
+                                intent1.putExtra("currentIndex",currentIndex);
+                                intent1.putExtra("taskTime",taskTime);
+                                startActivity(intent1);
+                            }
+                        }
+                    }
+                    else if(currentIndex>1)
+                    {
+                        Intent intent2=new Intent(MainActivity.this,StartScreen.class);
+                        intent2.putExtra("taskList",taskList);
+                        intent2.putExtra("startIndex",startIndex);
+                        intent2.putExtra("currentIndex",currentIndex);
+                        intent2.putExtra("taskTime",taskTime);
+                        startActivity(intent2);
+                    }
+
+
 //                    selectedChildItem = expandableListView.getSelectedItem();
 //                    getSelectedId= expandableListView.getSelectedId();
 //                    getSelectedPosition= expandableListView.getSelectedPosition();
