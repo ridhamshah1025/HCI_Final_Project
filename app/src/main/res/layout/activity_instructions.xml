@@ -6,14 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".Instructions">
 
+    <TextView
+        android:id="@+id/instructionsHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:background="#FFFFFF"
+        android:text="Instructions"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/text11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/instructionsHeader"
+        android:background="#FFFFFF"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:text="It is required to allow storage access to this app in order to save and export data."
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="20sp">
+
+    </TextView>
+
     <Button
         android:id="@+id/button44"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/text11"
         android:text="Click TO Continue"
         android:textSize="24dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="300dp"
 
         />
 </RelativeLayout>
