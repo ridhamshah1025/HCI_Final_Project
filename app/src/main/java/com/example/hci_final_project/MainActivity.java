@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
     long currentTime;
     long startButtonTime;
     long childClickTime;
-
+    ArrayList<String> taskList = new ArrayList<String>();
 
 //    RelativeLayout layout;
 //    public boolean check_con=true;
@@ -67,6 +67,12 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         System.out.println("CurrentTime"+currentTime);
         System.out.println("diff"+(currentTime-startButtonTime));
         Toast.makeText(MainActivity.this,"diff"+(currentTime-startButtonTime),Toast.LENGTH_SHORT).show();
+
+
+        taskList= intent.getExtras().getStringArrayList("taskList");
+        System.out.println("task list"+taskList);
+
+
 
         CreateCharacterList();
         CreateNamesList();
