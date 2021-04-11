@@ -52,6 +52,7 @@ public class StartScreen extends AppCompatActivity {
                 intent.putExtra("taskList",taskList);
                 intent.putExtra("startIndex",startIndex);
                 intent.putExtra("currentIndex",currentIndex);
+                intent.putExtra("taskTime",taskTime);
                 startActivity(intent);
             }
         });

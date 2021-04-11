@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.gesture.Gesture;
 import android.gesture.GestureLibrary;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -47,6 +48,18 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
     long startButtonTime;
     long childClickTime;
     ArrayList<String> taskList = new ArrayList<String>();
+    ArrayList<Long> taskTime = new ArrayList<Long>();
+    int startIndex;
+    int currentIndex;
+
+
+    Object selectedChildItem;
+    long getSelectedId;
+    long getSelectedPosition;
+    Object getSelectedItem;
+    long getSelectedItemId;
+    int getSelectedItemPosition;
+
 
 //    RelativeLayout layout;
 //    public boolean check_con=true;
@@ -61,16 +74,21 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         currentTime = System.currentTimeMillis();
         Intent intent = getIntent();
         startButtonTime = intent.getExtras().getLong("startButtonTime");
-        currentTime = System.currentTimeMillis();
+        taskList= intent.getExtras().getStringArrayList("taskList");
+        startIndex = intent.getExtras().getInt("startIndex");
+        currentIndex = intent.getExtras().getInt("currentIndex");
+        taskTime= (ArrayList<Long>) intent.getSerializableExtra("taskTime");
+        System.out.println("task list"+taskList+"size"+taskList.size());
+        System.out.println("task Time"+taskTime+"size"+taskTime.size());
 
+        currentTime = System.currentTimeMillis();
         System.out.println("button click time"+startButtonTime);
         System.out.println("CurrentTime"+currentTime);
         System.out.println("diff"+(currentTime-startButtonTime));
         Toast.makeText(MainActivity.this,"diff"+(currentTime-startButtonTime),Toast.LENGTH_SHORT).show();
 
 
-        taskList= intent.getExtras().getStringArrayList("taskList");
-        System.out.println("task list"+taskList);
+
 
 
 
@@ -115,9 +133,33 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
                 @Override
                 public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                    childClickTime = System.currentTimeMillis()-currentTime;
+                    System.out.println("childClickTime"+childClickTime);
                     String selected = expandableListAdapter.getChild(groupPosition,childPosition).toString();
                     System.out.println("group position "+groupPosition+" child "+childPosition);
-                    Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
+                    if(currentIndex==0)
+                    {
+                        if(groupPosition==1 && childPosition==1)
+                        {
+                            taskTime.add(0,childClickTime);
+                            if(taskTime.size()==1)
+                            {
+                                System.out.println("task list"+taskList+"size"+taskList.size());
+                                System.out.println("task Time"+taskTime+"size"+taskTime.size());
+                                System.out.println("done");
+                            }
+                        }
+                    }
+//                    selectedChildItem = expandableListView.getSelectedItem();
+//                    getSelectedId= expandableListView.getSelectedId();
+//                    getSelectedPosition= expandableListView.getSelectedPosition();
+//                    getSelectedItem=expandableListView.getSelectedItem();
+//                    getSelectedItemId=expandableListView.getSelectedItemId();
+//                    getSelectedItemPosition=expandableListView.getSelectedItemPosition();
+//                    System.out.println("================="+selectedChildItem+'*'+getSelectedId+'*'+
+//                            getSelectedPosition+'*'+getSelectedItem+'*'+
+//                            getSelectedItemId+'*'+getSelectedItemPosition);
+//                    Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
                     return true;
                 }
             });
@@ -159,6 +201,8 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 //                return true;
 //            }
 //        });
+
+
     }
     private void CreateNamesList() {
         String[] contacts_a = {"contact 1","contact2"};
@@ -332,103 +376,103 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
             {
                 expandableListView.expandGroup(0);
             }
-            else if(predict.toString()=="b")
+            else if(predict.equals("b"))
             {
                 expandableListView.expandGroup(1);
             }
-            else if(predict.toString()=="c")
+            else if(predict.equals("c"))
             {
                 expandableListView.expandGroup(2);
             }
-            else if(predict.toString()=="d")
+            else if(predict.equals("d"))
             {
                 expandableListView.expandGroup(3);
             }
-            else if(predict.toString()=="e")
+            else if(predict.equals("e"))
             {
                 expandableListView.expandGroup(4);
             }
-            else if(predict.toString()=="f")
+            else if(predict.equals("f"))
             {
                 expandableListView.expandGroup(5);
             }
-            else if(predict.toString()=="g")
+            else if(predict.equals("g"))
             {
                 expandableListView.expandGroup(6);
             }
-            else if(predict.toString()=="h")
+            else if(predict.equals("h"))
             {
                 expandableListView.expandGroup(7);
             }
-            else if(predict.toString()=="i")
+            else if(predict.equals("i"))
             {
                 expandableListView.expandGroup(8);
             }
-            else if(predict.toString()=="j")
+            else if(predict.equals("j"))
             {
                 expandableListView.expandGroup(9);
             }
-            else if(predict.toString()=="k")
+            else if(predict.equals("k"))
             {
                 expandableListView.expandGroup(10);
             }
-            else if(predict.toString()=="l")
+            else if(predict.equals("l"))
             {
                 expandableListView.expandGroup(11);
             }
-            else if(predict.toString()=="m")
+            else if(predict.equals("m"))
             {
                 expandableListView.expandGroup(12);
             }
-            else if(predict.toString()=="n")
+            else if(predict.equals("n"))
             {
                 expandableListView.expandGroup(13);
             }
-            else if(predict.toString()=="o")
+            else if(predict.equals("o"))
             {
                 expandableListView.expandGroup(14);
             }
-            else if(predict.toString()=="p")
+            else if(predict.equals("p"))
             {
                 expandableListView.expandGroup(15);
             }
-            else if(predict.toString()=="q")
+            else if(predict.equals("q"))
             {
                 expandableListView.expandGroup(16);
             }
-            else if(predict.toString()=="r")
+            else if(predict.equals("r"))
             {
                 expandableListView.expandGroup(17);
             }
-            else if(predict.toString()=="s")
+            else if(predict.equals("s"))
             {
                 expandableListView.expandGroup(18);
             }
-            else if(predict.toString()=="t")
+            else if(predict.equals("t"))
             {
                 expandableListView.expandGroup(19);
             }
-            else if(predict.toString()=="u")
+            else if(predict.equals("u"))
             {
                 expandableListView.expandGroup(20);
             }
-            else if(predict.toString()=="v")
+            else if(predict.equals("v"))
             {
                 expandableListView.expandGroup(21);
             }
-            else if(predict.toString()=="w")
+            else if(predict.equals("w"))
             {
                 expandableListView.expandGroup(22);
             }
-            else if(predict.toString()=="x")
+            else if(predict.equals("x"))
             {
                 expandableListView.expandGroup(23);
             }
-            else if(predict.toString()=="y")
+            else if(predict.equals("y"))
             {
                 expandableListView.expandGroup(24);
             }
-            else if(predict.toString()=="z")
+            else if(predict.equals("z"))
             {
                 expandableListView.expandGroup(25);
             }
