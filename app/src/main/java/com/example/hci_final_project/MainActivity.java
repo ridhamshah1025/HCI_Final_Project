@@ -8,6 +8,7 @@ import android.gesture.Gesture;
 import android.gesture.GestureLibrary;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -25,9 +26,16 @@ import android.gesture.GestureLibraries;
 import android.gesture.GestureOverlayView;
 import android.gesture.GestureOverlayView.OnGesturePerformedListener;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import android.gesture.Prediction;
 import android.gesture.Gesture;
@@ -59,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
     Object getSelectedItem;
     long getSelectedItemId;
     int getSelectedItemPosition;
+    StringBuilder data = new StringBuilder();
 
 
 //    RelativeLayout layout;
@@ -139,10 +148,13 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                     System.out.println("group position "+groupPosition+" child "+childPosition);
                     if(currentIndex==0)
                     {
+                        System.out.println("44");
                         if(groupPosition==0 && childPosition==0)
                         {
+                            System.out.println("55");
                             if(taskTime.size()==0)
                             {
+                                System.out.println("66");
                                 taskTime.add(0,childClickTime);
                                 System.out.println("task list"+taskList+"size"+taskList.size());
                                 System.out.println("task Time"+taskTime+"size"+taskTime.size());
@@ -161,43 +173,59 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                     }
                     else if(currentIndex==1)
                     {
+                        System.out.println("11");
                         if(groupPosition==0 && childPosition==1)
                         {
+                            System.out.println("22");
                             if(taskTime.size()==1)
                             {
-                                taskTime.add(1,childClickTime);
-                                System.out.println("task list"+taskList+"size"+taskList.size());
-                                System.out.println("task Time"+taskTime+"size"+taskTime.size());
-                                System.out.println("done");
-                                startIndex+=1;
-                                currentIndex+=1;
-                                Intent intent2=new Intent(MainActivity.this,Finish.class);
-                                intent2.putExtra("taskList",taskList);
-                                intent2.putExtra("startIndex",startIndex);
-                                intent2.putExtra("currentIndex",currentIndex);
-                                intent2.putExtra("taskTime",taskTime);
-                                startActivity(intent2);
-//                                Intent intent1=new Intent(MainActivity.this,StartScreen.class);
-//                                intent1.putExtra("taskList",taskList);
-//                                intent1.putExtra("startIndex",startIndex);
-//                                intent1.putExtra("currentIndex",currentIndex);
-//                                intent1.putExtra("taskTime",taskTime);
-//                                startActivity(intent1);
+                                System.out.println("33");
+                                try {
+                                    taskTime.add(1,childClickTime);
+                                    System.out.println("task list"+taskList+"size"+taskList.size());
+                                    System.out.println("task Time"+taskTime+"size"+taskTime.size());
+                                    System.out.println("done");
+                                    startIndex+=1;
+                                    currentIndex+=1;
+                                    System.out.println("kkkkks"+startIndex);
+                                    System.out.println("kkkkkc"+currentIndex);
+                                    data.append("taskNo,time");
+                                    System.out.println("kkkkkkk");
+                                    for(int i = 0; i<2; i++)
+                                    {
+                                        data.append("\n").append(taskList.get(i)).append(taskTime.get(i));
+                                    }
+                                    System.out.println("kkkkkk"+data);
+                                    Intent intent2=new Intent(MainActivity.this,Finish.class);
+                                    intent2.putExtra("taskList",taskList);
+                                    intent2.putExtra("startIndex",startIndex);
+                                    intent2.putExtra("currentIndex",currentIndex);
+                                    intent2.putExtra("taskTime",taskTime);
+                                    String date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ssZ", Locale.getDefault()).format(new Date());
+                                    String filename = date + ".csv";
+                                    File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), filename);
+                                    System.out.println(file);
+                                    FileOutputStream out = null;
+                                    out = new FileOutputStream(file);
+                                    out.write((data.toString()).getBytes());
+                                    out.close();
+                                    System.out.println("789");
+                                    Toast.makeText(MainActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+                                    intent2.putExtra("fileLocation", file.getAbsolutePath());
+                                    startActivity(intent2);
+                                } catch (FileNotFoundException e) {
+                                    System.out.println("123");
+                                    e.printStackTrace();
+                                } catch (IOException e) {
+                                    System.out.println("456");
+                                    e.printStackTrace();
+                                }
+
+
+
                             }
                         }
                     }
-
-
-//                    selectedChildItem = expandableListView.getSelectedItem();
-//                    getSelectedId= expandableListView.getSelectedId();
-//                    getSelectedPosition= expandableListView.getSelectedPosition();
-//                    getSelectedItem=expandableListView.getSelectedItem();
-//                    getSelectedItemId=expandableListView.getSelectedItemId();
-//                    getSelectedItemPosition=expandableListView.getSelectedItemPosition();
-//                    System.out.println("================="+selectedChildItem+'*'+getSelectedId+'*'+
-//                            getSelectedPosition+'*'+getSelectedItem+'*'+
-//                            getSelectedItemId+'*'+getSelectedItemPosition);
-//                    Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
                     return true;
                 }
             });
