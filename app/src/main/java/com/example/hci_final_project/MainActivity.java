@@ -96,11 +96,6 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         System.out.println("diff"+(currentTime-startButtonTime));
         Toast.makeText(MainActivity.this,"diff"+(currentTime-startButtonTime),Toast.LENGTH_SHORT).show();
 
-
-
-
-
-
         CreateCharacterList();
         CreateNamesList();
 
@@ -122,6 +117,10 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         layoutInflater = getLayoutInflater();
         ViewGroup footer = (ViewGroup) layoutInflater.inflate(R.layout.footer_layout, expandableListView, false);
         expandableListView.addFooterView(footer);
+
+        layoutInflater = getLayoutInflater();
+        ViewGroup header = (ViewGroup) layoutInflater.inflate(R.layout.list_header, expandableListView, false);
+        expandableListView.addHeaderView(header);
 
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
 
@@ -220,9 +219,6 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                                     System.out.println("456");
                                     e.printStackTrace();
                                 }
-
-
-
                             }
                         }
                     }
