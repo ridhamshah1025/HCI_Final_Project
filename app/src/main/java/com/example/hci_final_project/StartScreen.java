@@ -17,6 +17,7 @@ public class StartScreen extends AppCompatActivity {
     ArrayList<Long> taskTime = new ArrayList<Long>();
     long startButtonTime;
     int startIndex=-1;
+    int currentIndex;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +37,7 @@ public class StartScreen extends AppCompatActivity {
         }
         TextView text3 = findViewById(R.id.text3);
         TextView text4 = findViewById(R.id.text4);
-        int currentIndex = startIndex+1;
+        currentIndex = startIndex+1;
         text3.setText(taskList.get(currentIndex));
         text4.setText(taskList.get(currentIndex));
         System.out.println(text3);
@@ -49,6 +50,8 @@ public class StartScreen extends AppCompatActivity {
                 Intent intent=new Intent(StartScreen.this,MainActivity.class);
                 intent.putExtra("startButtonTime",startButtonTime);
                 intent.putExtra("taskList",taskList);
+                intent.putExtra("startIndex",startIndex);
+                intent.putExtra("currentIndex",currentIndex);
                 startActivity(intent);
             }
         });
