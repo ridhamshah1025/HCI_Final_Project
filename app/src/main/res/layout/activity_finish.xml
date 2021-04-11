@@ -7,7 +7,7 @@
     tools:context=".Finish">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView888"
         android:textSize="30dp"
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
@@ -18,11 +18,23 @@
     <TextView
         android:id="@+id/textView33"
         android:textSize="30dp"
-        android:layout_below="@id/textView"
+        android:layout_below="@id/textView888"
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
+        />
+
+    <Button
+        android:id="@+id/button45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView33"
+        android:text="Exit"
+        android:textSize="24dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+
         />
 </RelativeLayout>
