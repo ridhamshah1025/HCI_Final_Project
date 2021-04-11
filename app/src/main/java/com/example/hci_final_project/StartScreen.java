@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class startscreen extends AppCompatActivity {
+public class StartScreen extends AppCompatActivity {
 
     Button button3;
     long startButtonTime;
@@ -21,7 +21,7 @@ public class startscreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startButtonTime = System.currentTimeMillis();
-                Intent intent=new Intent(startscreen.this,MainActivity.class);
+                Intent intent=new Intent(StartScreen.this,MainActivity.class);
                 intent.putExtra("startButtonTime",startButtonTime);
                 startActivity(intent);
             }
