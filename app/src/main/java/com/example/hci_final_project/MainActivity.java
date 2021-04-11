@@ -268,7 +268,6 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 //            }
 //        });
 
-
     }
     private void CreateNamesList() {
         String[] contacts_a = {"contact 1","contact2"};

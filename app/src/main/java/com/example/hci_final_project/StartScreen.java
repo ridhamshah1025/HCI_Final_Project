@@ -62,6 +62,11 @@ public class StartScreen extends AppCompatActivity {
         System.out.println(text3);
         System.out.println(text4);
         System.out.println("task list"+taskList);
+
+        int taskNoI = currentIndex+1;
+        String taskNo = String.valueOf(taskNoI);
+        String screenTitle = "Task "+taskNo+"/10";
+        this.setTitle(screenTitle);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
