@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                                     System.out.println("kkkkkkk");
                                     for(int i = 0; i<2; i++)
                                     {
-                                        data.append("\n").append(taskList.get(i)).append(taskTime.get(i));
+                                        data.append("\n").append(taskList.get(i)).append(",").append(taskTime.get(i));
                                     }
                                     System.out.println("kkkkkk"+data);
                                     Intent intent2=new Intent(MainActivity.this,Finish.class);
