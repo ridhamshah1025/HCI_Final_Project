@@ -17,15 +17,26 @@
 
     </TextView>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text4"
+        android:layout_below="@id/text3"
+        android:text="Select contact Meet"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textSize="30dp">
+
+    </TextView>
+
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text3"
+        android:layout_below="@+id/text4"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="405dp"
-
-        android:text="Click">
+        android:layout_marginTop="300dp"
+        android:text="Start Timer">
 
     </Button>
 

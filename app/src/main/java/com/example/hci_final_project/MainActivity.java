@@ -123,7 +123,6 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                     Toast.makeText(MainActivity.this,"Double tap",Toast.LENGTH_SHORT).show();
                     return super.onDoubleTap(e);
                 }
-
                 @Override
                 public boolean onSingleTapConfirmed(MotionEvent e) {
                     if (lastExpandedPosition!=-1){
@@ -135,8 +134,6 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                         expandableListView.collapseGroup(lastExpandedPosition);
                         Toast.makeText(MainActivity.this,"Collapsed",Toast.LENGTH_SHORT).show();
                     }
-//                    recreate();
-
                     return super.onSingleTapConfirmed(e);
                 }
             });
@@ -157,9 +154,6 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 //            }
 //        });
     }
-
-
-
     private void CreateNamesList() {
         String[] contacts_a = {"contact 1","contact2"};
         String[] contacts_b = {"contact 1","contact2"};
@@ -283,7 +277,6 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
             Names.add(names);
         }
     }
-
     private void CreateCharacterList() {
         Characters = new ArrayList<>();
         Characters.add("A");
@@ -313,10 +306,6 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         Characters.add("Y");
         Characters.add("Z");
     }
-
-
-
-
     @Override
     public void onGesturePerformed(GestureOverlayView overlay, Gesture gesture) {
 
