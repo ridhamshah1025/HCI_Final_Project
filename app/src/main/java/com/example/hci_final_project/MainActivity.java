@@ -57,8 +57,10 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
     long childClickTime;
     ArrayList<String> taskList = new ArrayList<String>();
     ArrayList<Long> taskTime = new ArrayList<Long>();
-    int startIndex;
+    ArrayList<Integer> taskNumbers = new ArrayList<Integer>();
+    int counter;
     int currentIndex;
+    int showIndex;
 
 
     Object selectedChildItem;
@@ -84,16 +86,23 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         Intent intent = getIntent();
         startButtonTime = intent.getExtras().getLong("startButtonTime");
         taskList= intent.getExtras().getStringArrayList("taskList");
-        startIndex = intent.getExtras().getInt("startIndex");
+        counter = intent.getExtras().getInt("counter");
         currentIndex = intent.getExtras().getInt("currentIndex");
         taskTime= (ArrayList<Long>) intent.getSerializableExtra("taskTime");
+
+        showIndex = intent.getExtras().getInt("showIndex");
+        taskNumbers= intent.getExtras().getIntegerArrayList("taskNumbers");
+
+
+
         System.out.println("task list"+taskList+"size"+taskList.size());
         System.out.println("task Time"+taskTime+"size"+taskTime.size());
+        System.out.println("task Numbers"+taskNumbers+"size"+taskNumbers.size());
 
 
-        int taskNoI = currentIndex+1;
-        String taskNo = String.valueOf(taskNoI);
-        String screenTitle = "Task "+taskNo+"/10";
+//        int taskNoI = currentIndex+1;
+//        String taskNo = String.valueOf(taskNoI);
+        String screenTitle = "Task "+String.valueOf(showIndex)+"/5";
         this.setTitle(screenTitle);
 
         currentTime = System.currentTimeMillis();
@@ -151,81 +160,63 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                     System.out.println("childClickTime"+childClickTime);
                     String selected = expandableListAdapter.getChild(groupPosition,childPosition).toString();
                     System.out.println("group position "+groupPosition+" child "+childPosition);
-                    if(currentIndex==0)
+
+                    if (showIndex < 3)
                     {
-                        System.out.println("44");
-                        if(groupPosition==0 && childPosition==0)
+                        System.out.println("chaddi");
+                        if (groupPosition < 3 && childPosition < 2)
                         {
-                            System.out.println("55");
-                            if(taskTime.size()==0)
-                            {
-                                System.out.println("66");
-                                taskTime.add(0,childClickTime);
-                                System.out.println("task list"+taskList+"size"+taskList.size());
-                                System.out.println("task Time"+taskTime+"size"+taskTime.size());
-                                System.out.println("done");
-                                startIndex+=1;
-                                currentIndex+=1;
-                                System.out.println("cindex "+currentIndex+" startindex "+startIndex);
-                                Intent intent1=new Intent(MainActivity.this,StartScreen.class);
-                                intent1.putExtra("taskList",taskList);
-                                intent1.putExtra("startIndex",startIndex);
-                                intent1.putExtra("currentIndex",currentIndex);
-                                intent1.putExtra("taskTime",taskTime);
-                                startActivity(intent1);
-                            }
+                            System.out.println("chaddi1");
+                            updateData(groupPosition,childPosition,childClickTime,taskList,taskTime,
+                                    counter,currentIndex,showIndex,taskNumbers);
                         }
+
                     }
-                    else if(currentIndex==1)
+
+                    else if(showIndex==3)
                     {
-                        System.out.println("11");
-                        if(groupPosition==0 && childPosition==1)
-                        {
-                            System.out.println("22");
-                            if(taskTime.size()==1)
+                        System.out.println("33");
+                        try {
+                            taskTime.add(1,childClickTime);
+                            System.out.println("task list"+taskList+"size"+taskList.size());
+                            System.out.println("task Time"+taskTime+"size"+taskTime.size());
+                            System.out.println("done");
+                            showIndex+=1;
+                            counter+=1;
+                            currentIndex+=1;
+                            System.out.println("cindex " + currentIndex + " counter " + counter+ " showIndex " + showIndex);
+                            data.append("taskNo,time");
+                            System.out.println("kkkkkkk");
+                            for(int i = 0; i<3; i++)
                             {
-                                System.out.println("33");
-                                try {
-                                    taskTime.add(1,childClickTime);
-                                    System.out.println("task list"+taskList+"size"+taskList.size());
-                                    System.out.println("task Time"+taskTime+"size"+taskTime.size());
-                                    System.out.println("done");
-                                    startIndex+=1;
-                                    currentIndex+=1;
-                                    System.out.println("kkkkks"+startIndex);
-                                    System.out.println("kkkkkc"+currentIndex);
-                                    data.append("taskNo,time");
-                                    System.out.println("kkkkkkk");
-                                    for(int i = 0; i<2; i++)
-                                    {
-                                        data.append("\n").append(taskList.get(i)).append(",").append(taskTime.get(i));
-                                    }
-                                    System.out.println("kkkkkk"+data);
-                                    Intent intent2=new Intent(MainActivity.this,Finish.class);
-                                    intent2.putExtra("taskList",taskList);
-                                    intent2.putExtra("startIndex",startIndex);
-                                    intent2.putExtra("currentIndex",currentIndex);
-                                    intent2.putExtra("taskTime",taskTime);
-                                    String date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ssZ", Locale.getDefault()).format(new Date());
-                                    String filename = date + ".csv";
-                                    File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), filename);
-                                    System.out.println(file);
-                                    FileOutputStream out = null;
-                                    out = new FileOutputStream(file);
-                                    out.write((data.toString()).getBytes());
-                                    out.close();
-                                    System.out.println("789");
-                                    Toast.makeText(MainActivity.this, "Saved", Toast.LENGTH_SHORT).show();
-                                    intent2.putExtra("fileLocation", file.getAbsolutePath());
-                                    startActivity(intent2);
-                                } catch (FileNotFoundException e) {
-                                    System.out.println("123");
-                                    e.printStackTrace();
-                                } catch (IOException e) {
-                                    System.out.println("456");
-                                    e.printStackTrace();
-                                }
+                                data.append("\n").append(taskList.get(i)).append(",").append(taskTime.get(i));
                             }
+                            System.out.println("kkkkkk"+data);
+                            Intent intent2=new Intent(MainActivity.this,Finish.class);
+                            intent2.putExtra("taskList",taskList);
+                            intent2.putExtra("showIndex",showIndex);
+                            intent2.putExtra("counter",counter);
+                            intent2.putExtra("currentIndex",currentIndex);
+                            intent2.putExtra("taskTime",taskTime);
+                            intent2.putExtra("taskNumbers",taskNumbers);
+                            String date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(new Date());
+                            String filename = date + ".csv";
+//                            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), filename);
+                            File file = new File(getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath(), filename);
+                            System.out.println(file);
+                            FileOutputStream out = new FileOutputStream(file);
+                            out.write((data.toString()).getBytes());
+                            out.close();
+                            System.out.println("789");
+                            Toast.makeText(MainActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+                            intent2.putExtra("fileLocation", file.getAbsolutePath());
+                            startActivity(intent2);
+                        } catch (FileNotFoundException e) {
+                            System.out.println("123");
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            System.out.println("456");
+                            e.printStackTrace();
                         }
                     }
                     return true;
@@ -271,6 +262,29 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 //        });
 
     }
+
+    public void updateData(int groupPosition, int childPosition, long childClickTime, ArrayList<String> taskList, ArrayList<Long> taskTime, int counter, int currentIndex, int showIndex, ArrayList<Integer> taskNumbers)
+    {
+        System.out.println("chaddi2");
+        System.out.println("66");
+        taskTime.add(0, childClickTime);
+        System.out.println("task list" + taskList + "size" + taskList.size());
+        System.out.println("task Time" + taskTime + "size" + taskTime.size());
+        System.out.println("done");
+        counter += 1;
+        currentIndex += 1;
+        showIndex += 1;
+        System.out.println("cindex " + currentIndex + " counter " + counter+ " showIndex " + showIndex);
+        Intent intent1 = new Intent(MainActivity.this, StartScreen.class);
+        intent1.putExtra("taskList", taskList);
+        intent1.putExtra("counter", counter);
+        intent1.putExtra("showIndex", showIndex);
+        intent1.putExtra("currentIndex", currentIndex);
+        intent1.putExtra("taskTime", taskTime);
+        intent1.putExtra("taskNumbers", taskNumbers);
+        startActivity(intent1);
+    }
+
     @Override
     public void onBackPressed() {
     }

@@ -28,7 +28,7 @@ Button button44;
                 if (ActivityCompat.checkSelfPermission(Instructions.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
                         || ActivityCompat.checkSelfPermission(Instructions.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                     // this will request for permission when user has not granted permission for the app
-                    ActivityCompat.requestPermissions(Instructions.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                    ActivityCompat.requestPermissions(Instructions.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.MANAGE_EXTERNAL_STORAGE}, 1);
 
                     if (ActivityCompat.checkSelfPermission(Instructions.this, Manifest.permission.READ_EXTERNAL_STORAGE) == -1) {
                         Toast.makeText(Instructions.this, "You must grant storage access.", Toast.LENGTH_SHORT).show();
