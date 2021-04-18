@@ -201,8 +201,11 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                             intent2.putExtra("taskNumbers",taskNumbers);
                             String date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(new Date());
                             String filename = date + ".csv";
-//                            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), filename);
-                            File file = new File(getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath(), filename);
+                            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), filename);
+//                            File file = new File(getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath(), filename);
+//                            File file = new File(getApplicationContext().getFileStreamPath(filename).getPath());
+//                            File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)+filename);
+//                            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+filename);
                             System.out.println(file);
                             FileOutputStream out = new FileOutputStream(file);
                             out.write((data.toString()).getBytes());
