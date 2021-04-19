@@ -16,6 +16,7 @@ public class StartScreen extends AppCompatActivity {
 
     Button button3;
     ArrayList<String> taskList = new ArrayList<String>();
+    ArrayList<String> taskDoneList = new ArrayList<String>();
     ArrayList<Long> taskTime = new ArrayList<Long>();
     ArrayList<Integer> taskNumbers = new ArrayList<Integer>();
     long startButtonTime;
@@ -73,12 +74,14 @@ public class StartScreen extends AppCompatActivity {
             currentIndex = intent1.getExtras().getInt("currentIndex");
             showIndex = intent1.getExtras().getInt("showIndex");
             taskNumbers = intent1.getExtras().getIntegerArrayList("taskNumbers");
-
+            taskNumber = intent1.getExtras().getInt("taskNumber");
+            taskDoneList= intent1.getExtras().getStringArrayList("taskDoneList");
             taskTime= (ArrayList<Long>) intent1.getSerializableExtra("taskTime");
             System.out.println("cindex "+currentIndex+" counter "+counter+" showindex "+showIndex);
             System.out.println("task list"+taskList+"size"+taskList.size());
             System.out.println("task Time"+taskTime+"size"+taskTime.size());
             System.out.println("task Numbers"+taskNumbers+"size"+taskNumbers.size());
+
         }
 
         TextView text3 = findViewById(R.id.text3);
@@ -92,7 +95,6 @@ public class StartScreen extends AppCompatActivity {
         System.out.println(text4);
         System.out.println("task list"+taskList);
         System.out.println("task Numbers"+taskNumbers);
-
 //        int taskNoI = currentIndex+1;
 //        String taskNo = ;
         String screenTitle = "Task "+String.valueOf(showIndex)+"/5";
@@ -104,11 +106,13 @@ public class StartScreen extends AppCompatActivity {
                 Intent intent=new Intent(StartScreen.this,MainActivity.class);
                 intent.putExtra("startButtonTime",startButtonTime);
                 intent.putExtra("taskList",taskList);
+                intent.putExtra("taskDoneList",taskDoneList);
                 intent.putExtra("counter",counter);
                 intent.putExtra("showIndex",showIndex);
                 intent.putExtra("currentIndex",currentIndex);
                 intent.putExtra("taskTime",taskTime);
                 intent.putExtra("taskNumbers",taskNumbers);
+                intent.putExtra("taskNumber",taskNumber);
                 startActivity(intent);
             }
         });

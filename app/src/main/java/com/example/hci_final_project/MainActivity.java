@@ -58,6 +58,9 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
     ArrayList<String> taskList = new ArrayList<String>();
     ArrayList<Long> taskTime = new ArrayList<Long>();
     ArrayList<Integer> taskNumbers = new ArrayList<Integer>();
+
+    ArrayList<String> taskDoneList = new ArrayList<String>();
+    int taskNumber;
     int counter;
     int currentIndex;
     int showIndex;
@@ -86,11 +89,15 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         Intent intent = getIntent();
         startButtonTime = intent.getExtras().getLong("startButtonTime");
         taskList= intent.getExtras().getStringArrayList("taskList");
+
+        taskDoneList= intent.getExtras().getStringArrayList("taskDoneList");
         counter = intent.getExtras().getInt("counter");
         currentIndex = intent.getExtras().getInt("currentIndex");
         taskTime= (ArrayList<Long>) intent.getSerializableExtra("taskTime");
 
         showIndex = intent.getExtras().getInt("showIndex");
+
+        taskNumber = intent.getExtras().getInt("taskNumber");
         taskNumbers= intent.getExtras().getIntegerArrayList("taskNumbers");
 
 
@@ -161,23 +168,36 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                     String selected = expandableListAdapter.getChild(groupPosition,childPosition).toString();
                     System.out.println("group position "+groupPosition+" child "+childPosition);
 
-                    if (showIndex < 3)
+                    if (showIndex < 2)
                     {
                         System.out.println("chaddi");
-                        if (groupPosition < 3 && childPosition < 2)
+//                        if (groupPosition < 3 && childPosition < 2)
+//                        {
+//                            System.out.println("chaddi1");
+//                            updateData(groupPosition,childPosition,childClickTime,taskList,taskTime,
+//                                    counter,currentIndex,showIndex,taskNumbers,taskNumber,taskDoneList);
+//                        }
+
+                        if  (   (taskNumber==1 && groupPosition == 0 && childPosition == 0)||
+                                (taskNumber==2 && groupPosition == 0 && childPosition == 1)||
+                                (taskNumber==3 && groupPosition == 1 && childPosition == 0)||
+                                (taskNumber==1 && groupPosition == 1 && childPosition == 1)||
+                                (taskNumber==1 && groupPosition == 2 && childPosition == 0)
+                            )
                         {
                             System.out.println("chaddi1");
                             updateData(groupPosition,childPosition,childClickTime,taskList,taskTime,
-                                    counter,currentIndex,showIndex,taskNumbers);
+                                    counter,currentIndex,showIndex,taskNumbers,taskNumber,taskDoneList);
                         }
 
                     }
 
-                    else if(showIndex==3)
+                    else if(showIndex==2)
                     {
                         System.out.println("33");
                         try {
-                            taskTime.add(1,childClickTime);
+                            taskTime.add(childClickTime);
+                            taskDoneList.add(taskList.get(taskNumber));
                             System.out.println("task list"+taskList+"size"+taskList.size());
                             System.out.println("task Time"+taskTime+"size"+taskTime.size());
                             System.out.println("done");
@@ -187,13 +207,15 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                             System.out.println("cindex " + currentIndex + " counter " + counter+ " showIndex " + showIndex);
                             data.append("taskNo,time");
                             System.out.println("kkkkkkk");
-                            for(int i = 0; i<3; i++)
+                            for(int i = 0; i<2; i++)
                             {
-                                data.append("\n").append(taskList.get(i)).append(",").append(taskTime.get(i));
+                                data.append("\n").append(taskDoneList.get(i)).append(",").append(taskTime.get(i));
                             }
                             System.out.println("kkkkkk"+data);
                             Intent intent2=new Intent(MainActivity.this,Finish.class);
                             intent2.putExtra("taskList",taskList);
+                            intent2.putExtra("taskDoneList",taskDoneList);
+                            intent2.putExtra("taskNumber",taskNumber);
                             intent2.putExtra("showIndex",showIndex);
                             intent2.putExtra("counter",counter);
                             intent2.putExtra("currentIndex",currentIndex);
@@ -266,13 +288,15 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 
     }
 
-    public void updateData(int groupPosition, int childPosition, long childClickTime, ArrayList<String> taskList, ArrayList<Long> taskTime, int counter, int currentIndex, int showIndex, ArrayList<Integer> taskNumbers)
+    public void updateData(int groupPosition, int childPosition, long childClickTime, ArrayList<String> taskList, ArrayList<Long> taskTime, int counter, int currentIndex, int showIndex, ArrayList<Integer> taskNumbers, int taskNumber, ArrayList<String> taskDoneList)
     {
         System.out.println("chaddi2");
         System.out.println("66");
-        taskTime.add(0, childClickTime);
+        taskTime.add(childClickTime);
+        taskDoneList.add(taskList.get(taskNumber));
         System.out.println("task list" + taskList + "size" + taskList.size());
         System.out.println("task Time" + taskTime + "size" + taskTime.size());
+        System.out.println("task Done List" + taskDoneList + "size" + taskDoneList.size());
         System.out.println("done");
         counter += 1;
         currentIndex += 1;
@@ -285,6 +309,8 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         intent1.putExtra("currentIndex", currentIndex);
         intent1.putExtra("taskTime", taskTime);
         intent1.putExtra("taskNumbers", taskNumbers);
+        intent1.putExtra("taskNumber", taskNumber);
+        intent1.putExtra("taskDoneList", taskDoneList);
         startActivity(intent1);
     }
 
