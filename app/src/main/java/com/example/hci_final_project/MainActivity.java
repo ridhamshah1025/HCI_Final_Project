@@ -193,6 +193,8 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                         else
                             {
                                 Toast.makeText(MainActivity.this,"False Attempt",Toast.LENGTH_SHORT).show();
+                                updateFalseClickData(groupPosition,childPosition,childClickTime,taskList,taskTime,
+                                        counter,currentIndex,showIndex,taskNumbers,taskNumber,taskDoneList);
                             }
 
 
@@ -308,10 +310,13 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 
     }
 
+    private void updateFalseClickData(int groupPosition, int childPosition, long childClickTime, ArrayList<String> taskList, ArrayList<Long> taskTime, int counter, int currentIndex, int showIndex, ArrayList<Integer> taskNumbers, int taskNumber, ArrayList<String> taskDoneList) {
+        System.out.println("Wrong Click");
+    }
+
     public void updateData(int groupPosition, int childPosition, long childClickTime, ArrayList<String> taskList, ArrayList<Long> taskTime, int counter, int currentIndex, int showIndex, ArrayList<Integer> taskNumbers, int taskNumber, ArrayList<String> taskDoneList)
     {
-        System.out.println("chaddi2");
-        System.out.println("66");
+
         taskTime.add(childClickTime);
         taskDoneList.add(taskList.get(taskNumber));
         System.out.println("task list" + taskList + "size" + taskList.size());
