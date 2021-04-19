@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                     lastExpandedPosition = -1;
                     System.out.println("group position "+groupPosition);
                     String selected = expandableListAdapter.getGroup(groupPosition).toString();
-                    Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
                     if(lastExpandedPosition!=-1 && groupPosition != lastExpandedPosition){
                         expandableListView.collapseGroup(lastExpandedPosition);
                     }
@@ -181,68 +181,87 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                         if  (   (taskNumber==1 && groupPosition == 0 && childPosition == 0)||
                                 (taskNumber==2 && groupPosition == 0 && childPosition == 1)||
                                 (taskNumber==3 && groupPosition == 1 && childPosition == 0)||
-                                (taskNumber==1 && groupPosition == 1 && childPosition == 1)||
-                                (taskNumber==1 && groupPosition == 2 && childPosition == 0)
+                                (taskNumber==4 && groupPosition == 1 && childPosition == 1)||
+                                (taskNumber==5 && groupPosition == 2 && childPosition == 0)
                             )
                         {
                             System.out.println("chaddi1");
                             updateData(groupPosition,childPosition,childClickTime,taskList,taskTime,
                                     counter,currentIndex,showIndex,taskNumbers,taskNumber,taskDoneList);
                         }
+                        else
+                            {
+                                Toast.makeText(MainActivity.this,"False Attempt",Toast.LENGTH_SHORT).show();
+                            }
+
 
                     }
 
                     else if(showIndex==2)
                     {
-                        System.out.println("33");
-                        try {
-                            taskTime.add(childClickTime);
-                            taskDoneList.add(taskList.get(taskNumber));
-                            System.out.println("task list"+taskList+"size"+taskList.size());
-                            System.out.println("task Time"+taskTime+"size"+taskTime.size());
-                            System.out.println("done");
-                            showIndex+=1;
-                            counter+=1;
-                            currentIndex+=1;
-                            System.out.println("cindex " + currentIndex + " counter " + counter+ " showIndex " + showIndex);
-                            data.append("taskNo,time");
-                            System.out.println("kkkkkkk");
-                            for(int i = 0; i<2; i++)
-                            {
-                                data.append("\n").append(taskDoneList.get(i)).append(",").append(taskTime.get(i));
-                            }
-                            System.out.println("kkkkkk"+data);
-                            Intent intent2=new Intent(MainActivity.this,Finish.class);
-                            intent2.putExtra("taskList",taskList);
-                            intent2.putExtra("taskDoneList",taskDoneList);
-                            intent2.putExtra("taskNumber",taskNumber);
-                            intent2.putExtra("showIndex",showIndex);
-                            intent2.putExtra("counter",counter);
-                            intent2.putExtra("currentIndex",currentIndex);
-                            intent2.putExtra("taskTime",taskTime);
-                            intent2.putExtra("taskNumbers",taskNumbers);
-                            String date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(new Date());
-                            String filename = date + ".csv";
-                            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), filename);
+                        if  (   (taskNumber==1 && groupPosition == 0 && childPosition == 0)||
+                                (taskNumber==2 && groupPosition == 0 && childPosition == 1)||
+                                (taskNumber==3 && groupPosition == 1 && childPosition == 0)||
+                                (taskNumber==4 && groupPosition == 1 && childPosition == 1)||
+                                (taskNumber==5 && groupPosition == 2 && childPosition == 0)
+                        )
+                        {
+                            System.out.println("33");
+                            try {
+                                taskTime.add(childClickTime);
+                                taskDoneList.add(taskList.get(taskNumber));
+                                System.out.println("task list"+taskList+"size"+taskList.size());
+                                System.out.println("task Time"+taskTime+"size"+taskTime.size());
+                                System.out.println("done");
+                                showIndex+=1;
+                                counter+=1;
+                                currentIndex+=1;
+                                System.out.println("cindex " + currentIndex + " counter " + counter+ " showIndex " + showIndex);
+                                data.append("taskNo,time");
+                                System.out.println("kkkkkkk");
+                                for(int i = 0; i<2; i++)
+                                {
+                                    data.append("\n").append(taskDoneList.get(i)).append(",").append(taskTime.get(i));
+                                }
+                                System.out.println("kkkkkk"+data);
+                                Intent intent2=new Intent(MainActivity.this,Finish.class);
+                                intent2.putExtra("taskList",taskList);
+                                intent2.putExtra("taskDoneList",taskDoneList);
+                                intent2.putExtra("taskNumber",taskNumber);
+                                intent2.putExtra("showIndex",showIndex);
+                                intent2.putExtra("counter",counter);
+                                intent2.putExtra("currentIndex",currentIndex);
+                                intent2.putExtra("taskTime",taskTime);
+                                intent2.putExtra("taskNumbers",taskNumbers);
+                                String date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(new Date());
+                                String filename = date + ".csv";
+                                File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), filename);
 //                            File file = new File(getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath(), filename);
 //                            File file = new File(getApplicationContext().getFileStreamPath(filename).getPath());
 //                            File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)+filename);
 //                            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+filename);
-                            System.out.println(file);
-                            FileOutputStream out = new FileOutputStream(file);
-                            out.write((data.toString()).getBytes());
-                            out.close();
-                            System.out.println("789");
-                            Toast.makeText(MainActivity.this, "Saved", Toast.LENGTH_SHORT).show();
-                            intent2.putExtra("fileLocation", file.getAbsolutePath());
-                            startActivity(intent2);
-                        } catch (FileNotFoundException e) {
-                            System.out.println("123");
-                            e.printStackTrace();
-                        } catch (IOException e) {
-                            System.out.println("456");
-                            e.printStackTrace();
+                                System.out.println(file);
+                                FileOutputStream out = new FileOutputStream(file);
+                                out.write((data.toString()).getBytes());
+                                out.close();
+                                System.out.println("789");
+                                Toast.makeText(MainActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+                                intent2.putExtra("fileLocation", file.getAbsolutePath());
+                                startActivity(intent2);
+                            } catch (FileNotFoundException e) {
+                                System.out.println("123");
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                System.out.println("456");
+                                e.printStackTrace();
+                            }
+
                         }
+                        else
+                        {
+                            Toast.makeText(MainActivity.this,"False Attempt",Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                     return true;
                 }
