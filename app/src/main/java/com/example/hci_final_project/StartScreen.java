@@ -95,6 +95,7 @@ public class StartScreen extends AppCompatActivity {
         System.out.println(text4);
         System.out.println("task list"+taskList);
         System.out.println("task Numbers"+taskNumbers);
+        System.out.println("task Number"+taskNumber);
 //        int taskNoI = currentIndex+1;
 //        String taskNo = ;
         String screenTitle = "Task "+String.valueOf(showIndex)+"/5";

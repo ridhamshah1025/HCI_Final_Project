@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        currentTime = System.currentTimeMillis();
+
         Intent intent = getIntent();
         startButtonTime = intent.getExtras().getLong("startButtonTime");
         taskList= intent.getExtras().getStringArrayList("taskList");
@@ -98,10 +98,11 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         showIndex = intent.getExtras().getInt("showIndex");
 
         taskNumber = intent.getExtras().getInt("taskNumber");
+
         taskNumbers= intent.getExtras().getIntegerArrayList("taskNumbers");
 
 
-
+        System.out.println("task Number"+taskNumber);
         System.out.println("task list"+taskList+"size"+taskList.size());
         System.out.println("task Time"+taskTime+"size"+taskTime.size());
         System.out.println("task Numbers"+taskNumbers+"size"+taskNumbers.size());
@@ -178,11 +179,11 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 //                                    counter,currentIndex,showIndex,taskNumbers,taskNumber,taskDoneList);
 //                        }
 
-                        if  (   (taskNumber==1 && groupPosition == 0 && childPosition == 0)||
-                                (taskNumber==2 && groupPosition == 0 && childPosition == 1)||
-                                (taskNumber==3 && groupPosition == 1 && childPosition == 0)||
-                                (taskNumber==4 && groupPosition == 1 && childPosition == 1)||
-                                (taskNumber==5 && groupPosition == 2 && childPosition == 0)
+                        if  (   (taskNumber==0 && groupPosition ==0 && childPosition == 0)||
+                                (taskNumber==1 && groupPosition ==0 && childPosition == 1)||
+                                (taskNumber==2 && groupPosition ==1 && childPosition == 0)||
+                                (taskNumber==3 && groupPosition ==1 && childPosition == 1)||
+                                (taskNumber==4 && groupPosition ==2 && childPosition == 0)
                             )
                         {
                             System.out.println("chaddi1");
@@ -199,11 +200,11 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 
                     else if(showIndex==2)
                     {
-                        if  (   (taskNumber==1 && groupPosition == 0 && childPosition == 0)||
-                                (taskNumber==2 && groupPosition == 0 && childPosition == 1)||
-                                (taskNumber==3 && groupPosition == 1 && childPosition == 0)||
-                                (taskNumber==4 && groupPosition == 1 && childPosition == 1)||
-                                (taskNumber==5 && groupPosition == 2 && childPosition == 0)
+                        if  (   (taskNumber==0 && groupPosition == 0 && childPosition == 0)||
+                                (taskNumber==1 && groupPosition == 0 && childPosition == 1)||
+                                (taskNumber==2 && groupPosition == 1 && childPosition == 0)||
+                                (taskNumber==3 && groupPosition == 1 && childPosition == 1)||
+                                (taskNumber==4 && groupPosition == 2 && childPosition == 0)
                         )
                         {
                             System.out.println("33");
