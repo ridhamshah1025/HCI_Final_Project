@@ -67,9 +67,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="0dp">
-
-        </android.gesture.GestureOverlayView>
+            android:eventsInterceptionEnabled="true"
+            android:gestureStrokeType="multiple"
+            android:layout_marginEnd="0dp" />
 
     </RelativeLayout>
 

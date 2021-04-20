@@ -58,12 +58,13 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
     ArrayList<String> taskList = new ArrayList<String>();
     ArrayList<Long> taskTime = new ArrayList<Long>();
     ArrayList<Integer> taskNumbers = new ArrayList<Integer>();
-
     ArrayList<String> taskDoneList = new ArrayList<String>();
     int taskNumber;
     int counter;
     int currentIndex;
     int showIndex;
+
+    int secondCharacter=0;
 
 
     Object selectedChildItem;
@@ -266,6 +267,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                             Toast.makeText(MainActivity.this,"False Attempt",Toast.LENGTH_SHORT).show();
                         }
 
+
                     }
                     return true;
                 }
@@ -345,7 +347,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
     }
 
     private void CreateNamesList() {
-        String[] contacts_a = {"contact 1","contact2"};
+        String[] contacts_a = {"aac","aba","aca"};
         String[] contacts_b = {"contact 1","contact2"};
         String[] contacts_c = {"contact 1","contact2"};
         String[] contacts_d = {"contact 1","contact2"};
@@ -464,7 +466,22 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
     private void LoadNames(String[] character_contacts) {
         Names = new ArrayList<>();
         for(String names: character_contacts){
-            Names.add(names);
+            String characterTwo = String.valueOf(names.charAt(1));
+            String characterFirst = String.valueOf(names.charAt(0));
+            if(secondCharacter>=1 && characterFirst.equals("a"))
+            {
+                if(characterTwo.equals("a"))
+                {
+                    Toast.makeText(this,"second time a"+secondCharacter,Toast.LENGTH_SHORT).show();
+                    Names.add(names);
+                }
+            }
+            else
+            {
+                Names.add(names);
+            }
+
+
         }
     }
     private void CreateCharacterList() {
@@ -502,121 +519,150 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         ArrayList<Prediction> ObjPrediction = GesLib.recognize(gesture);
         if(ObjPrediction.size()>0 && ObjPrediction.get(0).score>1)
         {
-            for(int i=0;i<26;i++)
+            if(secondCharacter>=1)
             {
-                System.out.println(i);
-                expandableListView.collapseGroup(i);
-            }
-            System.out.println(ObjPrediction);
-            predict = ObjPrediction.get(0).name;
-            predict = predict.toString().toLowerCase();
-            System.out.println("predict  "+predict);
+                System.out.println("");
+                System.out.println(ObjPrediction);
+                predict = ObjPrediction.get(0).name;
+                predict = predict.toString().toLowerCase();
+                System.out.println("predict  in second"+predict);
+                if(predict.equals("a"))
+                {
+                    System.out.println("second time a");
+                    CreateCharacterList();
+                    CreateNamesList();
+                    expandableListAdapter = new MyExpandableListAdapter(this,Characters,Contacts);
+                    expandableListView.setAdapter(expandableListAdapter);
+                    expandableListView.expandGroup(0);
+                    Toast.makeText(this,"second time a  :"+secondCharacter,Toast.LENGTH_SHORT).show();
 
-            if(predict.equals("a"))
-            {
-                expandableListView.expandGroup(0);
+                }
+
             }
-            else if(predict.equals("b"))
+            else
             {
-                expandableListView.expandGroup(1);
+                System.out.println("");
+                for(int i=0;i<26;i++)
+                {
+                    System.out.println(i);
+                    expandableListView.collapseGroup(i);
+                }
+
+                System.out.println(ObjPrediction);
+                predict = ObjPrediction.get(0).name;
+                predict = predict.toString().toLowerCase();
+                System.out.println("predict  "+predict);
+
+                if(predict.equals("a"))
+                {
+                    expandableListView.expandGroup(0);
+
+                    secondCharacter+=1;
+                    Toast.makeText(this,"first time a  :"+secondCharacter,Toast.LENGTH_SHORT).show();
+                }
+                else if(predict.equals("b"))
+                {
+                    expandableListView.expandGroup(1);
+                }
+                else if(predict.equals("c"))
+                {
+                    expandableListView.expandGroup(2);
+                }
+                else if(predict.equals("d"))
+                {
+                    expandableListView.expandGroup(3);
+                }
+                else if(predict.equals("e"))
+                {
+                    expandableListView.expandGroup(4);
+                }
+                else if(predict.equals("f"))
+                {
+                    expandableListView.expandGroup(5);
+                }
+                else if(predict.equals("g"))
+                {
+                    expandableListView.expandGroup(6);
+                }
+                else if(predict.equals("h"))
+                {
+                    expandableListView.expandGroup(7);
+                }
+                else if(predict.equals("i"))
+                {
+                    expandableListView.expandGroup(8);
+                }
+                else if(predict.equals("j"))
+                {
+                    expandableListView.expandGroup(9);
+                }
+                else if(predict.equals("k"))
+                {
+                    expandableListView.expandGroup(10);
+                }
+                else if(predict.equals("l"))
+                {
+                    expandableListView.expandGroup(11);
+                }
+                else if(predict.equals("m"))
+                {
+                    expandableListView.expandGroup(12);
+                }
+                else if(predict.equals("n"))
+                {
+                    expandableListView.expandGroup(13);
+                }
+                else if(predict.equals("o"))
+                {
+                    expandableListView.expandGroup(14);
+                }
+                else if(predict.equals("p"))
+                {
+                    expandableListView.expandGroup(15);
+                }
+                else if(predict.equals("q"))
+                {
+                    expandableListView.expandGroup(16);
+                }
+                else if(predict.equals("r"))
+                {
+                    expandableListView.expandGroup(17);
+                }
+                else if(predict.equals("s"))
+                {
+                    expandableListView.expandGroup(18);
+                }
+                else if(predict.equals("t"))
+                {
+                    expandableListView.expandGroup(19);
+                }
+                else if(predict.equals("u"))
+                {
+                    expandableListView.expandGroup(20);
+                }
+                else if(predict.equals("v"))
+                {
+                    expandableListView.expandGroup(21);
+                }
+                else if(predict.equals("w"))
+                {
+                    expandableListView.expandGroup(22);
+                }
+                else if(predict.equals("x"))
+                {
+                    expandableListView.expandGroup(23);
+                }
+                else if(predict.equals("y"))
+                {
+                    expandableListView.expandGroup(24);
+                }
+                else if(predict.equals("z"))
+                {
+                    expandableListView.expandGroup(25);
+                }
+                Toast.makeText(this,predict,Toast.LENGTH_SHORT).show();
             }
-            else if(predict.equals("c"))
-            {
-                expandableListView.expandGroup(2);
-            }
-            else if(predict.equals("d"))
-            {
-                expandableListView.expandGroup(3);
-            }
-            else if(predict.equals("e"))
-            {
-                expandableListView.expandGroup(4);
-            }
-            else if(predict.equals("f"))
-            {
-                expandableListView.expandGroup(5);
-            }
-            else if(predict.equals("g"))
-            {
-                expandableListView.expandGroup(6);
-            }
-            else if(predict.equals("h"))
-            {
-                expandableListView.expandGroup(7);
-            }
-            else if(predict.equals("i"))
-            {
-                expandableListView.expandGroup(8);
-            }
-            else if(predict.equals("j"))
-            {
-                expandableListView.expandGroup(9);
-            }
-            else if(predict.equals("k"))
-            {
-                expandableListView.expandGroup(10);
-            }
-            else if(predict.equals("l"))
-            {
-                expandableListView.expandGroup(11);
-            }
-            else if(predict.equals("m"))
-            {
-                expandableListView.expandGroup(12);
-            }
-            else if(predict.equals("n"))
-            {
-                expandableListView.expandGroup(13);
-            }
-            else if(predict.equals("o"))
-            {
-                expandableListView.expandGroup(14);
-            }
-            else if(predict.equals("p"))
-            {
-                expandableListView.expandGroup(15);
-            }
-            else if(predict.equals("q"))
-            {
-                expandableListView.expandGroup(16);
-            }
-            else if(predict.equals("r"))
-            {
-                expandableListView.expandGroup(17);
-            }
-            else if(predict.equals("s"))
-            {
-                expandableListView.expandGroup(18);
-            }
-            else if(predict.equals("t"))
-            {
-                expandableListView.expandGroup(19);
-            }
-            else if(predict.equals("u"))
-            {
-                expandableListView.expandGroup(20);
-            }
-            else if(predict.equals("v"))
-            {
-                expandableListView.expandGroup(21);
-            }
-            else if(predict.equals("w"))
-            {
-                expandableListView.expandGroup(22);
-            }
-            else if(predict.equals("x"))
-            {
-                expandableListView.expandGroup(23);
-            }
-            else if(predict.equals("y"))
-            {
-                expandableListView.expandGroup(24);
-            }
-            else if(predict.equals("z"))
-            {
-                expandableListView.expandGroup(25);
-            }
-            Toast.makeText(this,predict,Toast.LENGTH_SHORT).show();
+
         }
     }
 }
