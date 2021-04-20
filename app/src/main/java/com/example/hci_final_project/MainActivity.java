@@ -356,8 +356,8 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         String[] contacts_a = {"aaa","abb","acc","add"};
         String[] contacts_b = {"b1b","b2b","bab","bcb","bbc"};
         String[] contacts_c = {"caa","cbb","ccc","cdd"};
-        String[] contacts_d = {"drtry","dqwqrt","dhhqwe","dwebb","dopicc","dpxbmfdd"};
-        String[] contacts_e = {"eaaa","eabb","eacc","eadd"};
+        String[] contacts_d = {"drtry","dqwqrt","dhhqe","dwebb","dopicc","dpxbmfdd"};
+        String[] contacts_e = {"eaaa","eabb","eacghc","eadd"};
         String[] contacts_f = {"faaa","fabb","facc","fadd"};
         String[] contacts_g = {"gaaa","gabb","gacc","gadd"};
         String[] contacts_h = {"haaa","habb","hacc","hadd"};
@@ -464,7 +464,6 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 LoadNames(contacts_z);
             }
             Contacts.put(characters,Names);
-
         }
 
     }
