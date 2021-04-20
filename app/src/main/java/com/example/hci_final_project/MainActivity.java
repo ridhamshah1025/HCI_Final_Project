@@ -590,7 +590,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 expandableListView.collapseGroup(i);
             }
 
-            if(secondCharacter>=1)
+            if(secondCharacter>=1 && secondCharacter<3)
             {
 //                System.out.println("");
 //                System.out.println(ObjPrediction);
@@ -609,45 +609,50 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 lastCharacterPosition = drawCharacterPosition.get(0);
                 currentPredict=predict;
 
+                CreateCharacterList();
+                CreateNamesList();
+                secondCharacter +=1;
+                expandableListAdapter = new MyExpandableListAdapter(this,Characters,Contacts);
+                expandableListView.setAdapter(expandableListAdapter);
+
                 if(predict.equals("a"))
                 {
-                    CreateCharacterList();
-                    CreateNamesList();
-                    secondCharacter +=1;
-                    Toast.makeText(this,"second time a  :"+secondCharacter,Toast.LENGTH_SHORT).show();
-                    expandableListAdapter = new MyExpandableListAdapter(this,Characters,Contacts);
-                    expandableListView.setAdapter(expandableListAdapter);
                     expandableListView.expandGroup(lastCharacterPosition);
                 }
                 else if(predict.equals("b"))
                 {
-                    CreateCharacterList();
-                    CreateNamesList();
-                    secondCharacter +=1;
-                    Toast.makeText(this,"second time b  :"+secondCharacter,Toast.LENGTH_SHORT).show();
-                    expandableListAdapter = new MyExpandableListAdapter(this,Characters,Contacts);
-                    expandableListView.setAdapter(expandableListAdapter);
                     expandableListView.expandGroup(lastCharacterPosition);
                 }
                 else if(predict.equals("c"))
                 {
-                    CreateCharacterList();
-                    CreateNamesList();
-                    secondCharacter +=1;
-                    Toast.makeText(this,"second time c  :"+secondCharacter,Toast.LENGTH_SHORT).show();
-                    expandableListAdapter = new MyExpandableListAdapter(this,Characters,Contacts);
-                    expandableListView.setAdapter(expandableListAdapter);
                     expandableListView.expandGroup(lastCharacterPosition);
                 }
                 else if(predict.equals("d"))
                 {
-                    CreateCharacterList();
-                    CreateNamesList();
-                    secondCharacter +=1;
-                    Toast.makeText(this,"second time d  :"+secondCharacter,Toast.LENGTH_SHORT).show();
-                    expandableListAdapter = new MyExpandableListAdapter(this,Characters,Contacts);
-                    expandableListView.setAdapter(expandableListAdapter);
                     expandableListView.expandGroup(lastCharacterPosition);
+                }
+
+            }
+            else if(secondCharacter>=3)
+            {
+                secondCharacter=0;
+                drawCharacterPosition.clear();
+                drawCharacterList.clear();
+                lastCharacterList=null;
+                predict = ObjPrediction.get(0).name;
+                predict = predict.toString().toLowerCase();
+                drawCharacterList.add(predict);
+//                secondCharacter+=1;
+                currentPredict=predict;
+                CreateCharacterList();
+                CreateNamesList();
+                secondCharacter +=1;
+                expandableListAdapter = new MyExpandableListAdapter(this,Characters,Contacts);
+                expandableListView.setAdapter(expandableListAdapter);
+                if(predict.equals("a"))
+                {
+                    drawCharacterPosition.add(0);
+                    expandableListView.expandGroup(0);
                 }
 
             }
@@ -657,22 +662,17 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 //                System.out.println(ObjPrediction);
                 predict = ObjPrediction.get(0).name;
                 predict = predict.toString().toLowerCase();
-//                System.out.println("predict  "+predict);
+                drawCharacterList.add(predict);
+                secondCharacter+=1;
+                currentPredict=predict;
                 if(predict.equals("a"))
                 {
-                    secondCharacter+=1;
-                    drawCharacterList.add(predict);
                     drawCharacterPosition.add(0);
-                    currentPredict=predict;
                     expandableListView.expandGroup(0);
-//                    Toast.makeText(this,"first time a  :"+secondCharacter,Toast.LENGTH_SHORT).show();
                 }
                 else if(predict.equals("b"))
                 {
-                    secondCharacter+=1;
-                    drawCharacterList.add(predict);
                     drawCharacterPosition.add(1); //add
-                    currentPredict=predict;
                     expandableListView.expandGroup(1);
                 }
                 else if(predict.equals("c"))
