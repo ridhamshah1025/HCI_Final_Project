@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
     ArrayList<String> taskDoneList = new ArrayList<String>();
     ArrayList<String> drawCharacterList = new ArrayList<String>();
     ArrayList<Integer> drawCharacterPosition = new ArrayList<Integer>();
-    String lastCharacterList =null;  // last  means je predict che eni pehlanu
-    String previousCharacter = null; //previous  means predict ni pehlanu pan pehlanu
+    String lastCharacterList =null;  // first character
+    String previousCharacter = null; //second character
     int lastCharacterPosition;
     String currentPredict =null;
     int taskNumber;
@@ -355,30 +355,30 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
     private void CreateNamesList() {
         String[] contacts_a = {"aaa","abb","acc","add"};
         String[] contacts_b = {"b1b","b2b","bab","bcb","bbc"};
-        String[] contacts_c = {"contact 1","contact2","caa","cbb","ccc","cdd"};
-        String[] contacts_d = {"dontact 1","dontact2","daa","dbb","dcc","ddd"};
-        String[] contacts_e = {"contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2"};
-        String[] contacts_f = {"contact 1","contact2"};
-        String[] contacts_g = {"contact 1","contact2"};
-        String[] contacts_h = {"contact 1","contact2"};
-        String[] contacts_i = {"contact 1","contact2"};
-        String[] contacts_j = {"contact 1","contact2"};
-        String[] contacts_k = {"contact 1","contact2"};
-        String[] contacts_l = {"contact 1","contact2"};
-        String[] contacts_m = {"contact 1","contact2"};
-        String[] contacts_n = {"contact 1","contact2"};
-        String[] contacts_o = {"contact 1","contact2"};
-        String[] contacts_p = {"contact 1","contact2"};
-        String[] contacts_q = {"contact 1","contact2"};
-        String[] contacts_r = {"contact 1","contact2"};
-        String[] contacts_s = {"contact 1","contact2"};
-        String[] contacts_t = {"contact 1","contact2"};
-        String[] contacts_u = {"contact 1","contact2"};
-        String[] contacts_v = {"contact 1","contact2"};
-        String[] contacts_w = {"contact 1","contact2"};
-        String[] contacts_x = {"contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2"};
-        String[] contacts_y = {"contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2"};
-        String[] contacts_z = {"contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2"};
+        String[] contacts_c = {"caa","cbb","ccc","cdd"};
+        String[] contacts_d = {"drtry","dqwqrt","dhhqwe","dwebb","dopicc","dpxbmfdd"};
+        String[] contacts_e = {"eaaa","eabb","eacc","eadd"};
+        String[] contacts_f = {"faaa","fabb","facc","fadd"};
+        String[] contacts_g = {"gaaa","gabb","gacc","gadd"};
+        String[] contacts_h = {"haaa","habb","hacc","hadd"};
+        String[] contacts_i = {"iaaai","ibbb","iacc","iadd"};
+        String[] contacts_j = {"jaaa","jabb","jacc","jadd"};
+        String[] contacts_k = {"kaaa","kabb","kacc","kadd"};
+        String[] contacts_l = {"laaa","labb","lacc","ladd"};
+        String[] contacts_m = {"maaa","mabb","macc","madd"};
+        String[] contacts_n = {"naaa","nabb","nacc","nadd"};
+        String[] contacts_o = {"ooooaaa","oooabb","oacc","ooadd"};
+        String[] contacts_p = {"paaa","pppabb","pppacc","ppadd"};
+        String[] contacts_q = {"qqaaa","qqqqqqabb","qqacc","qqadd"};
+        String[] contacts_r = {"raaa","rrrabb","rrracc","rraasfadd"};
+        String[] contacts_s = {"ssssscvbcfaaa","sssggabb","sgvacc","sfadd"};
+        String[] contacts_t = {"ttaaa","tabb","ttacc","tscvssadd"};
+        String[] contacts_u = {"uuaaa","uabb","uuudvacc","uxcbdadd"};
+        String[] contacts_v = {"vaaa","vdsdvabb","vdsssacc","vSDadd"};
+        String[] contacts_w = {"waaa","wabb","wwacc","wadd"};
+        String[] contacts_x = {"xaaa","xabb","xacc","xadd"};
+        String[] contacts_y = {"yaaa","yzdsvcabb","yxsacc","yewadd"};
+        String[] contacts_z = {"zmaaa","zdabb","zlasacc","ziadd"};
 
 
 
@@ -476,7 +476,35 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
             String characterTwo = String.valueOf(names.charAt(1)).toLowerCase();
             String characterFirst = String.valueOf(names.charAt(0)).toLowerCase();
 //            System.out.println(characterFirst+"   "+characterTwo+ "  "+characterThird);
-            if(secondCharacter>=1 && (lastCharacterList.equals("a") || lastCharacterList.equals("b")))
+            if(secondCharacter>=1 && (lastCharacterList.equals("a")
+                    || lastCharacterList.equals("b")
+                    || lastCharacterList.equals("c")
+                    || lastCharacterList.equals("d")
+                    || lastCharacterList.equals("e")
+                    || lastCharacterList.equals("f")
+                    || lastCharacterList.equals("g")
+                    || lastCharacterList.equals("h")
+                    || lastCharacterList.equals("i")
+                    || lastCharacterList.equals("j")
+                    || lastCharacterList.equals("k")
+                    || lastCharacterList.equals("l")
+                    || lastCharacterList.equals("m")
+                    || lastCharacterList.equals("n")
+                    || lastCharacterList.equals("o")
+                    || lastCharacterList.equals("p")
+                    || lastCharacterList.equals("q")
+                    || lastCharacterList.equals("r")
+                    || lastCharacterList.equals("s")
+                    || lastCharacterList.equals("t")
+                    || lastCharacterList.equals("u")
+                    || lastCharacterList.equals("v")
+                    || lastCharacterList.equals("w")
+                    || lastCharacterList.equals("x")
+                    || lastCharacterList.equals("y")
+                    || lastCharacterList.equals("z")
+
+
+            ))
             {
                 if(secondCharacter==1)
                 {
@@ -627,7 +655,91 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 {
                     expandableListView.expandGroup(lastCharacterPosition);
                 }
-                else if(predict.equals("d"))
+                else if(predict.equals("e"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("f"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("g"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("h"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("i"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("j"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("k"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("l"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("m"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("n"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("o"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("p"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("q"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("r"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("s"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("t"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("u"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("v"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("w"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("x"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("y"))
+                {
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("z"))
                 {
                     expandableListView.expandGroup(lastCharacterPosition);
                 }
@@ -649,11 +761,138 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 secondCharacter +=1;
                 expandableListAdapter = new MyExpandableListAdapter(this,Characters,Contacts);
                 expandableListView.setAdapter(expandableListAdapter);
+
                 if(predict.equals("a"))
                 {
                     drawCharacterPosition.add(0);
                     expandableListView.expandGroup(0);
                 }
+                else if(predict.equals("b"))
+                {
+                    drawCharacterPosition.add(1);
+                    expandableListView.expandGroup(1);
+                }
+                else if(predict.equals("c"))
+                {
+                    drawCharacterPosition.add(2);
+                    expandableListView.expandGroup(2);
+                }
+                else if(predict.equals("d"))
+                {
+                    drawCharacterPosition.add(3);
+                    expandableListView.expandGroup(3);
+                }
+                else if(predict.equals("e"))
+                {
+                    drawCharacterPosition.add(4);
+                    expandableListView.expandGroup(4);
+                }
+                else if(predict.equals("f"))
+                {
+                    drawCharacterPosition.add(5);
+                    expandableListView.expandGroup(5);
+                }
+                else if(predict.equals("g"))
+                {
+                    drawCharacterPosition.add(6);
+                    expandableListView.expandGroup(6);
+                }
+                else if(predict.equals("h"))
+                {
+                    drawCharacterPosition.add(7);
+                    expandableListView.expandGroup(7);
+                }
+                else if(predict.equals("i"))
+                {
+                    drawCharacterPosition.add(8);
+                    expandableListView.expandGroup(8);
+                }
+                else if(predict.equals("j"))
+                {
+                    drawCharacterPosition.add(9);
+                    expandableListView.expandGroup(9);
+                }
+                else if(predict.equals("k"))
+                {
+                    drawCharacterPosition.add(10);
+                    expandableListView.expandGroup(10);
+                }
+                else if(predict.equals("l"))
+                {
+                    drawCharacterPosition.add(11);
+                    expandableListView.expandGroup(11);
+                }
+                else if(predict.equals("m"))
+                {
+                    drawCharacterPosition.add(12);
+                    expandableListView.expandGroup(12);
+                }
+                else if(predict.equals("n"))
+                {
+                    drawCharacterPosition.add(13);
+                    expandableListView.expandGroup(13);
+                }
+                else if(predict.equals("o"))
+                {
+                    drawCharacterPosition.add(14);
+                    expandableListView.expandGroup(14);
+                }
+                else if(predict.equals("p"))
+                {
+                    drawCharacterPosition.add(15);
+                    expandableListView.expandGroup(15);
+                }
+                else if(predict.equals("q"))
+                {
+                    drawCharacterPosition.add(16);
+                    expandableListView.expandGroup(16);
+                }
+                else if(predict.equals("r"))
+                {
+                    drawCharacterPosition.add(17);
+                    expandableListView.expandGroup(17);
+                }
+                else if(predict.equals("s"))
+                {
+                    drawCharacterPosition.add(18);
+                    expandableListView.expandGroup(18);
+                }
+                else if(predict.equals("t"))
+                {
+                    drawCharacterPosition.add(19);
+                    expandableListView.expandGroup(19);
+                }
+                else if(predict.equals("u"))
+                {
+                    drawCharacterPosition.add(20);
+                    expandableListView.expandGroup(20);
+                }
+                else if(predict.equals("v"))
+                {
+                    drawCharacterPosition.add(21);
+                    expandableListView.expandGroup(21);
+                }
+                else if(predict.equals("w"))
+                {
+                    drawCharacterPosition.add(22);
+                    expandableListView.expandGroup(22);
+                }
+                else if(predict.equals("x"))
+                {
+                    drawCharacterPosition.add(23);
+                    expandableListView.expandGroup(23);
+                }
+                else if(predict.equals("y"))
+                {
+                    drawCharacterPosition.add(24);
+                    expandableListView.expandGroup(24);
+                }
+                else if(predict.equals("z"))
+                {
+                    drawCharacterPosition.add(25);
+                    expandableListView.expandGroup(25);
+                }
+
 
             }
             else
@@ -672,103 +911,127 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 }
                 else if(predict.equals("b"))
                 {
-                    drawCharacterPosition.add(1); //add
+                    drawCharacterPosition.add(1);
                     expandableListView.expandGroup(1);
                 }
                 else if(predict.equals("c"))
                 {
+                    drawCharacterPosition.add(2);
                     expandableListView.expandGroup(2);
                 }
                 else if(predict.equals("d"))
                 {
+                    drawCharacterPosition.add(3);
                     expandableListView.expandGroup(3);
                 }
                 else if(predict.equals("e"))
                 {
+                    drawCharacterPosition.add(4);
                     expandableListView.expandGroup(4);
                 }
                 else if(predict.equals("f"))
                 {
+                    drawCharacterPosition.add(5);
                     expandableListView.expandGroup(5);
                 }
                 else if(predict.equals("g"))
                 {
+                    drawCharacterPosition.add(6);
                     expandableListView.expandGroup(6);
                 }
                 else if(predict.equals("h"))
                 {
+                    drawCharacterPosition.add(7);
                     expandableListView.expandGroup(7);
                 }
                 else if(predict.equals("i"))
                 {
+                    drawCharacterPosition.add(8);
                     expandableListView.expandGroup(8);
                 }
                 else if(predict.equals("j"))
                 {
+                    drawCharacterPosition.add(9);
                     expandableListView.expandGroup(9);
                 }
                 else if(predict.equals("k"))
                 {
+                    drawCharacterPosition.add(10);
                     expandableListView.expandGroup(10);
                 }
                 else if(predict.equals("l"))
                 {
+                    drawCharacterPosition.add(11);
                     expandableListView.expandGroup(11);
                 }
                 else if(predict.equals("m"))
                 {
+                    drawCharacterPosition.add(12);
                     expandableListView.expandGroup(12);
                 }
                 else if(predict.equals("n"))
                 {
+                    drawCharacterPosition.add(13);
                     expandableListView.expandGroup(13);
                 }
                 else if(predict.equals("o"))
                 {
+                    drawCharacterPosition.add(14);
                     expandableListView.expandGroup(14);
                 }
                 else if(predict.equals("p"))
                 {
+                    drawCharacterPosition.add(15);
                     expandableListView.expandGroup(15);
                 }
                 else if(predict.equals("q"))
                 {
+                    drawCharacterPosition.add(16);
                     expandableListView.expandGroup(16);
                 }
                 else if(predict.equals("r"))
                 {
+                    drawCharacterPosition.add(17);
                     expandableListView.expandGroup(17);
                 }
                 else if(predict.equals("s"))
                 {
+                    drawCharacterPosition.add(18);
                     expandableListView.expandGroup(18);
                 }
                 else if(predict.equals("t"))
                 {
+                    drawCharacterPosition.add(19);
                     expandableListView.expandGroup(19);
                 }
                 else if(predict.equals("u"))
                 {
+                    drawCharacterPosition.add(20);
                     expandableListView.expandGroup(20);
                 }
                 else if(predict.equals("v"))
                 {
+                    drawCharacterPosition.add(21);
                     expandableListView.expandGroup(21);
                 }
                 else if(predict.equals("w"))
                 {
+                    drawCharacterPosition.add(22);
                     expandableListView.expandGroup(22);
                 }
                 else if(predict.equals("x"))
                 {
+                    drawCharacterPosition.add(23);
                     expandableListView.expandGroup(23);
                 }
                 else if(predict.equals("y"))
                 {
+                    drawCharacterPosition.add(24);
                     expandableListView.expandGroup(24);
                 }
                 else if(predict.equals("z"))
                 {
+                    drawCharacterPosition.add(25);
                     expandableListView.expandGroup(25);
                 }
                 Toast.makeText(this,predict,Toast.LENGTH_SHORT).show();
