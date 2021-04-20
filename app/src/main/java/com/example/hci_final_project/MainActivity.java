@@ -59,6 +59,11 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
     ArrayList<Long> taskTime = new ArrayList<Long>();
     ArrayList<Integer> taskNumbers = new ArrayList<Integer>();
     ArrayList<String> taskDoneList = new ArrayList<String>();
+    ArrayList<String> drawCharacterList = new ArrayList<String>();
+    ArrayList<Integer> drawCharacterPosition = new ArrayList<Integer>();
+    String lastCharacterList =null;
+    int lastCharacterPosition;
+    String currentPredict =null;
     int taskNumber;
     int counter;
     int currentIndex;
@@ -103,10 +108,10 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         taskNumbers= intent.getExtras().getIntegerArrayList("taskNumbers");
 
 
-        System.out.println("task Number"+taskNumber);
-        System.out.println("task list"+taskList+"size"+taskList.size());
-        System.out.println("task Time"+taskTime+"size"+taskTime.size());
-        System.out.println("task Numbers"+taskNumbers+"size"+taskNumbers.size());
+//        System.out.println("task Number"+taskNumber);
+//        System.out.println("task list"+taskList+"size"+taskList.size());
+//        System.out.println("task Time"+taskTime+"size"+taskTime.size());
+//        System.out.println("task Numbers"+taskNumbers+"size"+taskNumbers.size());
 
 
 //        int taskNoI = currentIndex+1;
@@ -116,9 +121,9 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         this.setTitle(screenTitle);
 
         currentTime = System.currentTimeMillis();
-        System.out.println("button click time"+startButtonTime);
-        System.out.println("CurrentTime"+currentTime);
-        System.out.println("diff"+(currentTime-startButtonTime));
+//        System.out.println("button click time"+startButtonTime);
+//        System.out.println("CurrentTime"+currentTime);
+//        System.out.println("diff"+(currentTime-startButtonTime));
         Toast.makeText(MainActivity.this,"diff"+(currentTime-startButtonTime),Toast.LENGTH_SHORT).show();
 
         CreateCharacterList();
@@ -127,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         GesLib = GestureLibraries.fromRawResource(this,R.raw.gesture);
         if(!GesLib.load())
         {
-            System.out.println("Not LOADED");
+//            System.out.println("Not LOADED");
             finish();
         }
         GestureOverlayView GesOver = (GestureOverlayView) findViewById(R.id.ges1);
@@ -152,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 @Override
                 public void onGroupExpand(int groupPosition) {
                     lastExpandedPosition = -1;
-                    System.out.println("group position "+groupPosition);
+//                    System.out.println("group position "+groupPosition);
                     String selected = expandableListAdapter.getGroup(groupPosition).toString();
 //                    Toast.makeText(MainActivity.this,selected,Toast.LENGTH_SHORT).show();
                     if(lastExpandedPosition!=-1 && groupPosition != lastExpandedPosition){
@@ -167,13 +172,13 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 @Override
                 public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                     childClickTime = System.currentTimeMillis()-currentTime;
-                    System.out.println("childClickTime"+childClickTime);
+//                    System.out.println("childClickTime"+childClickTime);
                     String selected = expandableListAdapter.getChild(groupPosition,childPosition).toString();
-                    System.out.println("group position "+groupPosition+" child "+childPosition);
+//                    System.out.println("group position "+groupPosition+" child "+childPosition);
 
                     if (showIndex < 2)
                     {
-                        System.out.println("chaddi");
+//                        System.out.println("chaddi");
 //                        if (groupPosition < 3 && childPosition < 2)
 //                        {
 //                            System.out.println("chaddi1");
@@ -188,7 +193,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                                 (taskNumber==4 && groupPosition ==2 && childPosition == 0)
                             )
                         {
-                            System.out.println("chaddi1");
+//                            System.out.println("chaddi1");
                             updateData(groupPosition,childPosition,childClickTime,taskList,taskTime,
                                     counter,currentIndex,showIndex,taskNumbers,taskNumber,taskDoneList);
                         }
@@ -211,24 +216,24 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                                 (taskNumber==4 && groupPosition == 2 && childPosition == 0)
                         )
                         {
-                            System.out.println("33");
+//                            System.out.println("33");
                             try {
                                 taskTime.add(childClickTime);
                                 taskDoneList.add(taskList.get(taskNumber));
-                                System.out.println("task list"+taskList+"size"+taskList.size());
-                                System.out.println("task Time"+taskTime+"size"+taskTime.size());
-                                System.out.println("done");
+//                                System.out.println("task list"+taskList+"size"+taskList.size());
+//                                System.out.println("task Time"+taskTime+"size"+taskTime.size());
+//                                System.out.println("done");
                                 showIndex+=1;
                                 counter+=1;
                                 currentIndex+=1;
-                                System.out.println("cindex " + currentIndex + " counter " + counter+ " showIndex " + showIndex);
+//                                System.out.println("cindex " + currentIndex + " counter " + counter+ " showIndex " + showIndex);
                                 data.append("taskNo,time");
-                                System.out.println("kkkkkkk");
+//                                System.out.println("kkkkkkk");
                                 for(int i = 0; i<2; i++)
                                 {
                                     data.append("\n").append(taskDoneList.get(i)).append(",").append(taskTime.get(i));
                                 }
-                                System.out.println("kkkkkk"+data);
+//                                System.out.println("kkkkkk"+data);
                                 Intent intent2=new Intent(MainActivity.this,Finish.class);
                                 intent2.putExtra("taskList",taskList);
                                 intent2.putExtra("taskDoneList",taskDoneList);
@@ -245,19 +250,19 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 //                            File file = new File(getApplicationContext().getFileStreamPath(filename).getPath());
 //                            File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)+filename);
 //                            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+filename);
-                                System.out.println(file);
+//                                System.out.println(file);
                                 FileOutputStream out = new FileOutputStream(file);
                                 out.write((data.toString()).getBytes());
                                 out.close();
-                                System.out.println("789");
+//                                System.out.println("789");
                                 Toast.makeText(MainActivity.this, "Saved", Toast.LENGTH_SHORT).show();
                                 intent2.putExtra("fileLocation", file.getAbsolutePath());
                                 startActivity(intent2);
                             } catch (FileNotFoundException e) {
-                                System.out.println("123");
+//                                System.out.println("123");
                                 e.printStackTrace();
                             } catch (IOException e) {
-                                System.out.println("456");
+//                                System.out.println("456");
                                 e.printStackTrace();
                             }
 
@@ -285,7 +290,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                     if (lastExpandedPosition!=-1){
                         for(int i=0;i<26;i++)
                         {
-                            System.out.println(i);
+//                            System.out.println(i);
                             expandableListView.collapseGroup(i);
                         }
                         expandableListView.collapseGroup(lastExpandedPosition);
@@ -314,7 +319,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
     }
 
     private void updateFalseClickData(int groupPosition, int childPosition, long childClickTime, ArrayList<String> taskList, ArrayList<Long> taskTime, int counter, int currentIndex, int showIndex, ArrayList<Integer> taskNumbers, int taskNumber, ArrayList<String> taskDoneList) {
-        System.out.println("Wrong Click");
+//        System.out.println("Wrong Click");
     }
 
     public void updateData(int groupPosition, int childPosition, long childClickTime, ArrayList<String> taskList, ArrayList<Long> taskTime, int counter, int currentIndex, int showIndex, ArrayList<Integer> taskNumbers, int taskNumber, ArrayList<String> taskDoneList)
@@ -322,14 +327,14 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 
         taskTime.add(childClickTime);
         taskDoneList.add(taskList.get(taskNumber));
-        System.out.println("task list" + taskList + "size" + taskList.size());
-        System.out.println("task Time" + taskTime + "size" + taskTime.size());
-        System.out.println("task Done List" + taskDoneList + "size" + taskDoneList.size());
-        System.out.println("done");
+//        System.out.println("task list" + taskList + "size" + taskList.size());
+//        System.out.println("task Time" + taskTime + "size" + taskTime.size());
+//        System.out.println("task Done List" + taskDoneList + "size" + taskDoneList.size());
+//        System.out.println("done");
         counter += 1;
         currentIndex += 1;
         showIndex += 1;
-        System.out.println("cindex " + currentIndex + " counter " + counter+ " showIndex " + showIndex);
+//        System.out.println("cindex " + currentIndex + " counter " + counter+ " showIndex " + showIndex);
         Intent intent1 = new Intent(MainActivity.this, StartScreen.class);
         intent1.putExtra("taskList", taskList);
         intent1.putExtra("counter", counter);
@@ -347,10 +352,10 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
     }
 
     private void CreateNamesList() {
-        String[] contacts_a = {"aac","aba","aca"};
-        String[] contacts_b = {"contact 1","contact2"};
-        String[] contacts_c = {"contact 1","contact2"};
-        String[] contacts_d = {"contact 1","contact2"};
+        String[] contacts_a = {"aac","aba","aca","aaa"};
+        String[] contacts_b = {"b1","b2","bab","bcb","bbc"};
+        String[] contacts_c = {"contact 1","contact2","ca","cb","cc","cd"};
+        String[] contacts_d = {"dontact 1","dontact2","da","db","dc","dd"};
         String[] contacts_e = {"contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2"};
         String[] contacts_f = {"contact 1","contact2"};
         String[] contacts_g = {"contact 1","contact2"};
@@ -466,22 +471,43 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
     private void LoadNames(String[] character_contacts) {
         Names = new ArrayList<>();
         for(String names: character_contacts){
+//            String characterThird = String.valueOf(names.charAt(2)).toLowerCase();
             String characterTwo = String.valueOf(names.charAt(1)).toLowerCase();
             String characterFirst = String.valueOf(names.charAt(0)).toLowerCase();
-            if(secondCharacter>=1 && characterFirst.equals("a"))
+            System.out.println(characterFirst+"   "+characterTwo);
+            if(secondCharacter>=1 && lastCharacterList.equals("a"))
             {
-                if(characterTwo.equals("a"))
+
+                if(characterTwo.equals("a") && secondCharacter==1 && currentPredict.equals("a"))
                 {
-                    Toast.makeText(this,"second time a"+secondCharacter,Toast.LENGTH_SHORT).show();
+                    System.out.println("&");
+//                        Toast.makeText(this,"second time a  ::"+secondCharacter,Toast.LENGTH_SHORT).show();
+                        Names.add(names);
+                }
+                else if(characterTwo.equals("b") && secondCharacter==1 && currentPredict.equals("b"))
+                {
+                    System.out.println("&&");
+//                        Toast.makeText(this,"second time a  ::"+secondCharacter,Toast.LENGTH_SHORT).show();
+                    Names.add(names);
+                }
+                else if(characterTwo.equals("c") && secondCharacter==1 && currentPredict.equals("c"))
+                {
+                    System.out.println("&&&");
+//                        Toast.makeText(this,"second time a  ::"+secondCharacter,Toast.LENGTH_SHORT).show();
+                    Names.add(names);
+                }
+                else if(characterTwo.equals("d") && secondCharacter==1 && currentPredict.equals("d"))
+                {
+                    System.out.println("&&&&");
+//                        Toast.makeText(this,"second time a  ::"+secondCharacter,Toast.LENGTH_SHORT).show();
                     Names.add(names);
                 }
             }
             else
             {
+                System.out.println("&&&&&");
                 Names.add(names);
             }
-
-
         }
     }
     private void CreateCharacterList() {
@@ -519,47 +545,81 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         ArrayList<Prediction> ObjPrediction = GesLib.recognize(gesture);
         if(ObjPrediction.size()>0 && ObjPrediction.get(0).score>1)
         {
+            for(int i=0;i<26;i++)
+            {
+//                System.out.println(i);
+                expandableListView.collapseGroup(i);
+            }
+
             if(secondCharacter>=1)
             {
-                System.out.println("");
-                System.out.println(ObjPrediction);
+//                System.out.println("");
+//                System.out.println(ObjPrediction);
                 predict = ObjPrediction.get(0).name;
                 predict = predict.toString().toLowerCase();
-                System.out.println("predict  in second"+predict);
+//                System.out.println("predict  in second"+predict);
+                lastCharacterList = drawCharacterList.get(0);
+                lastCharacterPosition = drawCharacterPosition.get(0);
+                currentPredict=predict;
+                System.out.println("lastlist"+lastCharacterList+lastCharacterPosition+predict);
                 if(predict.equals("a"))
                 {
-                    System.out.println("second time a");
                     CreateCharacterList();
                     CreateNamesList();
+                    secondCharacter +=1;
+                    Toast.makeText(this,"second time a  :"+secondCharacter,Toast.LENGTH_SHORT).show();
                     expandableListAdapter = new MyExpandableListAdapter(this,Characters,Contacts);
                     expandableListView.setAdapter(expandableListAdapter);
-                    expandableListView.expandGroup(0);
-                    Toast.makeText(this,"second time a  :"+secondCharacter,Toast.LENGTH_SHORT).show();
-
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("b"))
+                {
+                    CreateCharacterList();
+                    CreateNamesList();
+                    secondCharacter +=1;
+                    Toast.makeText(this,"second time b  :"+secondCharacter,Toast.LENGTH_SHORT).show();
+                    expandableListAdapter = new MyExpandableListAdapter(this,Characters,Contacts);
+                    expandableListView.setAdapter(expandableListAdapter);
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("c"))
+                {
+                    CreateCharacterList();
+                    CreateNamesList();
+                    secondCharacter +=1;
+                    Toast.makeText(this,"second time c  :"+secondCharacter,Toast.LENGTH_SHORT).show();
+                    expandableListAdapter = new MyExpandableListAdapter(this,Characters,Contacts);
+                    expandableListView.setAdapter(expandableListAdapter);
+                    expandableListView.expandGroup(lastCharacterPosition);
+                }
+                else if(predict.equals("d"))
+                {
+                    CreateCharacterList();
+                    CreateNamesList();
+                    secondCharacter +=1;
+                    Toast.makeText(this,"second time d  :"+secondCharacter,Toast.LENGTH_SHORT).show();
+                    expandableListAdapter = new MyExpandableListAdapter(this,Characters,Contacts);
+                    expandableListView.setAdapter(expandableListAdapter);
+                    expandableListView.expandGroup(lastCharacterPosition);
                 }
 
             }
             else
             {
-                System.out.println("");
-                for(int i=0;i<26;i++)
-                {
-                    System.out.println(i);
-                    expandableListView.collapseGroup(i);
-                }
 
-                System.out.println(ObjPrediction);
+//                System.out.println(ObjPrediction);
                 predict = ObjPrediction.get(0).name;
                 predict = predict.toString().toLowerCase();
-                System.out.println("predict  "+predict);
-
+                drawCharacterList.add(predict);
+//                System.out.println("predict  "+predict);
                 if(predict.equals("a"))
                 {
-                    Toast.makeText(this,"first time a  :"+secondCharacter,Toast.LENGTH_SHORT).show();
                     secondCharacter+=1;
+                    drawCharacterList.add(predict);
+                    drawCharacterPosition.add(0);
+                    currentPredict=predict;
                     expandableListView.expandGroup(0);
-
-
+//                    Toast.makeText(this,"first time a  :"+secondCharacter,Toast.LENGTH_SHORT).show();
                 }
                 else if(predict.equals("b"))
                 {

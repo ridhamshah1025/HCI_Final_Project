@@ -34,11 +34,11 @@ public class StartScreen extends AppCompatActivity {
 
         intent1 = getIntent();
         Bundle bundle = intent1.getExtras();
-        System.out.println("bundle"+bundle);
+//        System.out.println("bundle"+bundle);
 
         if( bundle == null)
         {
-            System.out.println("intent************");
+//            System.out.println("intent************");
             if (counter == 0)
             {
 //                for(int j = 0; j<10; j++)
@@ -61,14 +61,14 @@ public class StartScreen extends AppCompatActivity {
                     taskNumbers.add(i);
                 }
                 Collections.shuffle(taskNumbers);
-                System.out.println(taskNumbers);
-                System.out.println("cindex "+currentIndex+" counter "+counter+" showindex "+showIndex);
+//                System.out.println(taskNumbers);
+//                System.out.println("cindex "+currentIndex+" counter "+counter+" showindex "+showIndex);
             }
 
         }
         else
         {
-            System.out.println("************");
+//            System.out.println("************");
             taskList= intent1.getExtras().getStringArrayList("taskList");
             counter = intent1.getExtras().getInt("counter");
             currentIndex = intent1.getExtras().getInt("currentIndex");
@@ -77,10 +77,10 @@ public class StartScreen extends AppCompatActivity {
             taskNumber = intent1.getExtras().getInt("taskNumber");
             taskDoneList= intent1.getExtras().getStringArrayList("taskDoneList");
             taskTime= (ArrayList<Long>) intent1.getSerializableExtra("taskTime");
-            System.out.println("cindex "+currentIndex+" counter "+counter+" showindex "+showIndex);
-            System.out.println("task list"+taskList+"size"+taskList.size());
-            System.out.println("task Time"+taskTime+"size"+taskTime.size());
-            System.out.println("task Numbers"+taskNumbers+"size"+taskNumbers.size());
+//            System.out.println("cindex "+currentIndex+" counter "+counter+" showindex "+showIndex);
+//            System.out.println("task list"+taskList+"size"+taskList.size());
+//            System.out.println("task Time"+taskTime+"size"+taskTime.size());
+//            System.out.println("task Numbers"+taskNumbers+"size"+taskNumbers.size());
 
         }
 
@@ -91,11 +91,11 @@ public class StartScreen extends AppCompatActivity {
         text3.setText(setText4);
         taskNumber = taskNumbers.get(currentIndex);
         text4.setText(taskList.get(taskNumber));
-        System.out.println(text3);
-        System.out.println(text4);
-        System.out.println("task list"+taskList);
-        System.out.println("task Numbers"+taskNumbers);
-        System.out.println("task Number"+taskNumber);
+//        System.out.println(text3);
+//        System.out.println(text4);
+//        System.out.println("task list"+taskList);
+//        System.out.println("task Numbers"+taskNumbers);
+//        System.out.println("task Number"+taskNumber);
 //        int taskNoI = currentIndex+1;
 //        String taskNo = ;
         String screenTitle = "Task "+String.valueOf(showIndex)+"/5";
