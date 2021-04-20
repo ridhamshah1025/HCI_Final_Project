@@ -502,7 +502,6 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                     || lastCharacterList.equals("y")
                     || lastCharacterList.equals("z")
 
-
             ))
             {
                 if(secondCharacter==1)
