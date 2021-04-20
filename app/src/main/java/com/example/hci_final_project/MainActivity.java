@@ -555,10 +555,11 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 
                 if(predict.equals("a"))
                 {
+                    Toast.makeText(this,"first time a  :"+secondCharacter,Toast.LENGTH_SHORT).show();
+                    secondCharacter+=1;
                     expandableListView.expandGroup(0);
 
-                    secondCharacter+=1;
-                    Toast.makeText(this,"first time a  :"+secondCharacter,Toast.LENGTH_SHORT).show();
+
                 }
                 else if(predict.equals("b"))
                 {
