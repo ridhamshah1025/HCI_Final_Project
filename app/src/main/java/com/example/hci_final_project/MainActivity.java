@@ -475,7 +475,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
             String characterThird = String.valueOf(names.charAt(2)).toLowerCase();
             String characterTwo = String.valueOf(names.charAt(1)).toLowerCase();
             String characterFirst = String.valueOf(names.charAt(0)).toLowerCase();
-            System.out.println(characterFirst+"   "+characterTwo+ "  "+characterThird);
+//            System.out.println(characterFirst+"   "+characterTwo+ "  "+characterThird);
             if(secondCharacter>=1 && (lastCharacterList.equals("a") || lastCharacterList.equals("b")))
             {
                 if(secondCharacter==1)
