@@ -61,7 +61,8 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
     ArrayList<String> taskDoneList = new ArrayList<String>();
     ArrayList<String> drawCharacterList = new ArrayList<String>();
     ArrayList<Integer> drawCharacterPosition = new ArrayList<Integer>();
-    String lastCharacterList =null;
+    String lastCharacterList =null;  // last  means je predict che eni pehlanu
+    String previousCharacter = null; //previous  means predict ni pehlanu pan pehlanu
     int lastCharacterPosition;
     String currentPredict =null;
     int taskNumber;
@@ -352,10 +353,10 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
     }
 
     private void CreateNamesList() {
-        String[] contacts_a = {"aac","aba","aca","aaa"};
-        String[] contacts_b = {"b1","b2","bab","bcb","bbc"};
-        String[] contacts_c = {"contact 1","contact2","ca","cb","cc","cd"};
-        String[] contacts_d = {"dontact 1","dontact2","da","db","dc","dd"};
+        String[] contacts_a = {"aaa","abb","acc","add"};
+        String[] contacts_b = {"b1b","b2b","bab","bcb","bbc"};
+        String[] contacts_c = {"contact 1","contact2","caa","cbb","ccc","cdd"};
+        String[] contacts_d = {"dontact 1","dontact2","daa","dbb","dcc","ddd"};
         String[] contacts_e = {"contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2","contact 1","contact2"};
         String[] contacts_f = {"contact 1","contact2"};
         String[] contacts_g = {"contact 1","contact2"};
@@ -471,41 +472,79 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
     private void LoadNames(String[] character_contacts) {
         Names = new ArrayList<>();
         for(String names: character_contacts){
-//            String characterThird = String.valueOf(names.charAt(2)).toLowerCase();
+            String characterThird = String.valueOf(names.charAt(2)).toLowerCase();
             String characterTwo = String.valueOf(names.charAt(1)).toLowerCase();
             String characterFirst = String.valueOf(names.charAt(0)).toLowerCase();
-            System.out.println(characterFirst+"   "+characterTwo);
-            if(secondCharacter>=1 && lastCharacterList.equals("a"))
+            System.out.println(characterFirst+"   "+characterTwo+ "  "+characterThird);
+            if(secondCharacter>=1 && (lastCharacterList.equals("a") || lastCharacterList.equals("b")))
             {
-
-                if(characterTwo.equals("a") && secondCharacter==1 && currentPredict.equals("a"))
+                if(secondCharacter==1)
                 {
-                    System.out.println("&");
+//                    if(characterTwo.equals("a") && currentPredict.equals("a"))
+                    if(characterTwo.equals(currentPredict))
+                    {
+                        System.out.println(names);
+                        System.out.println("&");
 //                        Toast.makeText(this,"second time a  ::"+secondCharacter,Toast.LENGTH_SHORT).show();
                         Names.add(names);
+                    }
+//                    else if(characterTwo.equals("b") && currentPredict.equals("b"))
+//                    {
+//                        System.out.println("&&");
+////                        Toast.makeText(this,"second time a  ::"+secondCharacter,Toast.LENGTH_SHORT).show();
+//                        Names.add(names);
+//                    }
+//                    else if(characterTwo.equals("c") && currentPredict.equals("c"))
+//                    {
+//                        System.out.println("&&&");
+////                        Toast.makeText(this,"second time a  ::"+secondCharacter,Toast.LENGTH_SHORT).show();
+//                        Names.add(names);
+//                    }
+//                    else if(characterTwo.equals("d") && currentPredict.equals("d"))
+//                    {
+//                        System.out.println("&&&&");
+////                        Toast.makeText(this,"second time a  ::"+secondCharacter,Toast.LENGTH_SHORT).show();
+//                        Names.add(names);
+//                    }
                 }
-                else if(characterTwo.equals("b") && secondCharacter==1 && currentPredict.equals("b"))
+                else if(secondCharacter==2 && characterTwo.equals(previousCharacter))
                 {
-                    System.out.println("&&");
+                    System.out.println(names);
+                    if(characterThird.equals(currentPredict))
+                    {
+                        System.out.println("&");
 //                        Toast.makeText(this,"second time a  ::"+secondCharacter,Toast.LENGTH_SHORT).show();
-                    Names.add(names);
-                }
-                else if(characterTwo.equals("c") && secondCharacter==1 && currentPredict.equals("c"))
-                {
-                    System.out.println("&&&");
-//                        Toast.makeText(this,"second time a  ::"+secondCharacter,Toast.LENGTH_SHORT).show();
-                    Names.add(names);
-                }
-                else if(characterTwo.equals("d") && secondCharacter==1 && currentPredict.equals("d"))
-                {
-                    System.out.println("&&&&");
-//                        Toast.makeText(this,"second time a  ::"+secondCharacter,Toast.LENGTH_SHORT).show();
-                    Names.add(names);
+                        Names.add(names);
+                    }
+//                    if(characterThird.equals("a") && currentPredict.equals("a") )
+//                    {
+//                        System.out.println("&");
+////                        Toast.makeText(this,"second time a  ::"+secondCharacter,Toast.LENGTH_SHORT).show();
+//                        Names.add(names);
+//                    }
+//                    else if(characterThird.equals("b") && currentPredict.equals("b"))
+//                    {
+//                        System.out.println("&&");
+////                        Toast.makeText(this,"second time a  ::"+secondCharacter,Toast.LENGTH_SHORT).show();
+//                        Names.add(names);
+//                    }
+//                    else if(characterThird.equals("c") && currentPredict.equals("c"))
+//                    {
+//                        System.out.println("&&&");
+////                        Toast.makeText(this,"second time a  ::"+secondCharacter,Toast.LENGTH_SHORT).show();
+//                        Names.add(names);
+//                    }
+//                    else if(characterThird.equals("d") && currentPredict.equals("d"))
+//                    {
+//                        System.out.println("&&&&");
+////                        Toast.makeText(this,"second time a  ::"+secondCharacter,Toast.LENGTH_SHORT).show();
+//                        Names.add(names);
+//                    }
                 }
             }
+
             else
             {
-                System.out.println("&&&&&");
                 Names.add(names);
             }
         }
@@ -558,10 +597,23 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 predict = ObjPrediction.get(0).name;
                 predict = predict.toString().toLowerCase();
 //                System.out.println("predict  in second"+predict);
-                lastCharacterList = drawCharacterList.get(0);
+                drawCharacterList.add(predict);
+                System.out.println(drawCharacterList);
+                if(secondCharacter==2)
+                {
+                   previousCharacter=drawCharacterList.get(1);
+                   lastCharacterList= drawCharacterList.get(0);
+                    System.out.println("lastlist "+lastCharacterList+lastCharacterPosition+previousCharacter+predict);
+                }
+                else
+                {
+                    lastCharacterList = drawCharacterList.get(0);
+                    System.out.println("lastlist "+lastCharacterList+lastCharacterPosition+predict);
+                }
+
                 lastCharacterPosition = drawCharacterPosition.get(0);
                 currentPredict=predict;
-                System.out.println("lastlist"+lastCharacterList+lastCharacterPosition+predict);
+
                 if(predict.equals("a"))
                 {
                     CreateCharacterList();
@@ -610,7 +662,6 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 //                System.out.println(ObjPrediction);
                 predict = ObjPrediction.get(0).name;
                 predict = predict.toString().toLowerCase();
-                drawCharacterList.add(predict);
 //                System.out.println("predict  "+predict);
                 if(predict.equals("a"))
                 {
@@ -623,6 +674,10 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 }
                 else if(predict.equals("b"))
                 {
+                    secondCharacter+=1;
+                    drawCharacterList.add(predict);
+                    drawCharacterPosition.add(1); //add
+                    currentPredict=predict;
                     expandableListView.expandGroup(1);
                 }
                 else if(predict.equals("c"))
