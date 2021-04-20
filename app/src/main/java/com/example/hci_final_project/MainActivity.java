@@ -466,8 +466,8 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
     private void LoadNames(String[] character_contacts) {
         Names = new ArrayList<>();
         for(String names: character_contacts){
-            String characterTwo = String.valueOf(names.charAt(1));
-            String characterFirst = String.valueOf(names.charAt(0));
+            String characterTwo = String.valueOf(names.charAt(1)).toLowerCase();
+            String characterFirst = String.valueOf(names.charAt(0)).toLowerCase();
             if(secondCharacter>=1 && characterFirst.equals("a"))
             {
                 if(characterTwo.equals("a"))
