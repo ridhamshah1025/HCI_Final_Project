@@ -602,15 +602,10 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 if(secondCharacter==2)
                 {
                    previousCharacter=drawCharacterList.get(1);
-                   lastCharacterList= drawCharacterList.get(0);
-                    System.out.println("lastlist "+lastCharacterList+lastCharacterPosition+previousCharacter+predict);
-                }
-                else
-                {
-                    lastCharacterList = drawCharacterList.get(0);
-                    System.out.println("lastlist "+lastCharacterList+lastCharacterPosition+predict);
+//                    System.out.println("lastlist "+lastCharacterList+lastCharacterPosition+previousCharacter+predict);
                 }
 
+                lastCharacterList = drawCharacterList.get(0);
                 lastCharacterPosition = drawCharacterPosition.get(0);
                 currentPredict=predict;
 
