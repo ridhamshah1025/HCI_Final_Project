@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.gesture.Gesture;
 import android.gesture.GestureLibrary;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.GestureDetector;
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 
 //    RelativeLayout layout;
 //    public boolean check_con=true;
+
 
 
     @SuppressLint({"ResourceType", "ClickableViewAccessibility"})
