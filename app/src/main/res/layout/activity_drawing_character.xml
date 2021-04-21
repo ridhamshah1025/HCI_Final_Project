@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/geslayout1"
+    tools:context=".DrawingCharacter">
+
+
+    <android.gesture.GestureOverlayView
+        android:id="@+id/ges2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:eventsInterceptionEnabled="true"
+        android:gestureStrokeType="multiple"
+        android:layout_marginEnd="0dp" >
+
+        <TextView
+            android:id="@+id/textView9898"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:text="Draw a Character on Screen"
+             />
+    </android.gesture.GestureOverlayView>
+
+</RelativeLayout>

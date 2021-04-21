@@ -34,7 +34,7 @@ Button button44;
                         Toast.makeText(Instructions.this, "You must grant storage access.", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Intent intent = new Intent(Instructions.this, StartScreen.class);
+                    Intent intent = new Intent(Instructions.this, RadioButtonActivity.class);
                     startActivity(intent);
                 }
             }
