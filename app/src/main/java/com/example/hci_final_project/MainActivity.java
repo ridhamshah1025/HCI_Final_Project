@@ -5275,6 +5275,19 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 
         };
         String[] contacts_u = {
+                "Ula",
+                "Ulises",
+                "Ulysses",
+                "Una",
+                "Unique",
+                "Unknown",
+                "Unnamed",
+                "Ura",
+                "Urban",
+                "Uriah",
+                "Uriel",
+                "Urijah",
+                "Ursula"
 
         };
         String[] contacts_v = {
