@@ -130,7 +130,7 @@ public class StartScreen extends AppCompatActivity {
 //        System.out.println("task Number"+taskNumber);
 //        int taskNoI = currentIndex+1;
 //        String taskNo = ;
-        String screenTitle = "Task "+String.valueOf(showIndex)+"/5";
+        String screenTitle = "Task "+String.valueOf(showIndex)+"/20";
         this.setTitle(screenTitle);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override

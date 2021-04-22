@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 //        int taskNoI = currentIndex+1;
 //        String taskNo = String.valueOf(taskNoI);
 
-        String screenTitle = "Task "+String.valueOf(showIndex)+"/5 :";
+        String screenTitle = "Task "+String.valueOf(showIndex)+"/20 :";
         this.setTitle(screenTitle);
 
         currentTime = System.currentTimeMillis();
