@@ -45,18 +45,50 @@ public class StartScreen extends AppCompatActivity {
 //                {
 
 //                }
-                String k = "click on the contact 1 from A ";
+                String k = "Find Avon from A ";//1
                 taskList.add(k);
-                k = "click on the contact 2 from A ";
+                k = "Find Bill from B ";//2
                 taskList.add(k);
-                k = "click on the contact 1 from B ";
+                k = "Find Christian from C ";//3
                 taskList.add(k);
-                k = "click on the contact 2 from B ";
+                k = "Find Deb from D ";//4
                 taskList.add(k);
-                k = "click on the contact 1 from C ";
+                k = "Find Eric from E ";//5
+                taskList.add(k);
+                k = "Find Jessie from J ";//6
+                taskList.add(k);
+                k = "Find Laura from L ";//7
+                taskList.add(k);
+                k = "Find Murphy from M ";//8
+                taskList.add(k);
+                k = "Find Roma from R "; //9
+                taskList.add(k);
+                k = "Find Sydney from S "; //10
                 taskList.add(k);
 
-                for(int i = 0; i < 5; i++)
+                k = "Find Aaron from A ";//11
+                taskList.add(k);
+                k = "Find Earl from E ";//12
+                taskList.add(k);
+                k = "Find Gigi from G ";//13
+                taskList.add(k);
+                k = "Find Lauren from L ";//14
+                taskList.add(k);
+                k = "Find Odin from O ";//15
+                taskList.add(k);
+                k = "Find Queen from Q ";//16
+                taskList.add(k);
+                k = "Find Thompson from T ";//17
+                taskList.add(k);
+                k = "Find Viva from V ";//18
+                taskList.add(k);
+                k = "Find Yasmine from Y ";//19
+                taskList.add(k);
+                k = "Find Zina from Z ";//20
+                taskList.add(k);
+
+
+                for(int i = 0; i < 20; i++)
                 {
                     taskNumbers.add(i);
                 }
