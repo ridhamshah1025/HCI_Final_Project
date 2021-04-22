@@ -5554,6 +5554,12 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 
         };
         String[] contacts_x = {
+                "Xander",
+                "Xavier",
+                "Xena",
+                "Ximena",
+                "Xiomara",
+                "Xzavier"
 
         };
         String[] contacts_y = {
