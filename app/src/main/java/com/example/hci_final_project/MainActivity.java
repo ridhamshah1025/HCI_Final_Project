@@ -4198,6 +4198,17 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 
         };
         String[] contacts_q = {
+                "Qiana",
+                "Queen",
+                "Queenie",
+                "Quentin",
+                "Quiana",
+                "Quincy",
+                "Quinn",
+                "Quint",
+                "Quinten",
+                "Quintin",
+                "Quinton"
 
         };
         String[] contacts_r = {
