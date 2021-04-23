@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 //        System.out.println("button click time"+startButtonTime);
 //        System.out.println("CurrentTime"+currentTime);
 //        System.out.println("diff"+(currentTime-startButtonTime));
-        Toast.makeText(MainActivity.this,"diff"+(currentTime-startButtonTime),Toast.LENGTH_SHORT).show();
+//        Toast.makeText(MainActivity.this,"diff"+(currentTime-startButtonTime),Toast.LENGTH_SHORT).show();
 
         CreateCharacterList();
         CreateNamesList();
@@ -151,9 +151,9 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         ViewGroup footer = (ViewGroup) layoutInflater.inflate(R.layout.footer_layout, expandableListView, false);
         expandableListView.addFooterView(footer);
 
-        layoutInflater = getLayoutInflater();
-        ViewGroup header = (ViewGroup) layoutInflater.inflate(R.layout.list_header, expandableListView, false);
-        expandableListView.addHeaderView(header);
+//        layoutInflater = getLayoutInflater();
+//        ViewGroup header = (ViewGroup) layoutInflater.inflate(R.layout.list_header, expandableListView, false);
+//        expandableListView.addHeaderView(header);
 
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
 
@@ -166,8 +166,9 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                     if(lastExpandedPosition!=-1 && groupPosition != lastExpandedPosition){
                         expandableListView.collapseGroup(lastExpandedPosition);
                     }
-                    expandableListView.setSelectionFromTop(groupPosition,0);
-//                    expandableListView.setSelectedGroup(groupPosition);
+//                    expandableListView.setSelectionFromTop(groupPosition,0);
+//                    expandableListView.top
+                    expandableListView.setSelectedGroup(groupPosition);
                     lastExpandedPosition = groupPosition;
                 }
             });
@@ -175,6 +176,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 @Override
                 public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                     childClickTime = System.currentTimeMillis()-currentTime;
+                    Toast.makeText(MainActivity.this,String.valueOf(childClickTime),Toast.LENGTH_SHORT).show();
 //                    System.out.println("childClickTime"+childClickTime);
                     String selected = expandableListAdapter.getChild(groupPosition,childPosition).toString();
                     System.out.println("group position "+groupPosition+" child "+childPosition+" secondCharacter "+ secondCharacter);
@@ -2859,7 +2861,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                     drawCharacterPosition.add(25);
                     expandableListView.expandGroup(25);
                 }
-                Toast.makeText(this,predict,Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this,predict,Toast.LENGTH_SHORT).show();
             }
 
         }
