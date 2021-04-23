@@ -6,9 +6,9 @@
         android:id="@+id/footer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Footer: End of the ListView!"
+        android:text=""
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:paddingBottom="80dp"
+        android:paddingBottom="200dp"
         />
 
 </LinearLayout>

@@ -725,7 +725,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 "Azalee",
                 "Azaria",
                 "Azul",
-                "Azzie",
+                "Azzie"
 
         };
         String[] contacts_b = {
@@ -1122,7 +1122,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 "Ezell",
                 "Ezequiel",
                 "Ezra",
-                "Ezzard",
+                "Ezzard"
 
         };
         String[] contacts_f = {
@@ -1143,7 +1143,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 "Griffin",
                 "Grover",
                 "Gustavo",
-                "Gwen",
+                "Gwen"
         };
         String[] contacts_h = {
                 "Haden",
@@ -1152,7 +1152,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 "Hillary",
                 "Hosteen",
                 "Hurley",
-                "Hyman",
+                "Hyman"
         };
         String[] contacts_i = {
                 "Ian",
@@ -2147,7 +2147,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 "Ula",
                 "Ulises",
                 "Ulysses",
-                "Una",
+                "Una"
 
         };
         String[] contacts_v = {
