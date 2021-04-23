@@ -36,7 +36,7 @@ public class StartScreen extends AppCompatActivity {
         Bundle bundle = intent1.getExtras();
 //        System.out.println("bundle"+bundle);
 
-        if( bundle == null)
+        if(bundle == null)
         {
 //            System.out.println("intent************");
             if (counter == 0)

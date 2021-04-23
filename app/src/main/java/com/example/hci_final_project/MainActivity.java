@@ -245,7 +245,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                                 (taskNumber==0 && secondCharacter==3 && groupPosition ==0 && childPosition ==0)||
                                 (taskNumber==1 && secondCharacter==3 && groupPosition ==1 && childPosition ==0)||
                                 (taskNumber==2 && secondCharacter==3 && groupPosition ==2 && childPosition ==1)||
-                                (taskNumber==3 && secondCharacter==3 && groupPosition ==3 && childPosition ==1)||
+                                (taskNumber==3 && secondCharacter==3 && groupPosition ==3 && childPosition ==0)||
                                 (taskNumber==4 && secondCharacter==3 && groupPosition ==4 && childPosition == 0)||
                                 (taskNumber==5 && secondCharacter==3 && groupPosition ==9 && childPosition == 6)||
                                 (taskNumber==6 && secondCharacter==3 && groupPosition ==11 && childPosition == 21)||
@@ -343,7 +343,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                                 (taskNumber==0 && secondCharacter==3 && groupPosition ==0 && childPosition ==0)||
                                 (taskNumber==1 && secondCharacter==3 && groupPosition ==1 && childPosition ==0)||
                                 (taskNumber==2 && secondCharacter==3 && groupPosition ==2 && childPosition ==1)||
-                                (taskNumber==3 && secondCharacter==3 && groupPosition ==3 && childPosition ==1)||
+                                (taskNumber==3 && secondCharacter==3 && groupPosition ==3 && childPosition ==0)||
                                 (taskNumber==4 && secondCharacter==3 && groupPosition ==4 && childPosition == 0)||
                                 (taskNumber==5 && secondCharacter==3 && groupPosition ==9 && childPosition == 6)||
                                 (taskNumber==6 && secondCharacter==3 && groupPosition ==11 && childPosition == 21)||
