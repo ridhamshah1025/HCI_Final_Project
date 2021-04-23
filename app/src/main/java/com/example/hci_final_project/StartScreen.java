@@ -57,7 +57,7 @@ public class StartScreen extends AppCompatActivity {
                 taskList.add(k);
                 k = "Find Jessie from J ";//6
                 taskList.add(k);
-                k = "Find Laura from L ";//7
+                k = "Find Lucy from L ";//7
                 taskList.add(k);
                 k = "Find Murphy from M ";//8
                 taskList.add(k);
