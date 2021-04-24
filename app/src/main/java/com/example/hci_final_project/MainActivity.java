@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                     String selected = expandableListAdapter.getChild(groupPosition,childPosition).toString();
                     System.out.println("group position "+groupPosition+" child "+childPosition+" secondCharacter "+ secondCharacter);
 
-                    if (showIndex < 21)
+                    if (showIndex < 20)
                     {
 
                         if  (   (taskNumber==0 && secondCharacter==0 && groupPosition ==0 && childPosition == 3)||
@@ -191,20 +191,19 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                                 (taskNumber==4 && secondCharacter==0 && groupPosition ==3 && childPosition == 25)||
                                 (taskNumber==5 && secondCharacter==0 && groupPosition ==4 && childPosition == 39)||
                                 (taskNumber==6 && secondCharacter==0 && groupPosition ==4 && childPosition == 0)||
-                                (taskNumber==7 && secondCharacter==0 && groupPosition ==6 && childPosition == 12)||
+                                (taskNumber==7 && secondCharacter==0 && groupPosition ==6 && childPosition == 2)||
                                 (taskNumber==8 && secondCharacter==0 && groupPosition ==7 && childPosition == 9)||
                                 (taskNumber==9 && secondCharacter==0 && groupPosition ==9 && childPosition == 216)||
-                                (taskNumber==10 && secondCharacter==0 && groupPosition ==11 && childPosition == 43)||
-                                (taskNumber==11 && secondCharacter==0 && groupPosition==11 && childPosition == 59)||
-                                (taskNumber==12 && secondCharacter==0 && groupPosition ==12 && childPosition == 77)||
-                                (taskNumber==13 && secondCharacter==0 && groupPosition ==14 && childPosition == 1)||
-                                (taskNumber==14 && secondCharacter==0 && groupPosition ==16 && childPosition == 1)||
-                                (taskNumber==15 && secondCharacter==0 && groupPosition ==17 && childPosition == 15)||
-                                (taskNumber==16 && secondCharacter==0 && groupPosition ==18 && childPosition == 390)||
-                                (taskNumber==17 && secondCharacter==0 && groupPosition ==18 && childPosition == 104)||
-                                (taskNumber==18 && secondCharacter==0 && groupPosition ==19 && childPosition == 2)||
-                                (taskNumber==19 && secondCharacter==0 && groupPosition ==24 && childPosition == 0)||
-                                (taskNumber==20 && secondCharacter==0 && groupPosition ==25 && childPosition == 2)||
+                                (taskNumber==10 && secondCharacter==0 && groupPosition ==11 && childPosition == 1)||
+                                (taskNumber==11 && secondCharacter==0 && groupPosition ==12 && childPosition == 77)||
+                                (taskNumber==12 && secondCharacter==0 && groupPosition ==14 && childPosition == 1)||
+                                (taskNumber==13 && secondCharacter==0 && groupPosition ==16 && childPosition == 1)||
+                                (taskNumber==14 && secondCharacter==0 && groupPosition ==17 && childPosition == 15)||
+                                (taskNumber==15 && secondCharacter==0 && groupPosition ==18 && childPosition == 390)||
+                                (taskNumber==16 && secondCharacter==0 && groupPosition ==18 && childPosition == 3)||
+                                (taskNumber==17 && secondCharacter==0 && groupPosition ==19 && childPosition == 2)||
+                                (taskNumber==18 && secondCharacter==0 && groupPosition ==24 && childPosition == 0)||
+                                (taskNumber==19 && secondCharacter==0 && groupPosition ==25 && childPosition == 2)||
                                 (taskNumber==0 && secondCharacter==1 && groupPosition ==0 && childPosition == 3)||
                                 (taskNumber==1 && secondCharacter==1 && groupPosition ==0 && childPosition == 156)||
                                 (taskNumber==2 && secondCharacter==1 && groupPosition ==1 && childPosition == 92)||
@@ -212,20 +211,19 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                                 (taskNumber==4 && secondCharacter==1 && groupPosition ==3 && childPosition == 25)||
                                 (taskNumber==5 && secondCharacter==1 && groupPosition ==4 && childPosition == 39)||
                                 (taskNumber==6 && secondCharacter==1 && groupPosition ==4 && childPosition == 0)||
-                                (taskNumber==7 && secondCharacter==1 && groupPosition ==6 && childPosition == 12)||
+                                (taskNumber==7 && secondCharacter==1 && groupPosition ==6 && childPosition == 2)||
                                 (taskNumber==8 && secondCharacter==1 && groupPosition ==7 && childPosition == 9)||
                                 (taskNumber==9 && secondCharacter==1 && groupPosition ==9 && childPosition == 216)||
-                                (taskNumber==10 && secondCharacter==1 && groupPosition ==11 && childPosition == 43)||
-                                (taskNumber==11 && secondCharacter==1 && groupPosition==11 && childPosition == 59)||
-                                (taskNumber==12 && secondCharacter==1 && groupPosition ==12 && childPosition == 77)||
-                                (taskNumber==13 && secondCharacter==1 && groupPosition ==14 && childPosition == 1)||
-                                (taskNumber==14 && secondCharacter==1 && groupPosition ==16 && childPosition == 1)||
-                                (taskNumber==15 && secondCharacter==1 && groupPosition ==17 && childPosition == 15)||
-                                (taskNumber==16 && secondCharacter==1 && groupPosition ==18 && childPosition == 390)||
-                                (taskNumber==17 && secondCharacter==1 && groupPosition ==18 && childPosition == 104)||
-                                (taskNumber==18 && secondCharacter==1 && groupPosition ==19 && childPosition == 2)||
-                                (taskNumber==19 && secondCharacter==1 && groupPosition ==24 && childPosition == 0)||
-                                (taskNumber==20 && secondCharacter==1 && groupPosition ==25 && childPosition == 2)||
+                                (taskNumber==10 && secondCharacter==1 && groupPosition ==11 && childPosition == 1)||
+                                (taskNumber==11 && secondCharacter==1 && groupPosition ==12 && childPosition == 77)||
+                                (taskNumber==12 && secondCharacter==1 && groupPosition ==14 && childPosition == 1)||
+                                (taskNumber==13 && secondCharacter==1 && groupPosition ==16 && childPosition == 1)||
+                                (taskNumber==14 && secondCharacter==1 && groupPosition ==17 && childPosition == 15)||
+                                (taskNumber==15 && secondCharacter==1 && groupPosition ==18 && childPosition == 390)||
+                                (taskNumber==16 && secondCharacter==1 && groupPosition ==18 && childPosition == 3)||
+                                (taskNumber==17 && secondCharacter==1 && groupPosition ==19 && childPosition == 2)||
+                                (taskNumber==18 && secondCharacter==1 && groupPosition ==24 && childPosition == 0)||
+                                (taskNumber==19 && secondCharacter==1 && groupPosition ==25 && childPosition == 2)||
                                 (taskNumber==0 && secondCharacter==2 && groupPosition ==0 && childPosition == 3)||
                                 (taskNumber==1 && secondCharacter==2 && groupPosition ==0 && childPosition == 18)||
                                 (taskNumber==2 && secondCharacter==2 && groupPosition ==1 && childPosition == 0)||
@@ -236,17 +234,16 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                                 (taskNumber==7 && secondCharacter==2 && groupPosition ==6 && childPosition == 0)||
                                 (taskNumber==8 && secondCharacter==2 && groupPosition ==7 && childPosition == 0)||
                                 (taskNumber==9 && secondCharacter==2 && groupPosition ==9 && childPosition == 36)||
-                                (taskNumber==10 && secondCharacter==2 && groupPosition ==11 && childPosition == 9)||
-                                (taskNumber==11 && secondCharacter==2 && groupPosition==11 && childPosition == 3)||
-                                (taskNumber==12 && secondCharacter==2 && groupPosition ==12 && childPosition == 1)||
-                                (taskNumber==13 && secondCharacter==2 && groupPosition ==14 && childPosition == 0)||
-                                (taskNumber==14 && secondCharacter==2 && groupPosition ==16 && childPosition == 0)||
-                                (taskNumber==15 && secondCharacter==2 && groupPosition ==17 && childPosition == 3)||
-                                (taskNumber==16 && secondCharacter==2 && groupPosition ==18 && childPosition == 2)||
-                                (taskNumber==17 && secondCharacter==2 && groupPosition ==18 && childPosition == 21)||
-                                (taskNumber==18 && secondCharacter==2 && groupPosition ==19 && childPosition == 0)||
-                                (taskNumber==19 && secondCharacter==2 && groupPosition ==24 && childPosition == 0)||
-                                (taskNumber==20 && secondCharacter==2 && groupPosition ==25 && childPosition == 0)||
+                                (taskNumber==10 && secondCharacter==2 && groupPosition ==11 && childPosition == 1)||
+                                (taskNumber==11 && secondCharacter==2 && groupPosition ==12 && childPosition == 1)||
+                                (taskNumber==12 && secondCharacter==2 && groupPosition ==14 && childPosition == 0)||
+                                (taskNumber==13 && secondCharacter==2 && groupPosition ==16 && childPosition == 0)||
+                                (taskNumber==14 && secondCharacter==2 && groupPosition ==17 && childPosition == 3)||
+                                (taskNumber==15 && secondCharacter==2 && groupPosition ==18 && childPosition == 2)||
+                                (taskNumber==16 && secondCharacter==2 && groupPosition ==18 && childPosition == 3)||
+                                (taskNumber==17 && secondCharacter==2 && groupPosition ==19 && childPosition == 0)||
+                                (taskNumber==18 && secondCharacter==2 && groupPosition ==24 && childPosition == 0)||
+                                (taskNumber==19 && secondCharacter==2 && groupPosition ==25 && childPosition == 0)||
                                 (taskNumber==0 && secondCharacter==3 && groupPosition ==0 && childPosition == 1)||
                                 (taskNumber==1 && secondCharacter==3 && groupPosition ==0 && childPosition == 0)||
                                 (taskNumber==2 && secondCharacter==3 && groupPosition ==1 && childPosition == 0)||
@@ -257,17 +254,16 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                                 (taskNumber==7 && secondCharacter==3 && groupPosition ==6 && childPosition == 0)||
                                 (taskNumber==8 && secondCharacter==3 && groupPosition ==7 && childPosition == 0)||
                                 (taskNumber==9 && secondCharacter==3 && groupPosition ==9 && childPosition == 6)||
-                                (taskNumber==10 && secondCharacter==3 && groupPosition ==11 && childPosition == 1)||
-                                (taskNumber==11 && secondCharacter==3 && groupPosition==11 && childPosition == 2)||
-                                (taskNumber==12 && secondCharacter==3 && groupPosition ==12 && childPosition == 0)||
-                                (taskNumber==13 && secondCharacter==3 && groupPosition ==14 && childPosition == 0)||
-                                (taskNumber==14 && secondCharacter==3 && groupPosition ==16 && childPosition == 0)||
-                                (taskNumber==15 && secondCharacter==3 && groupPosition ==17 && childPosition == 0)||
-                                (taskNumber==16 && secondCharacter==3 && groupPosition ==18 && childPosition == 0)||
-                                (taskNumber==17 && secondCharacter==3 && groupPosition ==18 && childPosition == 0)||
-                                (taskNumber==18 && secondCharacter==3 && groupPosition ==19 && childPosition == 0)||
-                                (taskNumber==19 && secondCharacter==3 && groupPosition ==24 && childPosition == 0)||
-                                (taskNumber==20 && secondCharacter==3 && groupPosition ==25 && childPosition == 0)
+                                (taskNumber==10 && secondCharacter==3 && groupPosition ==11 && childPosition == 0)||
+                                (taskNumber==11 && secondCharacter==3 && groupPosition ==12 && childPosition == 0)||
+                                (taskNumber==12 && secondCharacter==3 && groupPosition ==14 && childPosition == 0)||
+                                (taskNumber==13 && secondCharacter==3 && groupPosition ==16 && childPosition == 0)||
+                                (taskNumber==14 && secondCharacter==3 && groupPosition ==17 && childPosition == 0)||
+                                (taskNumber==15 && secondCharacter==3 && groupPosition ==18 && childPosition == 0)||
+                                (taskNumber==16 && secondCharacter==3 && groupPosition ==18 && childPosition == 3)||
+                                (taskNumber==17 && secondCharacter==3 && groupPosition ==19 && childPosition == 0)||
+                                (taskNumber==18 && secondCharacter==3 && groupPosition ==24 && childPosition == 0)||
+                                (taskNumber==19 && secondCharacter==3 && groupPosition ==25 && childPosition == 0)
 
                         )
                         {
@@ -285,7 +281,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 
                     }
 
-                    else if(showIndex==21)
+                    else if(showIndex==20)
                     {
                         if  (   (taskNumber==0 && secondCharacter==0 && groupPosition ==0 && childPosition == 3)||
                                 (taskNumber==1 && secondCharacter==0 && groupPosition ==0 && childPosition == 156)||
@@ -294,20 +290,19 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                                 (taskNumber==4 && secondCharacter==0 && groupPosition ==3 && childPosition == 25)||
                                 (taskNumber==5 && secondCharacter==0 && groupPosition ==4 && childPosition == 39)||
                                 (taskNumber==6 && secondCharacter==0 && groupPosition ==4 && childPosition == 0)||
-                                (taskNumber==7 && secondCharacter==0 && groupPosition ==6 && childPosition == 12)||
+                                (taskNumber==7 && secondCharacter==0 && groupPosition ==6 && childPosition == 2)||
                                 (taskNumber==8 && secondCharacter==0 && groupPosition ==7 && childPosition == 9)||
                                 (taskNumber==9 && secondCharacter==0 && groupPosition ==9 && childPosition == 216)||
-                                (taskNumber==10 && secondCharacter==0 && groupPosition ==11 && childPosition == 43)||
-                                (taskNumber==11 && secondCharacter==0 && groupPosition==11 && childPosition == 59)||
-                                (taskNumber==12 && secondCharacter==0 && groupPosition ==12 && childPosition == 77)||
-                                (taskNumber==13 && secondCharacter==0 && groupPosition ==14 && childPosition == 1)||
-                                (taskNumber==14 && secondCharacter==0 && groupPosition ==16 && childPosition == 1)||
-                                (taskNumber==15 && secondCharacter==0 && groupPosition ==17 && childPosition == 15)||
-                                (taskNumber==16 && secondCharacter==0 && groupPosition ==18 && childPosition == 390)||
-                                (taskNumber==17 && secondCharacter==0 && groupPosition ==18 && childPosition == 104)||
-                                (taskNumber==18 && secondCharacter==0 && groupPosition ==19 && childPosition == 2)||
-                                (taskNumber==19 && secondCharacter==0 && groupPosition ==24 && childPosition == 0)||
-                                (taskNumber==20 && secondCharacter==0 && groupPosition ==25 && childPosition == 2)||
+                                (taskNumber==10 && secondCharacter==0 && groupPosition ==11 && childPosition == 1)||
+                                (taskNumber==11 && secondCharacter==0 && groupPosition ==12 && childPosition == 77)||
+                                (taskNumber==12 && secondCharacter==0 && groupPosition ==14 && childPosition == 1)||
+                                (taskNumber==13 && secondCharacter==0 && groupPosition ==16 && childPosition == 1)||
+                                (taskNumber==14 && secondCharacter==0 && groupPosition ==17 && childPosition == 15)||
+                                (taskNumber==15 && secondCharacter==0 && groupPosition ==18 && childPosition == 390)||
+                                (taskNumber==16 && secondCharacter==0 && groupPosition ==18 && childPosition == 3)||
+                                (taskNumber==17 && secondCharacter==0 && groupPosition ==19 && childPosition == 2)||
+                                (taskNumber==18 && secondCharacter==0 && groupPosition ==24 && childPosition == 0)||
+                                (taskNumber==19 && secondCharacter==0 && groupPosition ==25 && childPosition == 2)||
                                 (taskNumber==0 && secondCharacter==1 && groupPosition ==0 && childPosition == 3)||
                                 (taskNumber==1 && secondCharacter==1 && groupPosition ==0 && childPosition == 156)||
                                 (taskNumber==2 && secondCharacter==1 && groupPosition ==1 && childPosition == 92)||
@@ -315,20 +310,19 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                                 (taskNumber==4 && secondCharacter==1 && groupPosition ==3 && childPosition == 25)||
                                 (taskNumber==5 && secondCharacter==1 && groupPosition ==4 && childPosition == 39)||
                                 (taskNumber==6 && secondCharacter==1 && groupPosition ==4 && childPosition == 0)||
-                                (taskNumber==7 && secondCharacter==1 && groupPosition ==6 && childPosition == 12)||
+                                (taskNumber==7 && secondCharacter==1 && groupPosition ==6 && childPosition == 2)||
                                 (taskNumber==8 && secondCharacter==1 && groupPosition ==7 && childPosition == 9)||
                                 (taskNumber==9 && secondCharacter==1 && groupPosition ==9 && childPosition == 216)||
-                                (taskNumber==10 && secondCharacter==1 && groupPosition ==11 && childPosition == 43)||
-                                (taskNumber==11 && secondCharacter==1 && groupPosition==11 && childPosition == 59)||
-                                (taskNumber==12 && secondCharacter==1 && groupPosition ==12 && childPosition == 77)||
-                                (taskNumber==13 && secondCharacter==1 && groupPosition ==14 && childPosition == 1)||
-                                (taskNumber==14 && secondCharacter==1 && groupPosition ==16 && childPosition == 1)||
-                                (taskNumber==15 && secondCharacter==1 && groupPosition ==17 && childPosition == 15)||
-                                (taskNumber==16 && secondCharacter==1 && groupPosition ==18 && childPosition == 390)||
-                                (taskNumber==17 && secondCharacter==1 && groupPosition ==18 && childPosition == 104)||
-                                (taskNumber==18 && secondCharacter==1 && groupPosition ==19 && childPosition == 2)||
-                                (taskNumber==19 && secondCharacter==1 && groupPosition ==24 && childPosition == 0)||
-                                (taskNumber==20 && secondCharacter==1 && groupPosition ==25 && childPosition == 2)||
+                                (taskNumber==10 && secondCharacter==1 && groupPosition ==11 && childPosition == 1)||
+                                (taskNumber==11 && secondCharacter==1 && groupPosition ==12 && childPosition == 77)||
+                                (taskNumber==12 && secondCharacter==1 && groupPosition ==14 && childPosition == 1)||
+                                (taskNumber==13 && secondCharacter==1 && groupPosition ==16 && childPosition == 1)||
+                                (taskNumber==14 && secondCharacter==1 && groupPosition ==17 && childPosition == 15)||
+                                (taskNumber==15 && secondCharacter==1 && groupPosition ==18 && childPosition == 390)||
+                                (taskNumber==16 && secondCharacter==1 && groupPosition ==18 && childPosition == 3)||
+                                (taskNumber==17 && secondCharacter==1 && groupPosition ==19 && childPosition == 2)||
+                                (taskNumber==18 && secondCharacter==1 && groupPosition ==24 && childPosition == 0)||
+                                (taskNumber==19 && secondCharacter==1 && groupPosition ==25 && childPosition == 2)||
                                 (taskNumber==0 && secondCharacter==2 && groupPosition ==0 && childPosition == 3)||
                                 (taskNumber==1 && secondCharacter==2 && groupPosition ==0 && childPosition == 18)||
                                 (taskNumber==2 && secondCharacter==2 && groupPosition ==1 && childPosition == 0)||
@@ -339,17 +333,16 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                                 (taskNumber==7 && secondCharacter==2 && groupPosition ==6 && childPosition == 0)||
                                 (taskNumber==8 && secondCharacter==2 && groupPosition ==7 && childPosition == 0)||
                                 (taskNumber==9 && secondCharacter==2 && groupPosition ==9 && childPosition == 36)||
-                                (taskNumber==10 && secondCharacter==2 && groupPosition ==11 && childPosition == 9)||
-                                (taskNumber==11 && secondCharacter==2 && groupPosition==11 && childPosition == 3)||
-                                (taskNumber==12 && secondCharacter==2 && groupPosition ==12 && childPosition == 1)||
-                                (taskNumber==13 && secondCharacter==2 && groupPosition ==14 && childPosition == 0)||
-                                (taskNumber==14 && secondCharacter==2 && groupPosition ==16 && childPosition == 0)||
-                                (taskNumber==15 && secondCharacter==2 && groupPosition ==17 && childPosition == 3)||
-                                (taskNumber==16 && secondCharacter==2 && groupPosition ==18 && childPosition == 2)||
-                                (taskNumber==17 && secondCharacter==2 && groupPosition ==18 && childPosition == 21)||
-                                (taskNumber==18 && secondCharacter==2 && groupPosition ==19 && childPosition == 0)||
-                                (taskNumber==19 && secondCharacter==2 && groupPosition ==24 && childPosition == 0)||
-                                (taskNumber==20 && secondCharacter==2 && groupPosition ==25 && childPosition == 0)||
+                                (taskNumber==10 && secondCharacter==2 && groupPosition ==11 && childPosition == 1)||
+                                (taskNumber==11 && secondCharacter==2 && groupPosition ==12 && childPosition == 1)||
+                                (taskNumber==12 && secondCharacter==2 && groupPosition ==14 && childPosition == 0)||
+                                (taskNumber==13 && secondCharacter==2 && groupPosition ==16 && childPosition == 0)||
+                                (taskNumber==14 && secondCharacter==2 && groupPosition ==17 && childPosition == 3)||
+                                (taskNumber==15 && secondCharacter==2 && groupPosition ==18 && childPosition == 2)||
+                                (taskNumber==16 && secondCharacter==2 && groupPosition ==18 && childPosition == 3)||
+                                (taskNumber==17 && secondCharacter==2 && groupPosition ==19 && childPosition == 0)||
+                                (taskNumber==18 && secondCharacter==2 && groupPosition ==24 && childPosition == 0)||
+                                (taskNumber==19 && secondCharacter==2 && groupPosition ==25 && childPosition == 0)||
                                 (taskNumber==0 && secondCharacter==3 && groupPosition ==0 && childPosition == 1)||
                                 (taskNumber==1 && secondCharacter==3 && groupPosition ==0 && childPosition == 0)||
                                 (taskNumber==2 && secondCharacter==3 && groupPosition ==1 && childPosition == 0)||
@@ -360,17 +353,16 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                                 (taskNumber==7 && secondCharacter==3 && groupPosition ==6 && childPosition == 0)||
                                 (taskNumber==8 && secondCharacter==3 && groupPosition ==7 && childPosition == 0)||
                                 (taskNumber==9 && secondCharacter==3 && groupPosition ==9 && childPosition == 6)||
-                                (taskNumber==10 && secondCharacter==3 && groupPosition ==11 && childPosition == 1)||
-                                (taskNumber==11 && secondCharacter==3 && groupPosition==11 && childPosition == 2)||
-                                (taskNumber==12 && secondCharacter==3 && groupPosition ==12 && childPosition == 0)||
-                                (taskNumber==13 && secondCharacter==3 && groupPosition ==14 && childPosition == 0)||
-                                (taskNumber==14 && secondCharacter==3 && groupPosition ==16 && childPosition == 0)||
-                                (taskNumber==15 && secondCharacter==3 && groupPosition ==17 && childPosition == 0)||
-                                (taskNumber==16 && secondCharacter==3 && groupPosition ==18 && childPosition == 0)||
-                                (taskNumber==17 && secondCharacter==3 && groupPosition ==18 && childPosition == 0)||
-                                (taskNumber==18 && secondCharacter==3 && groupPosition ==19 && childPosition == 0)||
-                                (taskNumber==19 && secondCharacter==3 && groupPosition ==24 && childPosition == 0)||
-                                (taskNumber==20 && secondCharacter==3 && groupPosition ==25 && childPosition == 0)
+                                (taskNumber==10 && secondCharacter==3 && groupPosition ==11 && childPosition == 0)||
+                                (taskNumber==11 && secondCharacter==3 && groupPosition ==12 && childPosition == 0)||
+                                (taskNumber==12 && secondCharacter==3 && groupPosition ==14 && childPosition == 0)||
+                                (taskNumber==13 && secondCharacter==3 && groupPosition ==16 && childPosition == 0)||
+                                (taskNumber==14 && secondCharacter==3 && groupPosition ==17 && childPosition == 0)||
+                                (taskNumber==15 && secondCharacter==3 && groupPosition ==18 && childPosition == 0)||
+                                (taskNumber==16 && secondCharacter==3 && groupPosition ==18 && childPosition == 3)||
+                                (taskNumber==17 && secondCharacter==3 && groupPosition ==19 && childPosition == 0)||
+                                (taskNumber==18 && secondCharacter==3 && groupPosition ==24 && childPosition == 0)||
+                                (taskNumber==19 && secondCharacter==3 && groupPosition ==25 && childPosition == 0)
 
                         )
                         {
@@ -387,7 +379,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 //                                System.out.println("cindex " + currentIndex + " counter " + counter+ " showIndex " + showIndex);
                                 data.append("Task No,Task Name,Movement Time");
 //                                System.out.println("kkkkkkk");
-                                for(int i = 0; i<21; i++)
+                                for(int i = 0; i<20; i++)
                                 {
                                     data.append("\n").append(String.valueOf(i+1)).append(",").append(taskDoneList.get(i)).append(",").append(taskTime.get(i));
                                 }
@@ -1169,12 +1161,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         };
         String[] contacts_g = {
                 "Garnet",
-                "Gerda",
-                "Gerhard",
-                "Gerhardt",
-                "Geri",
                 "Germaine",
-                "German",
                 "Gigi",
                 "Gloria",
                 "Glover",
@@ -1488,9 +1475,6 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         };
         String[] contacts_l = {
                 "Lacey",
-                "Latonia",
-                "Latosha",
-                "Latoya",
                 "Lauren",
                 "Laurence",
                 "Laurene",

@@ -45,42 +45,43 @@ public class StartScreen extends AppCompatActivity {
 //                {
 
 //                }
-                String k = "Find Avon from A ";//1
+                String k = "Find Aaron from A ";//1
                 taskList.add(k);
-                k = "Find Bill from B ";//2
+                k = "Find Asia from A ";//2
                 taskList.add(k);
-                k = "Find Christian from C ";//3
+                k = "Find Bill from B ";//3
                 taskList.add(k);
-                k = "Find Deb from D ";//4
+                k = "Find Christian from C ";//4
                 taskList.add(k);
-                k = "Find Eric from E ";//5
+                k = "Find Deb from D ";//5
                 taskList.add(k);
-                k = "Find Jessie from J ";//6
+                k = "Find Elian from E ";//6
                 taskList.add(k);
-                k = "Find Lucy from L ";//7
+                k = "Find Earl from E ";//7
                 taskList.add(k);
-                k = "Find Murphy from M ";//8
+                k = "Find Gigi from G ";//8
                 taskList.add(k);
-                k = "Find Roma from R "; //9
+                k = "Find Heath from H ";//9
                 taskList.add(k);
-                k = "Find Sydney from S "; //10
+                k = "Find Jessi from J ";//10
                 taskList.add(k);
-
-                k = "Find Aaron from A ";//11
+                k = "Find Lauren from L ";//11
                 taskList.add(k);
-                k = "Find Earl from E ";//12
+//                k = "Find Lucy from L ";//12
+//                taskList.add(k);
+                k = "Find Murphy from M ";//12
                 taskList.add(k);
-                k = "Find Gigi from G ";//13
+                k = "Find Odin from O ";//13
                 taskList.add(k);
-                k = "Find Lauren from L ";//14
+                k = "Find Queen from Q ";//14
                 taskList.add(k);
-                k = "Find Odin from O ";//15
+                k = "Find Roma from R "; //15
                 taskList.add(k);
-                k = "Find Queen from Q ";//16
+                k = "Find Sydney from S "; //16
                 taskList.add(k);
-                k = "Find Thompson from T ";//17
+                k = "Find Sabra from S "; //17
                 taskList.add(k);
-                k = "Find Viva from V ";//18
+                k = "Find Thompson from T ";//18
                 taskList.add(k);
                 k = "Find Yasmine from Y ";//19
                 taskList.add(k);
