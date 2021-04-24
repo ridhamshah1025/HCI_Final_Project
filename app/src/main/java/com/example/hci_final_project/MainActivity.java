@@ -375,7 +375,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                                 counter+=1;
                                 currentIndex+=1;
 //                                System.out.println("cindex " + currentIndex + " counter " + counter+ " showIndex " + showIndex);
-                                data.append("taskNo,time");
+                                data.append("Task No,Task Name,Movement Time");
 //                                System.out.println("kkkkkkk");
                                 for(int i = 0; i<20; i++)
                                 {
