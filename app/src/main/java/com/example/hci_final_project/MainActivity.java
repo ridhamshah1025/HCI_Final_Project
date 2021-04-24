@@ -73,6 +73,10 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 
     int secondCharacter=0;
 
+    ArrayList<Integer> falseTaskNumbers = new ArrayList<Integer>();
+    ArrayList<String> falseTaskName = new ArrayList<String>();
+    int totalCounter;
+
 
     Object selectedChildItem;
     long getSelectedId;
@@ -109,6 +113,10 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         taskNumber = intent.getExtras().getInt("taskNumber");
 
         taskNumbers= intent.getExtras().getIntegerArrayList("taskNumbers");
+
+        totalCounter = intent.getExtras().getInt("totalCounter");
+        falseTaskName = intent.getExtras().getStringArrayList("falseTaskName");
+        falseTaskNumbers = intent.getExtras().getIntegerArrayList("falseTaskNumbers");
 
 
 //        System.out.println("task Number"+taskNumber);
@@ -181,7 +189,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                     String selected = expandableListAdapter.getChild(groupPosition,childPosition).toString();
                     System.out.println("group position "+groupPosition+" child "+childPosition+" secondCharacter "+ secondCharacter);
 
-                    if (showIndex < 20)
+                    if (showIndex < 2)
                     {
 
                         if  (   (taskNumber==0 && secondCharacter==0 && groupPosition ==0 && childPosition == 3)||
@@ -269,19 +277,19 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                         {
 //                            System.out.println("chaddi1");
                             updateData(groupPosition,childPosition,childClickTime,taskList,taskTime,
-                                    counter,currentIndex,showIndex,taskNumbers,taskNumber,taskDoneList);
+                                    counter,currentIndex,showIndex,taskNumbers,taskNumber,taskDoneList,totalCounter, falseTaskName,falseTaskNumbers);
                         }
                         else
                             {
+                                failUpdateData(groupPosition,childPosition,childClickTime,taskList,taskTime,
+                                        counter,currentIndex,showIndex,taskNumbers,taskNumber,taskDoneList,totalCounter,falseTaskName,falseTaskNumbers);
                                 Toast.makeText(MainActivity.this,"Please Click on Correct Name",Toast.LENGTH_SHORT).show();
-                                updateFalseClickData(groupPosition,childPosition,childClickTime,taskList,taskTime,
-                                        counter,currentIndex,showIndex,taskNumbers,taskNumber,taskDoneList);
                             }
 
 
                     }
 
-                    else if(showIndex==20)
+                    else if(showIndex==2)
                     {
                         if  (   (taskNumber==0 && secondCharacter==0 && groupPosition ==0 && childPosition == 3)||
                                 (taskNumber==1 && secondCharacter==0 && groupPosition ==0 && childPosition == 156)||
@@ -370,16 +378,18 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                             try {
                                 taskTime.add(childClickTime);
                                 taskDoneList.add(taskList.get(taskNumber));
+                                falseTaskNumbers.remove(new Integer(taskNumber));
 //                                System.out.println("task list"+taskList+"size"+taskList.size());
 //                                System.out.println("task Time"+taskTime+"size"+taskTime.size());
 //                                System.out.println("done");
                                 showIndex+=1;
                                 counter+=1;
                                 currentIndex+=1;
+                                totalCounter+=1;
 //                                System.out.println("cindex " + currentIndex + " counter " + counter+ " showIndex " + showIndex);
                                 data.append("Task No,Task Name,Movement Time");
 //                                System.out.println("kkkkkkk");
-                                for(int i = 0; i<20; i++)
+                                for(int i = 0; i<2; i++)
                                 {
                                     data.append("\n").append(String.valueOf(i+1)).append(",").append(taskDoneList.get(i)).append(",").append(taskTime.get(i));
                                 }
@@ -393,6 +403,9 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                                 intent2.putExtra("currentIndex",currentIndex);
                                 intent2.putExtra("taskTime",taskTime);
                                 intent2.putExtra("taskNumbers",taskNumbers);
+                                intent2.putExtra("totalCounter",totalCounter);
+                                intent2.putExtra("falseTaskName", falseTaskName);
+                                intent2.putExtra("falseTaskNumbers", falseTaskNumbers);
                                 String date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(new Date());
                                 String filename = date + ".csv";
                                 File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), filename);
@@ -419,6 +432,8 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                         }
                         else
                         {
+                            failUpdateData(groupPosition,childPosition,childClickTime,taskList,taskTime,
+                                    counter,currentIndex,showIndex,taskNumbers,taskNumber,taskDoneList,totalCounter,falseTaskName,falseTaskNumbers);
                             Toast.makeText(MainActivity.this,"Please Click on Correct Name",Toast.LENGTH_SHORT).show();
                         }
 
@@ -468,22 +483,26 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 
     }
 
-    private void updateFalseClickData(int groupPosition, int childPosition, long childClickTime, ArrayList<String> taskList, ArrayList<Long> taskTime, int counter, int currentIndex, int showIndex, ArrayList<Integer> taskNumbers, int taskNumber, ArrayList<String> taskDoneList) {
-//        System.out.println("Wrong Click");
-    }
+    private void failUpdateData(int groupPosition, int childPosition, long childClickTime, ArrayList<String> taskList, ArrayList<Long> taskTime, int counter, int currentIndex, int showIndex, ArrayList<Integer> taskNumbers, int taskNumber, ArrayList<String> taskDoneList, int totalCounter, ArrayList<String> falseTaskName, ArrayList<Integer> falseTaskNumbers) {
+//        taskTime.add(childClickTime);
+        boolean ans = falseTaskNumbers.contains(taskNumber);
+        if (ans){
+            System.out.println("The list contains task Number");
+        }
+        else {
+            falseTaskNumbers.add(taskNumber);
+            System.out.println("The list does not contains taskNumber");
+        }
+//        taskDoneList.add(taskList.get(taskNumber));
 
-    public void updateData(int groupPosition, int childPosition, long childClickTime, ArrayList<String> taskList, ArrayList<Long> taskTime, int counter, int currentIndex, int showIndex, ArrayList<Integer> taskNumbers, int taskNumber, ArrayList<String> taskDoneList)
-    {
-
-        taskTime.add(childClickTime);
-        taskDoneList.add(taskList.get(taskNumber));
 //        System.out.println("task list" + taskList + "size" + taskList.size());
 //        System.out.println("task Time" + taskTime + "size" + taskTime.size());
 //        System.out.println("task Done List" + taskDoneList + "size" + taskDoneList.size());
 //        System.out.println("done");
         counter += 1;
         currentIndex += 1;
-        showIndex += 1;
+//        showIndex += 1;
+        totalCounter+=1;
 //        System.out.println("cindex " + currentIndex + " counter " + counter+ " showIndex " + showIndex);
         Intent intent1 = new Intent(MainActivity.this, StartScreen.class);
         intent1.putExtra("taskList", taskList);
@@ -494,6 +513,44 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
         intent1.putExtra("taskNumbers", taskNumbers);
         intent1.putExtra("taskNumber", taskNumber);
         intent1.putExtra("taskDoneList", taskDoneList);
+        intent1.putExtra("totalCounter",totalCounter);
+        intent1.putExtra("falseTaskName", falseTaskName);
+        intent1.putExtra("falseTaskNumbers", falseTaskNumbers);
+        startActivity(intent1);
+
+    }
+
+    private void updateFalseClickData(int groupPosition, int childPosition, long childClickTime, ArrayList<String> taskList, ArrayList<Long> taskTime, int counter, int currentIndex, int showIndex, ArrayList<Integer> taskNumbers, int taskNumber, ArrayList<String> taskDoneList) {
+//        System.out.println("Wrong Click");
+    }
+
+    public void updateData(int groupPosition, int childPosition, long childClickTime, ArrayList<String> taskList, ArrayList<Long> taskTime, int counter, int currentIndex, int showIndex, ArrayList<Integer> taskNumbers, int taskNumber, ArrayList<String> taskDoneList, int totalCounter, ArrayList<String> falseTaskName, ArrayList<Integer> falseTaskNumbers)
+    {
+
+        taskTime.add(childClickTime);
+        taskDoneList.add(taskList.get(taskNumber));
+        falseTaskNumbers.remove(new Integer(taskNumber));
+//        System.out.println("task list" + taskList + "size" + taskList.size());
+//        System.out.println("task Time" + taskTime + "size" + taskTime.size());
+//        System.out.println("task Done List" + taskDoneList + "size" + taskDoneList.size());
+//        System.out.println("done");
+        counter += 1;
+        currentIndex += 1;
+        showIndex += 1;
+        totalCounter+=1;
+//        System.out.println("cindex " + currentIndex + " counter " + counter+ " showIndex " + showIndex);
+        Intent intent1 = new Intent(MainActivity.this, StartScreen.class);
+        intent1.putExtra("taskList", taskList);
+        intent1.putExtra("counter", counter);
+        intent1.putExtra("showIndex", showIndex);
+        intent1.putExtra("currentIndex", currentIndex);
+        intent1.putExtra("taskTime", taskTime);
+        intent1.putExtra("taskNumbers", taskNumbers);
+        intent1.putExtra("taskNumber", taskNumber);
+        intent1.putExtra("taskDoneList", taskDoneList);
+        intent1.putExtra("totalCounter",totalCounter);
+        intent1.putExtra("falseTaskName", falseTaskName);
+        intent1.putExtra("falseTaskNumbers", falseTaskNumbers);
         startActivity(intent1);
     }
 

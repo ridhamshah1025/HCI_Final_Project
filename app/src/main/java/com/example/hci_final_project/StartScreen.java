@@ -28,6 +28,7 @@ public class StartScreen extends AppCompatActivity {
     int showIndex=1;
     Intent intent1;
     int taskNumber;
+    int totalCounter=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,6 +114,10 @@ public class StartScreen extends AppCompatActivity {
             taskNumber = intent1.getExtras().getInt("taskNumber");
             taskDoneList= intent1.getExtras().getStringArrayList("taskDoneList");
             taskTime= (ArrayList<Long>) intent1.getSerializableExtra("taskTime");
+
+            totalCounter = intent1.getExtras().getInt("totalCounter");
+            falseTaskName = intent1.getExtras().getStringArrayList("falseTaskName");
+            falseTaskNumbers = intent1.getExtras().getIntegerArrayList("falseTaskNumbers");
 //            System.out.println("cindex "+currentIndex+" counter "+counter+" showindex "+showIndex);
 //            System.out.println("task list"+taskList+"size"+taskList.size());
 //            System.out.println("task Time"+taskTime+"size"+taskTime.size());
@@ -125,8 +130,21 @@ public class StartScreen extends AppCompatActivity {
 //        showIndex = currentIndex+1;
         String setText4 ="Task "+String.valueOf(showIndex);
         text3.setText(setText4);
-        taskNumber = taskNumbers.get(currentIndex);
-        text4.setText(taskList.get(taskNumber));
+        System.out.println(totalCounter+":"+currentIndex+":"+showIndex+":"+taskNumber+":"+counter);
+        if(totalCounter>=2)
+        {
+            System.out.println("Ridham");
+//            int totalLength = falseTaskNumbers.get(0);
+            taskNumber = falseTaskNumbers.get(0);
+            text4.setText(taskList.get(taskNumber));
+        }
+        else
+        {
+            System.out.println("Shah");
+            taskNumber = taskNumbers.get(currentIndex);
+            text4.setText(taskList.get(taskNumber));
+        }
+
 //        System.out.println(text3);
 //        System.out.println(text4);
 //        System.out.println("task list"+taskList);
@@ -150,6 +168,9 @@ public class StartScreen extends AppCompatActivity {
                 intent.putExtra("taskTime",taskTime);
                 intent.putExtra("taskNumbers",taskNumbers);
                 intent.putExtra("taskNumber",taskNumber);
+                intent.putExtra("totalCounter",totalCounter);
+                intent.putExtra("falseTaskName",falseTaskName);
+                intent.putExtra("falseTaskNumbers",falseTaskNumbers);
                 startActivity(intent);
             }
         });
