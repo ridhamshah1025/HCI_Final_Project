@@ -19,6 +19,9 @@ public class StartScreen extends AppCompatActivity {
     ArrayList<String> taskDoneList = new ArrayList<String>();
     ArrayList<Long> taskTime = new ArrayList<Long>();
     ArrayList<Integer> taskNumbers = new ArrayList<Integer>();
+    ArrayList<Integer> falseTaskNumbers = new ArrayList<Integer>();
+    ArrayList<String> falseTaskName = new ArrayList<String>();
+
     long startButtonTime;
     int counter=0;
     int currentIndex=0;

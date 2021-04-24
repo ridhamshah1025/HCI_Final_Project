@@ -273,7 +273,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                         }
                         else
                             {
-                                Toast.makeText(MainActivity.this,"False Attempt",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this,"Please Click on Correct Name",Toast.LENGTH_SHORT).show();
                                 updateFalseClickData(groupPosition,childPosition,childClickTime,taskList,taskTime,
                                         counter,currentIndex,showIndex,taskNumbers,taskNumber,taskDoneList);
                             }
@@ -419,7 +419,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                         }
                         else
                         {
-                            Toast.makeText(MainActivity.this,"False Attempt",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this,"Please Click on Correct Name",Toast.LENGTH_SHORT).show();
                         }
 
 
@@ -2455,12 +2455,14 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 expandableListView.collapseGroup(i);
             }
 
+
             if(secondCharacter>=1 && secondCharacter<3)
             {
 //                System.out.println("");
 //                System.out.println(ObjPrediction);
                 predict = ObjPrediction.get(0).name;
                 predict = predict.toString().toLowerCase();
+                Toast.makeText(MainActivity.this,predict,Toast.LENGTH_SHORT).show();
 //                System.out.println("predict  in second"+predict);
                 drawCharacterList.add(predict);
                 System.out.println(drawCharacterList);
@@ -2599,6 +2601,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 lastCharacterList=null;
                 predict = ObjPrediction.get(0).name;
                 predict = predict.toString().toLowerCase();
+                Toast.makeText(MainActivity.this,predict,Toast.LENGTH_SHORT).show();
                 drawCharacterList.add(predict);
 //                secondCharacter+=1;
                 currentPredict=predict;
@@ -2747,6 +2750,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 //                System.out.println(ObjPrediction);
                 predict = ObjPrediction.get(0).name;
                 predict = predict.toString().toLowerCase();
+                Toast.makeText(MainActivity.this,predict,Toast.LENGTH_SHORT).show();
                 drawCharacterList.add(predict);
                 secondCharacter+=1;
                 currentPredict=predict;
