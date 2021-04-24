@@ -189,7 +189,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                     String selected = expandableListAdapter.getChild(groupPosition,childPosition).toString();
                     System.out.println("group position "+groupPosition+" child "+childPosition+" secondCharacter "+ secondCharacter);
 
-                    if (showIndex < 2)
+                    if (showIndex < 20)
                     {
 
                         if  (   (taskNumber==0 && secondCharacter==0 && groupPosition ==0 && childPosition == 3)||
@@ -289,7 +289,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 
                     }
 
-                    else if(showIndex==2)
+                    else if(showIndex==20)
                     {
                         if  (   (taskNumber==0 && secondCharacter==0 && groupPosition ==0 && childPosition == 3)||
                                 (taskNumber==1 && secondCharacter==0 && groupPosition ==0 && childPosition == 156)||
@@ -389,7 +389,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
 //                                System.out.println("cindex " + currentIndex + " counter " + counter+ " showIndex " + showIndex);
                                 data.append("Task No,Task Name,Movement Time");
 //                                System.out.println("kkkkkkk");
-                                for(int i = 0; i<2; i++)
+                                for(int i = 0; i<20; i++)
                                 {
                                     data.append("\n").append(String.valueOf(i+1)).append(",").append(taskDoneList.get(i)).append(",").append(taskTime.get(i));
                                 }

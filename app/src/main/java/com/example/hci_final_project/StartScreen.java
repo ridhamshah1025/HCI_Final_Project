@@ -131,7 +131,7 @@ public class StartScreen extends AppCompatActivity {
         String setText4 ="Task "+String.valueOf(showIndex);
         text3.setText(setText4);
         System.out.println(totalCounter+":"+currentIndex+":"+showIndex+":"+taskNumber+":"+counter);
-        if(totalCounter>=2)
+        if(totalCounter>=20)
         {
             System.out.println("Ridham");
 //            int totalLength = falseTaskNumbers.get(0);
