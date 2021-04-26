@@ -283,7 +283,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                             {
                                 failUpdateData(groupPosition,childPosition,childClickTime,taskList,taskTime,
                                         counter,currentIndex,showIndex,taskNumbers,taskNumber,taskDoneList,totalCounter,falseTaskName,falseTaskNumbers);
-                                Toast.makeText(MainActivity.this,"Please Click on Correct Name",Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(MainActivity.this,"Please Click on Correct Name",Toast.LENGTH_SHORT).show();
                             }
 
 
@@ -434,7 +434,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                         {
                             failUpdateData(groupPosition,childPosition,childClickTime,taskList,taskTime,
                                     counter,currentIndex,showIndex,taskNumbers,taskNumber,taskDoneList,totalCounter,falseTaskName,falseTaskNumbers);
-                            Toast.makeText(MainActivity.this,"Please Click on Correct Name",Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(MainActivity.this,"Please Click on Correct Name",Toast.LENGTH_SHORT).show();
                         }
 
 

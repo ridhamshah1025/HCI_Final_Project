@@ -34,6 +34,76 @@
         android:textSize="20sp">
 
     </TextView>
+    <TextView
+        android:id="@+id/text12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text11"
+        android:background="#FFFFFF"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:text="Participants have to draw second level english character."
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="20sp">
+
+    </TextView>
+    <TextView
+        android:id="@+id/text13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text12"
+        android:background="#FFFFFF"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:text="Participants can draw a single character at a time."
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="20sp">
+
+    </TextView>
+    <TextView
+        android:id="@+id/text14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text13"
+        android:background="#FFFFFF"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:text="Initially, participants have to draw characters on practice activity."
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="20sp">
+
+    </TextView>
+    <TextView
+        android:id="@+id/text15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text14"
+        android:background="#FFFFFF"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:text="Whenever participants clicked on the start button, the system will start the timer."
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="20sp">
+
+    </TextView>
+    <TextView
+        android:id="@+id/text16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text15"
+        android:background="#FFFFFF"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:text="Participants have to select the correct name as quickly as possible."
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="20sp">
+
+    </TextView>
 
     <Button
         android:id="@+id/button44"
