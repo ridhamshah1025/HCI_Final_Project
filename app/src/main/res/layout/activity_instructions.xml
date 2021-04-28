@@ -106,12 +106,25 @@
         android:textSize="20sp">
 
     </TextView>
+    <TextView
+        android:id="@+id/text17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text16"
+        android:background="#FFFFFF"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:text="Participants can not use back button during the actual test."
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="20sp">
+    </TextView>
 
     <Button
         android:id="@+id/button44"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text16"
+        android:layout_below="@id/text17"
         android:text="Click TO Continue"
         android:textSize="24dp"
         android:layout_centerHorizontal="true"

@@ -40,7 +40,7 @@ public class RadioButtonActivity extends AppCompatActivity {
                 int selectedID = radioGroup.getCheckedRadioButtonId();
                 radioButton = findViewById(selectedID);
                 String radioText = radioButton.getText().toString();
-                Toast.makeText(RadioButtonActivity.this, radioButton.getText().toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(RadioButtonActivity.this, radioButton.getText().toString(), Toast.LENGTH_SHORT).show();
                 if("Practice for Drawing Character".equals(radioText))
                 {
                     Intent intent = new Intent(RadioButtonActivity.this, DrawingCharacter.class);

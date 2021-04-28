@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                 @Override
                 public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                     childClickTime = System.currentTimeMillis()-currentTime;
-                    Toast.makeText(MainActivity.this,String.valueOf(childClickTime),Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(MainActivity.this,String.valueOf(childClickTime),Toast.LENGTH_SHORT).show();
 //                    System.out.println("childClickTime"+childClickTime);
                     String selected = expandableListAdapter.getChild(groupPosition,childPosition).toString();
                     System.out.println("group position "+groupPosition+" child "+childPosition+" secondCharacter "+ secondCharacter);
@@ -447,7 +447,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
             GestureDetector gestureDetector = new GestureDetector(getApplicationContext(),new GestureDetector.SimpleOnGestureListener(){
                 @Override
                 public boolean onDoubleTap(MotionEvent e) {
-                    Toast.makeText(MainActivity.this,"Double tap",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(MainActivity.this,"Double tap",Toast.LENGTH_SHORT).show();
                     return super.onDoubleTap(e);
                 }
                 @Override
@@ -459,7 +459,7 @@ public class MainActivity extends AppCompatActivity implements OnGesturePerforme
                             expandableListView.collapseGroup(i);
                         }
                         expandableListView.collapseGroup(lastExpandedPosition);
-                        Toast.makeText(MainActivity.this,"Collapsed",Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(MainActivity.this,"Collapsed",Toast.LENGTH_SHORT).show();
                     }
                     return super.onSingleTapConfirmed(e);
                 }
